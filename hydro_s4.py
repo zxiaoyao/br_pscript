@@ -600,30 +600,7 @@ def main():
                     sys.stdout.flush()
                     if os.path.exists("hb.txt"):
                         os.system(" ~/Dropbox/eclipse_workspace/br/hb_connection/res_hbond.py -source ASPA0085 -target GLUA0204 -lenLessThan 10 hb.txt | grep -v A0082")
-#                     os.system("occonf.py | grep A0082")
-#                     runStep4()
-#                     runStep4Lj()
-#                     run_hmatrix()
-#                     shutil.copy("../raw/reshbond.txt", ".")
-#                     new_dir = "keepDummy"
-#                     os.system("split_conf")
-#                     os.system("/home/xzhu/bin/pythonScript/res_hbond.py hb.txt -t 0.001")
-#                     if not os.path.isdir(new_dir):
-#                         os.mkdir(new_dir)
-#                     os.chdir(new_dir)
-#                     if os.path.exists("pathStatistics.txt"): continue
-#                     else:
-#                         setup_keepDummy()
-#                         analyze_net(do_fix=False)
-#                         submit_net_runs()
-#                     retrieve_path_info()
-#                     neat_path_output()
-#                     os.system("cat pathStatistics.txt")
-#                     os.chdir("keepDummy")
-#                     outputPathStat()
-#                     if os.path.exists("pathStatistics.txt"):
-#                         os.system("cat pathStatistics.txt")
-#                     os.system("/home/xzhu/bin/pythonScript/res_hbond.py hb.txt -t 0.01")
+
                     
 if __name__ == '__main__':
     main()
