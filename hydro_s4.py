@@ -9,14 +9,15 @@ import numpy
 import pylab
 import subprocess
 #from twisted.trial.test.test_loader import testNames
-
+# use this script on my own computer or directly on sibyl
+home_prefix = "/Users/xzhu/sibyl"
 
 # home_dir = "/home/xzhu/BR_occ_water/"
-home_dir = "/home/xzhu/BR2/"
+home_dir = os.path.join(home_prefix, "BR2")
 param_dir = home_dir + "paramFiles/"
 
-BR_PROTONATION_TXT = "/home/xzhu/pfile/protonation/br.txt"
-O_PROTONATION_TXT = "/home/xzhu/pfile/protonation/o.txt"
+BR_PROTONATION_TXT = os.path.join(home_prefix, "/pfile/protonation/br.txt")
+O_PROTONATION_TXT = os.path.join(home_prefix, "/pfile/protonation/o.txt")
 
 # Different types of pdb files used in the calculation.
 # "crystal" refers to the pdb files with all the lipid removed from the original pdb files.
@@ -29,12 +30,13 @@ run_prm_path = {"quick":(param_dir + "run.prm.quick"),  "def":(param_dir + "run.
 
 # "raw" means vdw not scaled, "lj01" means vdw0, vdw1 and vdw are all scaled by 0.1 in step4.
 # Different kinds of runs need different extra.tpl files which are both saved in the "param_dir" directory. 
-extra_tpl_path = {"raw":"/home/xzhu/pfile/extra.tpl", "lj01":"/home/xzhu/pfile/extra0.1.tpl"}
+extra_tpl_path = {"raw":os.path.join(home_prefix, "/pfile/extra.tpl"),
+                  "lj01":os.path.join(home_prefix, "pfile/extra0.1.tpl")}
 
 # path of the name.txt file, this file will be copied to each working directory.
 name_txt_path = param_dir + "name.txt"
 def retrieve_path_info():
-     subprocess.check_call(["/home/xzhu/bin/pythonScript/deal_multi_paths.py", "-p"])
+    subprocess.check_call(["/home/xzhu/bin/pythonScript/deal_multi_paths.py", "-p"])
 def submit_net_runs():
     subprocess.check_call(["/home/xzhu/bin/pythonScript/deal_multi_paths.py", "-s"])
     
@@ -128,7 +130,7 @@ def runStep4Lj():
     shutil.copy(extra_tpl, "extra.tpl")
     
     # fix head3.lst
-    fixList = loadFixProtonation(PROTONATION_TXT)
+    fixList = loadFixProtonation(O_PROTONATION_TXT)
     fixHead3ByNumberOfProtons(fixList, reverse=True)
     
     # submit job
@@ -241,7 +243,7 @@ def step123(pdb, pdb_type="crystal", run_type="quick", scale_type="raw"):
     # for step4 to save micro states
     changePrm["MONTE_RUNS"] = "6"                 # number of independent monte carlo runs
     changePrm["NSTATE_MAX"] = "-1"                # change it to -1 to make sure monte calo
-                                                      # simulation is carried out, rather than the analytic solution.
+                                                  # simulation is carried out, rather than the analytic solution.
     changePrm["MFE_POINT"] = "7"                  # settings for mfe
     changePrm["MFE_CUTOFF"] = "-1.0"
  
@@ -575,8 +577,8 @@ def main():
     pdb_types = ["hydro"]
 #     pdb_types = ["crystal"]
 #     run_types = ["quick", "def"]
-    run_types = ["def"]
-    scale_types = ["raw"]
+    run_types = ["quick"]
+    scale_types = ["raw_O"]
     #scale_types = ["raw", "lj01"]
 #     scale_types = ["lj01_keep_999"]
     #scale_types = ["lj01_keep_999", "lj025_keep_999"]
@@ -596,8 +598,8 @@ def main():
                     
                     sys.stdout.write("%s\n" % finalPath)
                     sys.stdout.flush()
-                    if not os.path.isdir("confs"):
-                        os.system("split_conf.py")
+                    if os.path.exists("hb.txt"):
+                        os.system(" ~/Dropbox/eclipse_workspace/br/hb_connection/res_hbond.py -source ASPA0085 -target GLUA0204 -lenLessThan 10 hb.txt | grep -v A0082")
 #                     os.system("occonf.py | grep A0082")
 #                     runStep4()
 #                     runStep4Lj()

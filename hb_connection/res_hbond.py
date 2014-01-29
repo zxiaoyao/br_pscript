@@ -9,10 +9,12 @@ def main():
     parser.add_argument("-t", dest="threshold", help="threshold to add an edge", type=float, default=-1.0)
     parser.add_argument("-source", help="source node", default="ASPA0085")
     parser.add_argument("-target", help="target node", default="GLUA0194")
+    parser.add_argument("-lenLessThan", help="longest length a path has", default=6)
     args = parser.parse_args()
     
     fName = args.fName
     edgeCutoff = args.threshold
+    pathCutoff = args.lenLessThan
     
     MIDDLE_RES = "ARGA0082"
     
@@ -27,7 +29,6 @@ def main():
     targetRes = args.target
     
     if (sourceRes in g.nodes()) and (targetRes in g.nodes()) and (nx.has_path(g, sourceRes, targetRes)):
-        pathCutoff = 6
         for eachPath in sorted(nx.all_simple_paths(g, sourceRes, targetRes, pathCutoff), key=lambda p: len(p)):
             print eachPath
     else:
