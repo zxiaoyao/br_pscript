@@ -17,12 +17,21 @@ def loadBR(pdb, saveName=None, color=None):
     if color: cmd.color(color, saveName)
     cmd.hide("lines")
     cmd.hide("nonbonded")
-    cmd.show("cartoon")
+#     cmd.show("cartoon")
+    cmd.show("ribbon")
 
     cmd.set("cartoon_transparency", 0.7)
-    keyResidues = ["ASPA0085", "ARGA0082", "GLUA0194", "GLUA0204", "LYSA0216", "RETA0301"]
+    keyResidues = ["ASPA0085", "ARGA0082", "GLUA0194", "GLUA0204", "LYSA0216", "RET", "ASPA0212"]
     for eachRes in keyResidues:
-        cmd.show("lines", parseResidue(eachRes))
-        util.cbag(parseResidue(eachRes))
+        # retinal's residue sequence id can vary in different pdbs.
+        selection = ""
+        if eachRes == "RET":
+            selection = "resn ret"
+        else:
+            selection = parseResidue(eachRes)
+        
+        selection += " and not name c+o+n"
+        cmd.show("sticks", selection)
+        util.cbag(selection)
 
 cmd.extend("loadBR", loadBR)

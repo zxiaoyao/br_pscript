@@ -577,7 +577,7 @@ def main():
     pdb_types = ["hydro"]
 #     pdb_types = ["crystal"]
 #     run_types = ["quick", "def"]
-    run_types = ["quick"]
+    run_types = ["def"]
     scale_types = ["raw_O"]
     #scale_types = ["raw", "lj01"]
 #     scale_types = ["lj01_keep_999"]
@@ -599,7 +599,7 @@ def main():
                     sys.stdout.write("%s\n" % finalPath)
                     sys.stdout.flush()
                     if os.path.exists("hb.txt"):
-                        os.system(" ~/Dropbox/eclipse_workspace/br/hb_connection/res_hbond.py -source ASPA0085 -target GLUA0204 -lenLessThan 10 hb.txt | grep -v A0082")
+                        os.system(" ~/Dropbox/eclipse_workspace/br/hb_connection/res_hbond.py -source ASPA0085 -target GLUA0194 -lenLessThan 10 hb.txt ")
 
                     
 if __name__ == '__main__':

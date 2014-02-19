@@ -46,6 +46,9 @@ def main():
             print "%s in: " % targetRes, nx.node_connected_component(g, targetRes) 
             if MIDDLE_RES in nx.node_connected_component(g, targetRes):
                 print "%s connecting with %s" % (MIDDLE_RES, targetRes)
+                
+        if MIDDLE_RES in g.nodes():
+            print "%s in: " % MIDDLE_RES, nx.node_connected_component(g, MIDDLE_RES) 
         
 if __name__ == "__main__":
     main()
