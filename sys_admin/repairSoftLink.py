@@ -14,8 +14,11 @@ def abSoftLink(relativeLink):
     while os.path.islink(pointPath):
         pointPath = os.readlink(pointPath)
         
-    return pointPath
-
+    if os.path.isabs(pointPath):
+        return pointPath
+    else:
+        return os.path.abspath(os.path.join(os.path.dirname(relativeLink), pointPath))
+    
 if __name__ == '__main__':
 #     for eachFile in os.listdir("/Users/xzhu/sibyl"):
 #         abPath = os.path.join("/Users/xzhu/sibyl", eachFile)
@@ -25,4 +28,6 @@ if __name__ == '__main__':
 #         for eachFile in subFiles:
 #             if os.path.islink(os.path.join(dirName, eachFile)):
 #                 print os.path.join(dirName, eachFile)
+#     print abSoftLink("/Users/xzhu/sibyl/test/sycTest/anotherfile")
     print abSoftLink(sys.argv[1])
+    
