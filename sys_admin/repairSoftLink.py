@@ -29,5 +29,7 @@ if __name__ == '__main__':
 #             if os.path.islink(os.path.join(dirName, eachFile)):
 #                 print os.path.join(dirName, eachFile)
 #     print abSoftLink("/Users/xzhu/sibyl/test/sycTest/anotherfile")
-    print abSoftLink(sys.argv[1])
     
+#     print abSoftLink("/Users/xzhu/sibyl/test/sycTest/anotherfile")
+    print abSoftLink(sys.argv[1])
+    # for the new testing branch
