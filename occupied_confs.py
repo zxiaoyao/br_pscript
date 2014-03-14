@@ -153,13 +153,3 @@ def mfeResAllConf(resName):
     
 if __name__ == "__main__":
     mfeResAllConf(sys.argv[1])
-    
-
-    
-    
-    
-    
-    
-    
-    
-    

@@ -12,7 +12,7 @@ def getJobDirectory(jobId):
         
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-command", "--command")
+    parser.add_argument("-command", "--command", help="command to be run in the working directory")
     args = parser.parse_args()
     
     p1 = subprocess.Popen(["qstat", "-u", "xzhu"], stdout=subprocess.PIPE)

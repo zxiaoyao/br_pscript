@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+'''Divide all the residues in the hbond network into 3 groups.
+'''
+
 residues = set()
 for eachLine in open("hb.txt"):
     res1, res2, occ = eachLine.split()

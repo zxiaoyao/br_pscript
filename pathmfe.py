@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import subprocess
+
 def main():
     if not os.path.islink("energies"):
         os.system("ln -s ../../../../energies .")

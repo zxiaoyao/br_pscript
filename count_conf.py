@@ -1,6 +1,11 @@
 #!/usr/bin/python
 
 def count_conf():
+    ''' Count the number of conformers in step2_out.pdb."
+    
+    Assuming the atoms in a conformer are in consecutive lines.
+    '''
+    
    atoms = open("step2_out.pdb").readlines()
    for line in atoms:
       if line[:6] != 'ATOM  ' and line[:6] != 'HETATM': continue

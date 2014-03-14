@@ -2,9 +2,7 @@
 
 import sys
 
-
 class Conf:
-
     def __init__(self, f_line, t_col):
         f_fields = f_line.split()
         self.confid = f_fields[0]
@@ -20,8 +18,6 @@ class Conf:
         self.s_head.append(s_line[:17])
         self.cor.append(s_line[30:54])
 
-#    def load_pk(self, p_line):
-#        self.x2 = 
 
     def write_pdb(self, fp):
         for i in range(len(self.s_head)):

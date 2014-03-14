@@ -3,11 +3,9 @@
 DUMMY_PROTONATION = 211
 
 def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.38"):
-    '''
-    Assuming residues are ordinary ones, which only can change their charges by lose or gain protons.
+    '''Assuming residues are ordinary ones, which only can change their charges by lose or gain protons.
     
     The default protonation states of residues are 0.
-    
     Determine the protonation states of residues, first from the "sum_crg.out", then from "fort.38".
     '''
     
