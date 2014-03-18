@@ -4,6 +4,9 @@ from pymol import util
 import networkx as nx
 
 def isShowing(g, resName):
+    ''' Check if a has a hydrogen bonded pathway to any of the key residues.
+    '''
+    
     keyRes = ("ASPA0085", "ARGA0082", "GLUA0194", "GLUA0204")
 
     for eachRes in keyRes:
@@ -14,18 +17,18 @@ def isShowing(g, resName):
 
 def showhbnet(hbFile="hb.txt"):
     
+    #
     g = nx.Graph()
     pathResidues = []
     for line in open(hbFile):
         
         r1 = line.split()[0]
         r2 = line.split()[1]
-        if r1 not in pathResidues:
-            pathResidues.append(r1)
-        if r2 not in pathResidues:
-            pathResidues.append(r2)
+
         g.add_edge(r1, r2)
-        
+
+    pathResidues = g.nodes()
+            
     cmd.set("sphere_transparency", 0.7)
     cmd.set("line_width", 0.5)
     
