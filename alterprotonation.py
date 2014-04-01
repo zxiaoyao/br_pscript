@@ -7,8 +7,7 @@ Created on Jun 19, 2013
 DUMMY_CONFORMER = 211
 
 def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile="head3.lst"):
-    '''
-    Change the flag of conformers in head3.lst.
+    '''Change the flag of conformers in head3.lst.
     
     According to a residue name like "ASPA0085" and the number of protons (-1, 0, 1).
     "fixList" is a dictionary of residue name and number of protons.
@@ -24,12 +23,15 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
         '''
         return hline[9:11] == "DM"
     
+    
     oldLines = open(ifile).readlines()
     newLines = []
     newLines.append(oldLines.pop(0))
     
     for eachLine in oldLines:
         resName = eachLine[6:9] + eachLine[11:16]
+        
+        # use the number in head3.lst to determin the number of protons.
         nH = int(eachLine[49:52])
         
         newLine = eachLine
@@ -49,6 +51,7 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
         newLines.append(newLine)
         
     open(ofile, 'w').writelines(newLines)
+    
     
 def fix_head3(fixList, ifile = 'head3.lst'):
     '''

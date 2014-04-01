@@ -2,9 +2,20 @@
 import argparse
 
 class Wat(object):
+    '''Water class.
+    
+    '''
     def __init__(self, resName="", occ=0.0):
+        ''' Initialization.
+        
+        Args:
+            resName (str): name of the residue (water), like HOHA0403.
+            occ (float, optional): occupancy of the dummy conformer of the water.
+            
+        '''
         self.resName = resName
         self.dummyOcc = occ
+        
         
 def getWaterOcc(fName="fort.38"):
     allWaters = []

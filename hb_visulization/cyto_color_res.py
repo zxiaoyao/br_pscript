@@ -3,6 +3,8 @@ Created on Jan 30, 2014
 
 @author: xzhu
 '''
+import os
+
 
 def color_res(fName="hb.txt"):
     '''Divide the residues in "hb.txt" into different groups by residue type.
@@ -13,6 +15,7 @@ def color_res(fName="hb.txt"):
     ASP GLU    1
     RSB ARG    2
     '''
+    
     COLOR_SCHEME = {"HOH":0, "ASP":1, "GLU":1, "RSB":2, "ARG":2}
     allResidues = []
     for eachLine in open(fName):
@@ -27,9 +30,10 @@ def color_res(fName="hb.txt"):
         if eachRes[:3] not in COLOR_SCHEME: continue
         fp.write(eachRes + '\t' + str(COLOR_SCHEME[eachRes[:3]]) + '\n')
     fp.close()
+ 
     
 def main():
-    import os
+    
     os.chdir("/Users/xzhu/sibyl/BR2/1C3W/crystal/def/raw_O")
     color_res()
 
