@@ -8,9 +8,14 @@ import networkx as nx
 home_dir = "/home/xzhu/BR_orig3/"
   
 class ResPro(object):
+    '''Residue class.
+    
+    It only contains the charges of the residues in different types of runs.
+    '''
+    
     allRunTypes = ("cqr", "cql", "cdr", "cdl", "hqr", "hql", "hdr", "hdl")
     def __init__(self, name=''):
-        defaultState = "na"   # means not exists, e.g. for the ipece waters
+        defaultState = "na"   # means not existing, e.g. for the ipece waters
         self.charges = {}
         for eachType in self.__class__.allRunTypes:
             self.charges[eachType] = defaultState
@@ -25,8 +30,23 @@ class ResPro(object):
         return returnStr
     
     __repr__ = __str__
-    
+
+
 def getRunTypeAbbreviation(pdbT, runT, scaleT):
+    '''Get the abbreviation of a certain type of run.
+    
+    Args:
+        pdbT: different types due to different pdb files used, option={"crystal", "hydro"}.
+        runT: quick or default run of MCCE, option={"quick", "def"}.
+        scaleT: scale lj by 0.1 or don't scale lj, option={"raw", "lj01"}.
+        
+    Returns:
+        The abbreviation the run type determined by the 3 parameters above.
+        
+    >>> getRunTypeAbbreviation("crystal", "quick", "lj01")
+    "cql"
+    '''
+    
     firstLetter = ''     # for pdbT, "crystal" = 'c', "hydro" = 'h'
     secondLetter = ''    # for runT, "quick" = 'q', "def' = 'd'
     thirdLetter = ''     # for scaleT, "raw" = 'r', "lj01" = 'l'
@@ -45,24 +65,31 @@ def getRunTypeAbbreviation(pdbT, runT, scaleT):
     elif scaleT == "lj01":
         thirdLetter = 'l'
         
-    return firstLetter + secondLetter + thirdLetter
-   
+    return firstLetter + secondLetter + thirdLetter  
         
 
-def getProtonation(runType, allRes):
-    lines = open("sum_crg.out", 'r').readlines()
+def getProtonation(runType, allRes, chargeFile="sum_crg.out", titrationPointIndex=1):
+    '''Get the charges of the residues from "sum_crg.out".
+    
+    Args:
+        runType: the type of the run, e.g. "cql".
+        allRes: all the residues whose charges have to be found.
+        chargeFile: the name of the file which has the info of the charges of the residues.
+        titrationPointIndex: the index of the field where the charge of the residue is of interest.
+    '''
+    
+    lines = open(chargeFile, 'r').readlines()
     lines.pop(0)
     
     for eachLine in lines:
         if eachLine.startswith("----"): continue
         if eachLine.startswith("Electrons"): continue
         if eachLine.startswith("Net_Charge"): continue
+        
         fields = eachLine.split()
         resName = fields[0]
         
-        # Be careful, Have to change the tiration so that the charges are all at pH 7.
-        titrationPoint = 1
-        crg = float(fields[titrationPoint])
+        crg = float(fields[titrationPointIndex])
         
         resFound = False
         if allRes:
@@ -71,12 +98,23 @@ def getProtonation(runType, allRes):
                     eachRes.charges[runType] = crg
                     resFound = True
                     break
+                
         if not resFound:
             newRes = ResPro(resName)
             newRes.charges[runType] = crg
             allRes.append(newRes)
+ 
             
-def getPka(runType, allRes):            
+def getPka(runType, allRes):
+    '''Get pKa of all the residues.
+    
+    pKas of waters are not included.
+    
+    Args:
+        runType: abbreviation of a run type.
+        allRes: a list of all the residues.
+    '''
+    
     lines = open("pK.out", 'r').readlines()
     lines.pop(0)
     
@@ -93,12 +131,20 @@ def getPka(runType, allRes):
                     eachRes.charges[runType] = pka
                     resFound = True
                     break
+        
         if not resFound:
             newRes = ResPro(resName)
             newRes.charges[runType] = pka
             allRes.append(newRes)        
+    
          
 def printAllRes(allRes):
+    '''Output all the charges of the residues.
+    
+    Args:
+        allRes: a list of all the residues.
+    '''
+    
     for eachRes in allRes:
         if eachRes.rName[:3] == "HOH":
             continue
@@ -114,15 +160,9 @@ def printAllRes(allRes):
             
                  
 if __name__ == '__main__':
-    #pdbs = ["1C8R", "1KG9", "1DZE", "1KG8", "1C8S", "1F4Z"]
     pdbs = ["1C3W", "1C8R", "1KG9", "1DZE", "1KG8", "1C8S", "1F4Z"]
-    #pdbs = ["1C3W"]
-    #pdbs = ["1DZE", "1KG8"]
-    #pdb_types = ["crystal", "hydro"]
     pdb_types = ["crystal"]
-    #run_types = ["quick"]
     run_types = ["quick", "def"]
-    #scale_types = ["raw", "lj01"]
     scale_types = ["lj01"]
     
     
@@ -135,8 +175,6 @@ if __name__ == '__main__':
                 os.chdir(os.path.join(home_dir, aPdb, pdbT, runT))
                 for scaleT in scale_types:
                     finalPath = os.path.join(home_dir, aPdb, pdbT, runT, scaleT)
-                    #if not os.path.exists(finalPath):
-                    #    os.makedirs(finalPath, 0755)
 
                     if not os.path.exists(finalPath):
                         sys.stderr.write("%s doesn't exist\n" % finalPath)
@@ -144,12 +182,5 @@ if __name__ == '__main__':
                     
                     sys.stdout.write(finalPath + '\n')
                     getProtonation(getRunTypeAbbreviation(pdbT, runT, scaleT), allRes)
-                    #getPka(getRunTypeAbbreviation(pdbT, runT, scaleT), allRes)
-
-                    #findSecondShortestpaths()
-                    #os.system("/home/xzhu/bin/pythonScript/setuphbrun.py -s")
-                    #actionForAllPaths(aPdb, pdbT, runT, scaleT)
-                    #print_sorted_path_stat()
-                    #step4(aPdb, pdbT, runT, scaleT)   
-                    #step123(aPdb, pdbT, runT, scaleT)
+                    
         printAllRes(allRes)

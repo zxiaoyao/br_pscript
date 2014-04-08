@@ -8,6 +8,10 @@ import networkx as nx
 import numpy
 import pylab
 import subprocess
+
+'''This script was used a long time ago to submit jobs.
+'''
+
 #from twisted.trial.test.test_loader import testNames
 # use this script on my own computer or directly on sibyl
 home_prefix = "/Users/xzhu/sibyl"

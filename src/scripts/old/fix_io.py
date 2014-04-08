@@ -4,7 +4,9 @@ import os, sys
 from mcceutility.constants import RESIDUENAME3TO1, POSS_IONI, POSS_CRG, ION_HEAD, SYMBOLTOINT, INTTOSYMBOL
 from mcceutility.alterprotonation import freeAllConformers
 
-
+'''The very first script to perform analysis and submit jobs.
+It's not being used any more.
+'''
 
 def load_key_res(ifile):
     """ 

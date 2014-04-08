@@ -1,14 +1,27 @@
 #!/usr/bin/env python
 import argparse
 
+'''Compare the occupancy of conformers in two different runs.
+'''
+
 class Conf(object):
+    '''Conformer class.
+    '''
+    
     def __init__(self, resName="", occ=0.0):
         self.confName = resName
         self.occ = occ
-        
-
+    
     
 def getConfOcc(fName="fort.38"):
+    '''Get the occupancies of conformers from fort.38.
+    
+    Water conformers are not taken into account.
+    
+    Args.
+        fName: the name of the file to get the occupancies of the conformers, default to "fort.38".
+    '''
+    
     allConfs = []
     allLines = open(fName).readlines()
     allLines.pop(0)
@@ -24,8 +37,15 @@ def getConfOcc(fName="fort.38"):
     return allConfs
 
 
-
 def cmpTwoOcc(file1, file2, cutoff=-1.0):
+    '''Compare the occupancy of conformers in two different runs.
+    
+    Args:
+        file1: the name of the first file.
+        file2: the name of the second file.
+        cutoff: cutoff of the occupancy to show the conformer.
+    '''
+    
     confs1 = getConfOcc(file1)
     confs2 = getConfOcc(file2)
     

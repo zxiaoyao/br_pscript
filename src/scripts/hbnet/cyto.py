@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
 '''Divide all the residues in the hbond network into 3 groups.
+
+For all the residues in the hbond network represented in "hb.txt":
+    group1: all the waters.
+    group2: all the key residues in the pathway.
+    group0: the rest of the residues in the network.
 '''
 
 residues = set()

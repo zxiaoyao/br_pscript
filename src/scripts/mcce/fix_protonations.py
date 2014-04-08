@@ -9,6 +9,7 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
     Determine the protonation states of residues, first from the "sum_crg.out", then from "fort.38".
     '''
     
+    # Get all the residues from "head3.lst".
     allResidues = set()
     
     allHLines = open(fnHead3, 'r').readlines()
@@ -16,10 +17,15 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
     for eachLine in allHLines:
         allResidues.add(eachLine[6:9] + eachLine[11:16])
         
+    # Default protonations of all the residues are 0.
     resProtonations = {}
     for eachRes in allResidues:
         resProtonations[eachRes] = 0
         
+    # Get the actual protonation states of residues from their charges.
+    # 1:  if charge >= 0.5
+    # -1: if charge <= -0.5
+    # 0:  otherwise.
     allCLines = open(fnCrg, 'r').readlines()
     allCLines.pop(0)
     for eachLine in allCLines[:-4]:
@@ -28,10 +34,10 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
         crg = float(fields[1])
         if crg >= 0.5:
             resProtonations[resName] = 1
-        elif crg > -0.5:
-            resProtonations[resName] = 0
-        else:
+        elif crg <= -0.5:
             resProtonations[resName] = -1
+        else:
+            resProtonations[resName] = 0
             
     # deal with dummy conformers, only consider waters
     # if dummy conformer is more than half occupied, the protonation state of a residue is DUMMY_PROTONATION.
@@ -42,7 +48,8 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
             occ = float(eachLine.split()[1])
             if occ > 0.5:
                 resProtonations[eachLine[:3] + eachLine[5:10]] = DUMMY_PROTONATION
-            
+      
+    # Sort all the residues first by chain Id, then by sequence number.      
     allResidues = sorted(allResidues, key= lambda res: (res[3], int(res[4:])))
     fpFixProtonation = open("fixedProtonations.txt", 'w')
     for eachRes in allResidues:
@@ -51,9 +58,9 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
     
     return resProtonations
         
+        
 def getConfProtonation(confName):
-    '''
-    Get the protonation state of a conformer ONLY by its name
+    '''Get the protonation state of a conformer ONLY by its name.
     '''
     
     if confName[3] == '0':

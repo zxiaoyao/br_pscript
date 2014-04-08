@@ -3,6 +3,9 @@ import pylab
 import numpy as np
 from scipy.optimize import curve_fit
 
+'''Fit the distribution of energies of the intermediate states.
+'''
+
 def fitfu(x, a, b):
     return a * np.exp(-b*x)
 

@@ -1,12 +1,28 @@
 #!/usr/bin/env python
 import argparse
 
+''' Compare the desolvation energies of waters.
+'''
+
 class WaterConf(object):
+    '''Water conformer class.
+    '''
+    
     def __init__(self):
         self.confName = ""
         self.desolv = 0.0
         
-def retrieveWaters(fileName):
+        
+def retrieveWaters(fileName="head3.lst"):
+    '''Find all the water conformers and get their desolvation energies.
+    
+    Args:
+        fileName: the name of the file where the info of the water conformers is obtained, default "head3.lst".
+        
+    Returns:
+        All the water conformers.
+    '''
+    
     allWaters = []
     for eachLine in open(fileName):
         if eachLine[6:9] == "HOH":
@@ -17,7 +33,16 @@ def retrieveWaters(fileName):
             
     return allWaters
 
+
 def compDesolv(file1, file2, cutoff=-1.0):
+    ''' Compare the desolvation energies of water conformers in two different files.
+    
+    Args:
+        file1: the name of the first file.
+        file2: the name of the second file.
+        cutoff: the threshold to show the water conformer if the desol difference in two files is greater than that. 
+    '''
+    
     water1 = retrieveWaters(file1)
     water2 = retrieveWaters(file2)
     
@@ -45,11 +70,7 @@ def compDesolv(file1, file2, cutoff=-1.0):
             print "%s%10s%10s" % (eachConf, str(d1), str(d2))
         elif abs(d1 - d2) > cutoff:
             print "%s%10.3f%10.3f%10.3f" % (eachConf, d1, d2, d1-d2)
-            
-        
-            
-                
-                
+                            
 
 def main():
     parser = argparse.ArgumentParser()

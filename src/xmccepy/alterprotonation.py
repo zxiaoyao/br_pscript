@@ -4,10 +4,14 @@ Created on Jun 19, 2013
 
 @author: xzhu
 '''
+
+
 DUMMY_CONFORMER = 211
 
+
 def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile="head3.lst"):
-    '''Change the flag of conformers in head3.lst.
+    '''
+    Change the flag of conformers in head3.lst.
     
     According to a residue name like "ASPA0085" and the number of protons (-1, 0, 1).
     "fixList" is a dictionary of residue name and number of protons.
@@ -19,7 +23,8 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
     '''
     
     def isDummy(hline):
-        '''Check a head3.lst line to see if it's a dummy conformer.
+        '''
+        Check a head3.lst line to see if it's a dummy conformer.
         '''
         return hline[9:11] == "DM"
     

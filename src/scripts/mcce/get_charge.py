@@ -8,7 +8,8 @@ import networkx as nx
 import numpy
 import pylab
 
-
+'''Get the charges of residues. It's similar to the script "collect_crg.py".
+'''
 
 class ResPro(object):
     allRunTypes = ("cqr", "cql", "cdr", "cdl", "hqr", "hql", "hdr", "hdl")
@@ -48,9 +49,9 @@ class ResPro(object):
         
     __repr__ = __str__
     
+    
 def getRunTypeAbbreviation(pdbT, runT, scaleT):
-    '''
-    Get the abbreviation a particular type of run.
+    '''Get the abbreviation a particular type of run.
     '''
     
     firstLetter = ''     # for pdbT, "crystal" = 'c', "hydro" = 'h'

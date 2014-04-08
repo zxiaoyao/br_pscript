@@ -19,6 +19,7 @@ def modifyStep2(cutoff=-1.0, outFile="step2_out.pdb", waterStatFile="water_stat.
             newLines.append(eachLine)
     open(outFile, 'w').writelines(newLines)
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", dest="threshold", type=float, default=-1.0,
@@ -32,6 +33,7 @@ def main():
     args = parser.parse_args()
 
     modifyStep2(args.threshold, args.output, args.water_stat, args.step2)
+
 
 if __name__ == "__main__":
     main()

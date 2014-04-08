@@ -3,7 +3,8 @@
 import sys
 
 def mdRunPrm(dirPrm, ifile = 'run.prm'):
-    '''Modify the run.prm file according to dirPrm.
+    '''
+    Modify the run.prm file according to dirPrm.
 
     dirPrm is a {key_string : value_string} dictionary
     "key_string" doesn't include the '()'
@@ -26,8 +27,10 @@ def mdRunPrm(dirPrm, ifile = 'run.prm'):
 
     open(ifile, 'w').writelines(ilines)
 
+
 def fix_head3(fixList, ifile = 'head3.lst'):
-    '''Fix ionization of states of conformers in head3.lst
+    '''
+    Fix ionization of states of conformers in head3.lst
     
     fixList: a list of lists each of which has keys to match the lines in head3.lst
     the conformer that matches the criterir will be fixed in head3.lst

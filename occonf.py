@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
 import sys
+import argparse
+
+'''Display only the conformers whose occupancy is above a threshold in fort.38.
+'''
 
 def all_occupy(cutoff):
 
@@ -38,6 +42,9 @@ def ph_occupy(ph, cutoff):
 
     return
 
+
+def main():
+    
 if __name__ == '__main__':
     
     cutoff = 0.001
