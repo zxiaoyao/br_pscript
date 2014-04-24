@@ -1,0 +1,131 @@
+\hypertarget{namespacecollect__crg}{\section{collect\-\_\-crg Namespace Reference}
+\label{namespacecollect__crg}\index{collect\-\_\-crg@{collect\-\_\-crg}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcollect__crg_1_1_res_pro}{Res\-Pro}
+\begin{DoxyCompactList}\small\item\em Residue class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecollect__crg_a33321885da8a4722e057bede7c62c1df}{get\-Run\-Type\-Abbreviation}
+\begin{DoxyCompactList}\small\item\em Get the abbreviation of a certain type of run. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecollect__crg_af11a3f33c17f31a30197d715ebaa3690}{get\-Protonation}
+\begin{DoxyCompactList}\small\item\em Get the charges of the residues from \char`\"{}sum\-\_\-crg.\-out\char`\"{}. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecollect__crg_a63215cbd9474ee4d556a45ef630b3c3d}{get\-Pka}
+\begin{DoxyCompactList}\small\item\em Get p\-Ka of all the residues. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecollect__crg_ae1af2a9da6043f854ab344fb6c4f8dab}{print\-All\-Res}
+\begin{DoxyCompactList}\small\item\em Output all the charges of the residues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacecollect__crg_a012765d7486ed2b1666d1f35484e24b3}{home\-\_\-dir} = \char`\"{}/home/xzhu/B\-R\-\_\-orig3/\char`\"{}
+\item 
+list \hyperlink{namespacecollect__crg_acd1866df6be1616de51be9b2e7fcdd65}{pdbs} = \mbox{[}\char`\"{}1\-C3\-W\char`\"{}, \char`\"{}1\-C8\-R\char`\"{}, \char`\"{}1\-K\-G9\char`\"{}, \char`\"{}1\-D\-Z\-E\char`\"{}, \char`\"{}1\-K\-G8\char`\"{}, \char`\"{}1\-C8\-S\char`\"{}, \char`\"{}1\-F4\-Z\char`\"{}\mbox{]}
+\item 
+list \hyperlink{namespacecollect__crg_a8127ffa599ed37f5f11b966b88cae94f}{pdb\-\_\-types} = \mbox{[}\char`\"{}crystal\char`\"{}\mbox{]}
+\item 
+list \hyperlink{namespacecollect__crg_adfea36b7bdc171296889760f00ebc741}{run\-\_\-types} = \mbox{[}\char`\"{}quick\char`\"{}, \char`\"{}def\char`\"{}\mbox{]}
+\item 
+list \hyperlink{namespacecollect__crg_a34f1ab490f279ef24ab9b7db28ed5890}{scale\-\_\-types} = \mbox{[}\char`\"{}lj01\char`\"{}\mbox{]}
+\item 
+list \hyperlink{namespacecollect__crg_a6adec1fcbece2cff4950641eae68bcd3}{all\-Res} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespacecollect__crg_adbbbb985f29cad69c52e5edafd43c3a1}{final\-Path} = os.\-path.\-join(\hyperlink{namespacecollect__crg_a012765d7486ed2b1666d1f35484e24b3}{home\-\_\-dir}, a\-Pdb, pdb\-T, run\-T, scale\-T)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacecollect__crg_a63215cbd9474ee4d556a45ef630b3c3d}{\index{collect\-\_\-crg@{collect\-\_\-crg}!get\-Pka@{get\-Pka}}
+\index{get\-Pka@{get\-Pka}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{get\-Pka}]{\setlength{\rightskip}{0pt plus 5cm}def collect\-\_\-crg.\-get\-Pka (
+\begin{DoxyParamCaption}
+\item[{}]{run\-Type, }
+\item[{}]{all\-Res}
+\end{DoxyParamCaption}
+)}}\label{namespacecollect__crg_a63215cbd9474ee4d556a45ef630b3c3d}
+
+
+Get p\-Ka of all the residues. 
+
+p\-Kas of waters are not included.
+
+Args\-: run\-Type\-: abbreviation of a run type. all\-Res\-: a list of all the residues. \hypertarget{namespacecollect__crg_af11a3f33c17f31a30197d715ebaa3690}{\index{collect\-\_\-crg@{collect\-\_\-crg}!get\-Protonation@{get\-Protonation}}
+\index{get\-Protonation@{get\-Protonation}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{get\-Protonation}]{\setlength{\rightskip}{0pt plus 5cm}def collect\-\_\-crg.\-get\-Protonation (
+\begin{DoxyParamCaption}
+\item[{}]{run\-Type, }
+\item[{}]{all\-Res, }
+\item[{}]{charge\-File = {\ttfamily \char`\"{}sum\-\_\-crg.out\char`\"{}}, }
+\item[{}]{titration\-Point\-Index = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{namespacecollect__crg_af11a3f33c17f31a30197d715ebaa3690}
+
+
+Get the charges of the residues from \char`\"{}sum\-\_\-crg.\-out\char`\"{}. 
+
+Args\-: run\-Type\-: the type of the run, e.\-g. \char`\"{}cql\char`\"{}. all\-Res\-: all the residues whose charges have to be found. charge\-File\-: the name of the file which has the info of the charges of the residues. titration\-Point\-Index\-: the index of the field where the charge of the residue is of interest. \hypertarget{namespacecollect__crg_a33321885da8a4722e057bede7c62c1df}{\index{collect\-\_\-crg@{collect\-\_\-crg}!get\-Run\-Type\-Abbreviation@{get\-Run\-Type\-Abbreviation}}
+\index{get\-Run\-Type\-Abbreviation@{get\-Run\-Type\-Abbreviation}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{get\-Run\-Type\-Abbreviation}]{\setlength{\rightskip}{0pt plus 5cm}def collect\-\_\-crg.\-get\-Run\-Type\-Abbreviation (
+\begin{DoxyParamCaption}
+\item[{}]{pdb\-T, }
+\item[{}]{run\-T, }
+\item[{}]{scale\-T}
+\end{DoxyParamCaption}
+)}}\label{namespacecollect__crg_a33321885da8a4722e057bede7c62c1df}
+
+
+Get the abbreviation of a certain type of run. 
+
+Args\-: pdb\-T\-: different types due to different pdb files used, option=\{\char`\"{}crystal\char`\"{}, \char`\"{}hydro\char`\"{}\}. run\-T\-: quick or default run of M\-C\-C\-E, option=\{\char`\"{}quick\char`\"{}, \char`\"{}def\char`\"{}\}. scale\-T\-: scale lj by 0.\-1 or don't scale lj, option=\{\char`\"{}raw\char`\"{}, \char`\"{}lj01\char`\"{}\}.
+
+Returns\-: The abbreviation the run type determined by the 3 parameters above.
+
+\begin{quotation}
+\begin{quotation}
+\begin{quotation}
+get\-Run\-Type\-Abbreviation(\char`\"{}crystal\char`\"{}, \char`\"{}quick\char`\"{}, \char`\"{}lj01\char`\"{})
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+\char`\"{}cql\char`\"{} \hypertarget{namespacecollect__crg_ae1af2a9da6043f854ab344fb6c4f8dab}{\index{collect\-\_\-crg@{collect\-\_\-crg}!print\-All\-Res@{print\-All\-Res}}
+\index{print\-All\-Res@{print\-All\-Res}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{print\-All\-Res}]{\setlength{\rightskip}{0pt plus 5cm}def collect\-\_\-crg.\-print\-All\-Res (
+\begin{DoxyParamCaption}
+\item[{}]{all\-Res}
+\end{DoxyParamCaption}
+)}}\label{namespacecollect__crg_ae1af2a9da6043f854ab344fb6c4f8dab}
+
+
+Output all the charges of the residues. 
+
+Args\-: all\-Res\-: a list of all the residues. 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacecollect__crg_a6adec1fcbece2cff4950641eae68bcd3}{\index{collect\-\_\-crg@{collect\-\_\-crg}!all\-Res@{all\-Res}}
+\index{all\-Res@{all\-Res}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{all\-Res}]{\setlength{\rightskip}{0pt plus 5cm}list collect\-\_\-crg.\-all\-Res = \mbox{[}$\,$\mbox{]}}}\label{namespacecollect__crg_a6adec1fcbece2cff4950641eae68bcd3}
+\hypertarget{namespacecollect__crg_adbbbb985f29cad69c52e5edafd43c3a1}{\index{collect\-\_\-crg@{collect\-\_\-crg}!final\-Path@{final\-Path}}
+\index{final\-Path@{final\-Path}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{final\-Path}]{\setlength{\rightskip}{0pt plus 5cm}tuple collect\-\_\-crg.\-final\-Path = os.\-path.\-join({\bf home\-\_\-dir}, a\-Pdb, pdb\-T, run\-T, scale\-T)}}\label{namespacecollect__crg_adbbbb985f29cad69c52e5edafd43c3a1}
+\hypertarget{namespacecollect__crg_a012765d7486ed2b1666d1f35484e24b3}{\index{collect\-\_\-crg@{collect\-\_\-crg}!home\-\_\-dir@{home\-\_\-dir}}
+\index{home\-\_\-dir@{home\-\_\-dir}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{home\-\_\-dir}]{\setlength{\rightskip}{0pt plus 5cm}string collect\-\_\-crg.\-home\-\_\-dir = \char`\"{}/home/xzhu/B\-R\-\_\-orig3/\char`\"{}}}\label{namespacecollect__crg_a012765d7486ed2b1666d1f35484e24b3}
+\hypertarget{namespacecollect__crg_a8127ffa599ed37f5f11b966b88cae94f}{\index{collect\-\_\-crg@{collect\-\_\-crg}!pdb\-\_\-types@{pdb\-\_\-types}}
+\index{pdb\-\_\-types@{pdb\-\_\-types}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{pdb\-\_\-types}]{\setlength{\rightskip}{0pt plus 5cm}list collect\-\_\-crg.\-pdb\-\_\-types = \mbox{[}\char`\"{}crystal\char`\"{}\mbox{]}}}\label{namespacecollect__crg_a8127ffa599ed37f5f11b966b88cae94f}
+\hypertarget{namespacecollect__crg_acd1866df6be1616de51be9b2e7fcdd65}{\index{collect\-\_\-crg@{collect\-\_\-crg}!pdbs@{pdbs}}
+\index{pdbs@{pdbs}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{pdbs}]{\setlength{\rightskip}{0pt plus 5cm}list collect\-\_\-crg.\-pdbs = \mbox{[}\char`\"{}1\-C3\-W\char`\"{}, \char`\"{}1\-C8\-R\char`\"{}, \char`\"{}1\-K\-G9\char`\"{}, \char`\"{}1\-D\-Z\-E\char`\"{}, \char`\"{}1\-K\-G8\char`\"{}, \char`\"{}1\-C8\-S\char`\"{}, \char`\"{}1\-F4\-Z\char`\"{}\mbox{]}}}\label{namespacecollect__crg_acd1866df6be1616de51be9b2e7fcdd65}
+\hypertarget{namespacecollect__crg_adfea36b7bdc171296889760f00ebc741}{\index{collect\-\_\-crg@{collect\-\_\-crg}!run\-\_\-types@{run\-\_\-types}}
+\index{run\-\_\-types@{run\-\_\-types}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{run\-\_\-types}]{\setlength{\rightskip}{0pt plus 5cm}list collect\-\_\-crg.\-run\-\_\-types = \mbox{[}\char`\"{}quick\char`\"{}, \char`\"{}def\char`\"{}\mbox{]}}}\label{namespacecollect__crg_adfea36b7bdc171296889760f00ebc741}
+\hypertarget{namespacecollect__crg_a34f1ab490f279ef24ab9b7db28ed5890}{\index{collect\-\_\-crg@{collect\-\_\-crg}!scale\-\_\-types@{scale\-\_\-types}}
+\index{scale\-\_\-types@{scale\-\_\-types}!collect_crg@{collect\-\_\-crg}}
+\subsubsection[{scale\-\_\-types}]{\setlength{\rightskip}{0pt plus 5cm}list collect\-\_\-crg.\-scale\-\_\-types = \mbox{[}\char`\"{}lj01\char`\"{}\mbox{]}}}\label{namespacecollect__crg_a34f1ab490f279ef24ab9b7db28ed5890}

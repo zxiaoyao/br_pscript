@@ -1,0 +1,200 @@
+\hypertarget{namespaceget__path__barrier}{\section{get\-\_\-path\-\_\-barrier Namespace Reference}
+\label{namespaceget__path__barrier}\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classget__path__barrier_1_1_protonation_state}{Protonation\-State}
+\item 
+class \hyperlink{classget__path__barrier_1_1_hop_sequence}{Hop\-Sequence}
+\item 
+class \hyperlink{classget__path__barrier_1_1_hb_path}{Hb\-Path}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceget__path__barrier_a0acd5761d8709cb47e042f5b0bb28b87}{get\-All\-Res\-Protonation}
+\begin{DoxyCompactList}\small\item\em Assuming residues are ordinary ones, which only can change their charges by lose or gain protons. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a3f7f441686d2873474f30787d7e15c02}{get\-Conf\-Protonation}
+\begin{DoxyCompactList}\small\item\em Get the protonation state of a conformer O\-N\-L\-Y by its name. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a06d1e995b7cb671e3c7f7384d9909e70}{alter\-Head3\-By\-Protonation}
+\item 
+def \hyperlink{namespaceget__path__barrier_aab0280475e459323e83ae43b9f7920d0}{write\-\_\-ms\-\_\-gold}
+\begin{DoxyCompactList}\small\item\em write the key residues into \char`\"{}ms\-\_\-gold\char`\"{} file. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a1acaf8207a88a0278006d123f63d915f}{load\-Res\-Protonation}
+\begin{DoxyCompactList}\small\item\em Return the protonation states of all residues in a dictionary. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a2e3032591bbbd825acc1ed628989a85a}{submit\-\_\-subruns}
+\item 
+def \hyperlink{namespaceget__path__barrier_a7543ad78f9dc9dd4adff0f19799401d0}{run\-\_\-te}
+\item 
+def \hyperlink{namespaceget__path__barrier_a0499f254c28c62402064aef734a98a8d}{retrieve\-\_\-info\-\_\-from\-\_\-microstate}
+\begin{DoxyCompactList}\small\item\em Get energy of the protonation state from the microstates. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a29e6e678893430fe35ac2770d33d8fca}{obtain\-\_\-path\-\_\-info}
+\item 
+def \hyperlink{namespaceget__path__barrier_ac3f094337440db8ab7f469aa0d094e45}{load\-\_\-path\-\_\-energy\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Get the energies of intermediate states and energy barriers of different hopping sequences, by reading the files \char`\"{}intermediates.\-txt\char`\"{}, \char`\"{}hop\-Sequences.\-txt\char`\"{}. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceget__path__barrier_a2a43ab809275703fd660892cc98ff046}{print\-\_\-path\-\_\-info}
+\item 
+def \hyperlink{namespaceget__path__barrier_a574d6aa0b948491b84159b7eb992a565}{main}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespaceget__path__barrier_aef5f1ad285a3196ab11fff9219204218}{S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R} = \char`\"{}sub\-Protonation\char`\"{}
+\item 
+string \hyperlink{namespaceget__path__barrier_a9289a40b9eeec17ceac379cac4a16068}{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E} = \char`\"{}pathinfo.\-txt\char`\"{}
+\item 
+int \hyperlink{namespaceget__path__barrier_a882c28e76d1deec3c781114b0f36f251}{D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N} = 211
+\item 
+dictionary \hyperlink{namespaceget__path__barrier_ab01c3f741d5264dc9d03f8842c5b0f41}{C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L} = \{\char`\"{}A\-S\-P\char`\"{}\-:'D', \char`\"{}G\-L\-U\char`\"{}\-:'E', \char`\"{}A\-R\-G\char`\"{}\-:'R', \char`\"{}H\-O\-H\char`\"{}\-:'O', \char`\"{}T\-Y\-R\char`\"{}\-:'Y', \char`\"{}R\-S\-B\char`\"{}\-:'U'\}
+\item 
+dictionary \hyperlink{namespaceget__path__barrier_abe0126328680c0cd5edd2bf73b071868}{C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L} = \{-\/1\-:'-\/', 0\-:'0', +1\-:'+'\}
+\item 
+dictionary \hyperlink{namespaceget__path__barrier_a4609e6e752b63ea89724bcdf53782e5c}{C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N} = \{'-\/'\-:-\/1, '0'\-:0, '+'\-:1\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceget__path__barrier_a06d1e995b7cb671e3c7f7384d9909e70}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!alter\-Head3\-By\-Protonation@{alter\-Head3\-By\-Protonation}}
+\index{alter\-Head3\-By\-Protonation@{alter\-Head3\-By\-Protonation}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{alter\-Head3\-By\-Protonation}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-alter\-Head3\-By\-Protonation (
+\begin{DoxyParamCaption}
+\item[{}]{res\-Protonations, }
+\item[{}]{hb\-Path, }
+\item[{}]{f\-Name = {\ttfamily \char`\"{}head3.lst\char`\"{}}, }
+\item[{}]{keep\-Dummy = {\ttfamily False}}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a06d1e995b7cb671e3c7f7384d9909e70}
+\hypertarget{namespaceget__path__barrier_a0acd5761d8709cb47e042f5b0bb28b87}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!get\-All\-Res\-Protonation@{get\-All\-Res\-Protonation}}
+\index{get\-All\-Res\-Protonation@{get\-All\-Res\-Protonation}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{get\-All\-Res\-Protonation}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-get\-All\-Res\-Protonation (
+\begin{DoxyParamCaption}
+\item[{}]{fn\-Head3 = {\ttfamily \char`\"{}head3.lst\char`\"{}}, }
+\item[{}]{fn\-Crg = {\ttfamily \char`\"{}sum\-\_\-crg.out\char`\"{}}, }
+\item[{}]{fn\-Fort = {\ttfamily \char`\"{}fort.38\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a0acd5761d8709cb47e042f5b0bb28b87}
+
+
+Assuming residues are ordinary ones, which only can change their charges by lose or gain protons. 
+
+First, get all residues to be considered from \char`\"{}head3.\-lst\char`\"{}. And all the residues are assigned a default protonation state 0.
+
+Then, look through \char`\"{}sum\-\_\-crg.\-out\char`\"{}. if charge $>$= 0.\-5, residue protonation state is 1. if 0.\-5 $>$ charge $>$ -\/0.\-5, residue protonation state is 0. if charge $<$= -\/0.\-5, residue protonation state is -\/1.
+
+At last look through \char`\"{}fort.\-38\char`\"{} for the dummy conformers. If the occupancy of the dummy conformer is greater than 0.\-5, the residue state is D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N. \hypertarget{namespaceget__path__barrier_a3f7f441686d2873474f30787d7e15c02}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!get\-Conf\-Protonation@{get\-Conf\-Protonation}}
+\index{get\-Conf\-Protonation@{get\-Conf\-Protonation}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{get\-Conf\-Protonation}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-get\-Conf\-Protonation (
+\begin{DoxyParamCaption}
+\item[{}]{conf\-Name}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a3f7f441686d2873474f30787d7e15c02}
+
+
+Get the protonation state of a conformer O\-N\-L\-Y by its name. 
+
+\hypertarget{namespaceget__path__barrier_ac3f094337440db8ab7f469aa0d094e45}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!load\-\_\-path\-\_\-energy\-\_\-info@{load\-\_\-path\-\_\-energy\-\_\-info}}
+\index{load\-\_\-path\-\_\-energy\-\_\-info@{load\-\_\-path\-\_\-energy\-\_\-info}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{load\-\_\-path\-\_\-energy\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-load\-\_\-path\-\_\-energy\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{}]{hb\-Path}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_ac3f094337440db8ab7f469aa0d094e45}
+
+
+Get the energies of intermediate states and energy barriers of different hopping sequences, by reading the files \char`\"{}intermediates.\-txt\char`\"{}, \char`\"{}hop\-Sequences.\-txt\char`\"{}. 
+
+\hypertarget{namespaceget__path__barrier_a1acaf8207a88a0278006d123f63d915f}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!load\-Res\-Protonation@{load\-Res\-Protonation}}
+\index{load\-Res\-Protonation@{load\-Res\-Protonation}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{load\-Res\-Protonation}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-load\-Res\-Protonation (
+\begin{DoxyParamCaption}
+\item[{}]{fname = {\ttfamily \char`\"{}fixedProtonations.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a1acaf8207a88a0278006d123f63d915f}
+
+
+Return the protonation states of all residues in a dictionary. 
+
+\hypertarget{namespaceget__path__barrier_a574d6aa0b948491b84159b7eb992a565}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!main@{main}}
+\index{main@{main}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a574d6aa0b948491b84159b7eb992a565}
+\hypertarget{namespaceget__path__barrier_a29e6e678893430fe35ac2770d33d8fca}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!obtain\-\_\-path\-\_\-info@{obtain\-\_\-path\-\_\-info}}
+\index{obtain\-\_\-path\-\_\-info@{obtain\-\_\-path\-\_\-info}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{obtain\-\_\-path\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-obtain\-\_\-path\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{}]{hb\-Path, }
+\item[{}]{path\-Folder, }
+\item[{}]{sub\-Run\-Folder}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a29e6e678893430fe35ac2770d33d8fca}
+\hypertarget{namespaceget__path__barrier_a2a43ab809275703fd660892cc98ff046}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!print\-\_\-path\-\_\-info@{print\-\_\-path\-\_\-info}}
+\index{print\-\_\-path\-\_\-info@{print\-\_\-path\-\_\-info}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{print\-\_\-path\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-print\-\_\-path\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{}]{path\-Name}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a2a43ab809275703fd660892cc98ff046}
+\hypertarget{namespaceget__path__barrier_a0499f254c28c62402064aef734a98a8d}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!retrieve\-\_\-info\-\_\-from\-\_\-microstate@{retrieve\-\_\-info\-\_\-from\-\_\-microstate}}
+\index{retrieve\-\_\-info\-\_\-from\-\_\-microstate@{retrieve\-\_\-info\-\_\-from\-\_\-microstate}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{retrieve\-\_\-info\-\_\-from\-\_\-microstate}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-retrieve\-\_\-info\-\_\-from\-\_\-microstate (
+\begin{DoxyParamCaption}
+\item[{}]{hb\-Path, }
+\item[{}]{sub\-Folder}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a0499f254c28c62402064aef734a98a8d}
+
+
+Get energy of the protonation state from the microstates. 
+
+\hypertarget{namespaceget__path__barrier_a7543ad78f9dc9dd4adff0f19799401d0}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!run\-\_\-te@{run\-\_\-te}}
+\index{run\-\_\-te@{run\-\_\-te}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{run\-\_\-te}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-run\-\_\-te (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a7543ad78f9dc9dd4adff0f19799401d0}
+\hypertarget{namespaceget__path__barrier_a2e3032591bbbd825acc1ed628989a85a}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!submit\-\_\-subruns@{submit\-\_\-subruns}}
+\index{submit\-\_\-subruns@{submit\-\_\-subruns}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{submit\-\_\-subruns}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-submit\-\_\-subruns (
+\begin{DoxyParamCaption}
+\item[{}]{hb\-Path, }
+\item[{}]{parent\-Path, }
+\item[{}]{run\-Path}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_a2e3032591bbbd825acc1ed628989a85a}
+\hypertarget{namespaceget__path__barrier_aab0280475e459323e83ae43b9f7920d0}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!write\-\_\-ms\-\_\-gold@{write\-\_\-ms\-\_\-gold}}
+\index{write\-\_\-ms\-\_\-gold@{write\-\_\-ms\-\_\-gold}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{write\-\_\-ms\-\_\-gold}]{\setlength{\rightskip}{0pt plus 5cm}def get\-\_\-path\-\_\-barrier.\-write\-\_\-ms\-\_\-gold (
+\begin{DoxyParamCaption}
+\item[{}]{key\-Residues}
+\end{DoxyParamCaption}
+)}}\label{namespaceget__path__barrier_aab0280475e459323e83ae43b9f7920d0}
+
+
+write the key residues into \char`\"{}ms\-\_\-gold\char`\"{} file. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceget__path__barrier_abe0126328680c0cd5edd2bf73b071868}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L@{C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L@{C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}dictionary get\-\_\-path\-\_\-barrier.\-C\-O\-N\-V\-E\-R\-T\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N\-\_\-\-S\-Y\-M\-B\-O\-L = \{-\/1\-:'-\/', 0\-:'0', +1\-:'+'\}}}\label{namespaceget__path__barrier_abe0126328680c0cd5edd2bf73b071868}
+\hypertarget{namespaceget__path__barrier_ab01c3f741d5264dc9d03f8842c5b0f41}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L@{C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L@{C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}dictionary get\-\_\-path\-\_\-barrier.\-C\-O\-N\-V\-E\-R\-T\-\_\-\-R\-E\-S\-\_\-\-S\-Y\-M\-B\-O\-L = \{\char`\"{}A\-S\-P\char`\"{}\-:'D', \char`\"{}G\-L\-U\char`\"{}\-:'E', \char`\"{}A\-R\-G\char`\"{}\-:'R', \char`\"{}H\-O\-H\char`\"{}\-:'O', \char`\"{}T\-Y\-R\char`\"{}\-:'Y', \char`\"{}R\-S\-B\char`\"{}\-:'U'\}}}\label{namespaceget__path__barrier_ab01c3f741d5264dc9d03f8842c5b0f41}
+\hypertarget{namespaceget__path__barrier_a4609e6e752b63ea89724bcdf53782e5c}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N@{C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}}
+\index{C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N@{C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}dictionary get\-\_\-path\-\_\-barrier.\-C\-O\-N\-V\-E\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N = \{'-\/'\-:-\/1, '0'\-:0, '+'\-:1\}}}\label{namespaceget__path__barrier_a4609e6e752b63ea89724bcdf53782e5c}
+\hypertarget{namespaceget__path__barrier_a882c28e76d1deec3c781114b0f36f251}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N@{D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}}
+\index{D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N@{D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}int get\-\_\-path\-\_\-barrier.\-D\-U\-M\-M\-Y\-\_\-\-P\-R\-O\-T\-O\-N\-A\-T\-I\-O\-N = 211}}\label{namespaceget__path__barrier_a882c28e76d1deec3c781114b0f36f251}
+\hypertarget{namespaceget__path__barrier_a9289a40b9eeec17ceac379cac4a16068}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E@{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}}
+\index{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E@{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}string get\-\_\-path\-\_\-barrier.\-P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E = \char`\"{}pathinfo.\-txt\char`\"{}}}\label{namespaceget__path__barrier_a9289a40b9eeec17ceac379cac4a16068}
+\hypertarget{namespaceget__path__barrier_aef5f1ad285a3196ab11fff9219204218}{\index{get\-\_\-path\-\_\-barrier@{get\-\_\-path\-\_\-barrier}!S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R@{S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R}}
+\index{S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R@{S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R}!get_path_barrier@{get\-\_\-path\-\_\-barrier}}
+\subsubsection[{S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}string get\-\_\-path\-\_\-barrier.\-S\-U\-B\-\_\-\-R\-U\-N\-S\-\_\-\-F\-O\-L\-D\-E\-R = \char`\"{}sub\-Protonation\char`\"{}}}\label{namespaceget__path__barrier_aef5f1ad285a3196ab11fff9219204218}

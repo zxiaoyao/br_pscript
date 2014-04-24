@@ -6,7 +6,7 @@ def mdRunPrm(dirPrm, ifile = 'run.prm'):
     '''
     Modify the run.prm file according to dirPrm.
 
-    dirPrm is a {key_string : value_string} dictionary
+    The dirPrm is a {key_string : value_string} dictionary
     "key_string" doesn't include the '()'
     "value_string" has to be a string object
     '''

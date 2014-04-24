@@ -1,0 +1,79 @@
+\hypertarget{namespacexmccepy_1_1alterprotonation}{\section{xmccepy.\-alterprotonation Namespace Reference}
+\label{namespacexmccepy_1_1alterprotonation}\index{xmccepy.\-alterprotonation@{xmccepy.\-alterprotonation}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacexmccepy_1_1alterprotonation_acf77a8d136bdac2a7b8f06b4f651a037}{fix\-Head3\-By\-Number\-Of\-Protons}
+\begin{DoxyCompactList}\small\item\em Change the flag of conformers in head3.\-lst. \end{DoxyCompactList}\item 
+def \hyperlink{namespacexmccepy_1_1alterprotonation_aea4ef50139c2a1c5dbd5bf1b9ba952b0}{fix\-\_\-head3}
+\begin{DoxyCompactList}\small\item\em Fix ionization of states of conformers in head3.\-lst. \end{DoxyCompactList}\item 
+def \hyperlink{namespacexmccepy_1_1alterprotonation_ad9df210f9337aa35a83ab5f7e0bf66c6}{free\-All\-Conformers}
+\begin{DoxyCompactList}\small\item\em Change the flag of all the conformers of some residues to 'f', or change all the residues if \char`\"{}residues==\-None\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacexmccepy_1_1alterprotonation_a59fb8a70cc51ae99c92ecf876479c879}{D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R} = 211
+\begin{DoxyCompactList}\small\item\em Created on Jun 19, 2013. \end{DoxyCompactList}\item 
+dictionary \hyperlink{namespacexmccepy_1_1alterprotonation_a21ca0b90681fab21533d9825b4e18a8b}{f\-List} = \{\char`\"{}A\-S\-P\-A0085\char`\"{}\-:0, \char`\"{}R\-S\-B\-A0216\char`\"{}\-:1\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacexmccepy_1_1alterprotonation_aea4ef50139c2a1c5dbd5bf1b9ba952b0}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!fix\-\_\-head3@{fix\-\_\-head3}}
+\index{fix\-\_\-head3@{fix\-\_\-head3}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
+\subsubsection[{fix\-\_\-head3}]{\setlength{\rightskip}{0pt plus 5cm}def xmccepy.\-alterprotonation.\-fix\-\_\-head3 (
+\begin{DoxyParamCaption}
+\item[{}]{fix\-List, }
+\item[{}]{ifile = {\ttfamily 'head3.lst'}}
+\end{DoxyParamCaption}
+)}}\label{namespacexmccepy_1_1alterprotonation_aea4ef50139c2a1c5dbd5bf1b9ba952b0}
+
+
+Fix ionization of states of conformers in head3.\-lst. 
+
+fix\-List\-: a list of lists each of which has keys to match the lines in head3.\-lst the conformer that matches the criterir will be fixed in head3.\-lst \hypertarget{namespacexmccepy_1_1alterprotonation_acf77a8d136bdac2a7b8f06b4f651a037}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!fix\-Head3\-By\-Number\-Of\-Protons@{fix\-Head3\-By\-Number\-Of\-Protons}}
+\index{fix\-Head3\-By\-Number\-Of\-Protons@{fix\-Head3\-By\-Number\-Of\-Protons}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
+\subsubsection[{fix\-Head3\-By\-Number\-Of\-Protons}]{\setlength{\rightskip}{0pt plus 5cm}def xmccepy.\-alterprotonation.\-fix\-Head3\-By\-Number\-Of\-Protons (
+\begin{DoxyParamCaption}
+\item[{}]{fix\-List, }
+\item[{}]{reverse = {\ttfamily False}, }
+\item[{}]{ifile = {\ttfamily \char`\"{}head3.lst\char`\"{}}, }
+\item[{}]{ofile = {\ttfamily \char`\"{}head3.lst\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespacexmccepy_1_1alterprotonation_acf77a8d136bdac2a7b8f06b4f651a037}
+
+
+Change the flag of conformers in head3.\-lst. 
+
+According to a residue name like \char`\"{}\-A\-S\-P\-A0085\char`\"{} and the number of protons (-\/1, 0, 1). \char`\"{}fix\-List\char`\"{} is a dictionary of residue name and number of protons. For example\-: fix\-List = \{\char`\"{}\-A\-S\-P\-A0085\char`\"{}\-:0, \char`\"{}\-A\-S\-P\-A0212\char`\"{}\-:-\/1\}
+
+if \char`\"{}reverse\char`\"{} is False, the conformers in the residue which have the same number of protons will be fixed. if \char`\"{}reverse\char`\"{} is True, it's opposite, only the conformers with the same number of protons are not fixed. \begin{DoxyVerb}Check a head3.lst line to see if it's a dummy conformer.\end{DoxyVerb}
+ \hypertarget{namespacexmccepy_1_1alterprotonation_ad9df210f9337aa35a83ab5f7e0bf66c6}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!free\-All\-Conformers@{free\-All\-Conformers}}
+\index{free\-All\-Conformers@{free\-All\-Conformers}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
+\subsubsection[{free\-All\-Conformers}]{\setlength{\rightskip}{0pt plus 5cm}def xmccepy.\-alterprotonation.\-free\-All\-Conformers (
+\begin{DoxyParamCaption}
+\item[{}]{residues = {\ttfamily None}, }
+\item[{}]{header\-File = {\ttfamily \char`\"{}head3.lst\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespacexmccepy_1_1alterprotonation_ad9df210f9337aa35a83ab5f7e0bf66c6}
+
+
+Change the flag of all the conformers of some residues to 'f', or change all the residues if \char`\"{}residues==\-None\char`\"{}. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacexmccepy_1_1alterprotonation_a59fb8a70cc51ae99c92ecf876479c879}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R@{D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R}}
+\index{D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R@{D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
+\subsubsection[{D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}int xmccepy.\-alterprotonation.\-D\-U\-M\-M\-Y\-\_\-\-C\-O\-N\-F\-O\-R\-M\-E\-R = 211}}\label{namespacexmccepy_1_1alterprotonation_a59fb8a70cc51ae99c92ecf876479c879}
+
+
+Created on Jun 19, 2013. 
+
+\begin{DoxyAuthor}{Author}
+\-: xzhu 
+\end{DoxyAuthor}
+\hypertarget{namespacexmccepy_1_1alterprotonation_a21ca0b90681fab21533d9825b4e18a8b}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!f\-List@{f\-List}}
+\index{f\-List@{f\-List}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
+\subsubsection[{f\-List}]{\setlength{\rightskip}{0pt plus 5cm}dictionary xmccepy.\-alterprotonation.\-f\-List = \{\char`\"{}A\-S\-P\-A0085\char`\"{}\-:0, \char`\"{}R\-S\-B\-A0216\char`\"{}\-:1\}}}\label{namespacexmccepy_1_1alterprotonation_a21ca0b90681fab21533d9825b4e18a8b}

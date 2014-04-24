@@ -1,0 +1,54 @@
+\hypertarget{namespacecomp__desol}{\section{comp\-\_\-desol Namespace Reference}
+\label{namespacecomp__desol}\index{comp\-\_\-desol@{comp\-\_\-desol}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcomp__desol_1_1_water_conf}{Water\-Conf}
+\begin{DoxyCompactList}\small\item\em Compare the desolvation energies of waters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecomp__desol_a6edaa2e2e932c3291afaa786453fbeea}{retrieve\-Waters}
+\begin{DoxyCompactList}\small\item\em Find all the water conformers and get their desolvation energies. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecomp__desol_a23b7f37d42970ee18c86e6623fba3dc0}{comp\-Desolv}
+\begin{DoxyCompactList}\small\item\em Compare the desolvation energies of water conformers in two different files. \end{DoxyCompactList}\item 
+def \hyperlink{namespacecomp__desol_a368408b457e4566a6a4374bc56cbd926}{main}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacecomp__desol_a23b7f37d42970ee18c86e6623fba3dc0}{\index{comp\-\_\-desol@{comp\-\_\-desol}!comp\-Desolv@{comp\-Desolv}}
+\index{comp\-Desolv@{comp\-Desolv}!comp_desol@{comp\-\_\-desol}}
+\subsubsection[{comp\-Desolv}]{\setlength{\rightskip}{0pt plus 5cm}def comp\-\_\-desol.\-comp\-Desolv (
+\begin{DoxyParamCaption}
+\item[{}]{file1, }
+\item[{}]{file2, }
+\item[{}]{cutoff = {\ttfamily -\/1.0}}
+\end{DoxyParamCaption}
+)}}\label{namespacecomp__desol_a23b7f37d42970ee18c86e6623fba3dc0}
+
+
+Compare the desolvation energies of water conformers in two different files. 
+
+Args\-: file1\-: the name of the first file. file2\-: the name of the second file. cutoff\-: the threshold to show the water conformer if the desol difference in two files is greater than that. \hypertarget{namespacecomp__desol_a368408b457e4566a6a4374bc56cbd926}{\index{comp\-\_\-desol@{comp\-\_\-desol}!main@{main}}
+\index{main@{main}!comp_desol@{comp\-\_\-desol}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}def comp\-\_\-desol.\-main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacecomp__desol_a368408b457e4566a6a4374bc56cbd926}
+\hypertarget{namespacecomp__desol_a6edaa2e2e932c3291afaa786453fbeea}{\index{comp\-\_\-desol@{comp\-\_\-desol}!retrieve\-Waters@{retrieve\-Waters}}
+\index{retrieve\-Waters@{retrieve\-Waters}!comp_desol@{comp\-\_\-desol}}
+\subsubsection[{retrieve\-Waters}]{\setlength{\rightskip}{0pt plus 5cm}def comp\-\_\-desol.\-retrieve\-Waters (
+\begin{DoxyParamCaption}
+\item[{}]{file\-Name = {\ttfamily \char`\"{}head3.lst\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{namespacecomp__desol_a6edaa2e2e932c3291afaa786453fbeea}
+
+
+Find all the water conformers and get their desolvation energies. 
+
+Args\-: file\-Name\-: the name of the file where the info of the water conformers is obtained, default \char`\"{}head3.\-lst\char`\"{}.
+
+Returns\-: All the water conformers. 

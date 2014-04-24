@@ -1,0 +1,114 @@
+\hypertarget{namespacestep1__to__pdb}{\section{step1\-\_\-to\-\_\-pdb Namespace Reference}
+\label{namespacestep1__to__pdb}\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstep1__to__pdb_1_1_c_l_i_error}{C\-L\-I\-Error}
+\begin{DoxyCompactList}\small\item\em Generic exception to raise and log different fatal errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacestep1__to__pdb_aec89a7b48b40b40c9b42a832e7165e86}{main}
+\begin{DoxyCompactList}\small\item\em Command line options. \end{DoxyCompactList}\item 
+def \hyperlink{namespacestep1__to__pdb_a2b307c70e3aba3de97831cc829e236da}{convert\-S1\-To\-Pdb}
+\begin{DoxyCompactList}\small\item\em Convert step1\-\_\-out.\-pdb to pdb. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacestep1__to__pdb_aa69f205778c96b32ee4b45262a0338aa}{\-\_\-\-\_\-all\-\_\-\-\_\-} = \mbox{[}$\,$\mbox{]}
+\item 
+float \hyperlink{namespacestep1__to__pdb_a0e0c70e8561ad65054fcce206822b1c8}{\-\_\-\-\_\-version\-\_\-\-\_\-} = 0.\-1
+\item 
+string \hyperlink{namespacestep1__to__pdb_a263cac53fc78edd6c1ed8cc2d8d1d32b}{\-\_\-\-\_\-date\-\_\-\-\_\-} = '2014-\/04-\/24'
+\item 
+string \hyperlink{namespacestep1__to__pdb_aa056e75d63fd41d9d4c342ac7e7dfa39}{\-\_\-\-\_\-updated\-\_\-\-\_\-} = '2014-\/04-\/24'
+\item 
+int \hyperlink{namespacestep1__to__pdb_a591354d4432ea8e5ce9bba8b7dc8ba1a}{D\-E\-B\-U\-G} = 0
+\item 
+int \hyperlink{namespacestep1__to__pdb_ac66d5feff2aae1ab64fcca1ab35a637c}{T\-E\-S\-T\-R\-U\-N} = 0
+\item 
+int \hyperlink{namespacestep1__to__pdb_ad76c59cb2cdd3d781f868a12529999ba}{P\-R\-O\-F\-I\-L\-E} = 0
+\item 
+string \hyperlink{namespacestep1__to__pdb_adc86c06ee1539131101783440ad9a108}{profile\-\_\-filename} = 'scripts.\-mcce.\-step1\-\_\-to\-\_\-pdb\-\_\-profile.\-txt'
+\item 
+tuple \hyperlink{namespacestep1__to__pdb_a2766ad30243ded186ba90c1d630c8caa}{statsfile} = open(\char`\"{}profile\-\_\-stats.\-txt\char`\"{}, \char`\"{}wb\char`\"{})
+\item 
+tuple \hyperlink{namespacestep1__to__pdb_a68130cab309339df09d927f67bb7ea84}{p} = pstats.\-Stats(\hyperlink{namespacestep1__to__pdb_adc86c06ee1539131101783440ad9a108}{profile\-\_\-filename}, stream=\hyperlink{namespacestep1__to__pdb_a2766ad30243ded186ba90c1d630c8caa}{statsfile})
+\item 
+tuple \hyperlink{namespacestep1__to__pdb_ad2df9fbec0d313239d036a67c94664fb}{stats} = p.\-strip\-\_\-dirs()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacestep1__to__pdb_a2b307c70e3aba3de97831cc829e236da}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!convert\-S1\-To\-Pdb@{convert\-S1\-To\-Pdb}}
+\index{convert\-S1\-To\-Pdb@{convert\-S1\-To\-Pdb}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{convert\-S1\-To\-Pdb}]{\setlength{\rightskip}{0pt plus 5cm}def step1\-\_\-to\-\_\-pdb.\-convert\-S1\-To\-Pdb (
+\begin{DoxyParamCaption}
+\item[{}]{s1, }
+\item[{}]{fp = {\ttfamily sys.stdout}}
+\end{DoxyParamCaption}
+)}}\label{namespacestep1__to__pdb_a2b307c70e3aba3de97831cc829e236da}
+
+
+Convert step1\-\_\-out.\-pdb to pdb. 
+
+Modify the step1\-\_\-out.\-pdb line by line according the format of a pbd file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & The path to the step1\-\_\-out.\-pdb. \\
+\hline
+{\em fp} & The file to save the generated standard pdb. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succeed. 
+\end{DoxyReturn}
+\hypertarget{namespacestep1__to__pdb_aec89a7b48b40b40c9b42a832e7165e86}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!main@{main}}
+\index{main@{main}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}def step1\-\_\-to\-\_\-pdb.\-main (
+\begin{DoxyParamCaption}
+\item[{}]{argv = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}}\label{namespacestep1__to__pdb_aec89a7b48b40b40c9b42a832e7165e86}
+
+
+Command line options. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacestep1__to__pdb_aa69f205778c96b32ee4b45262a0338aa}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!\-\_\-\-\_\-all\-\_\-\-\_\-@{\-\_\-\-\_\-all\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-all\-\_\-\-\_\-@{\-\_\-\-\_\-all\-\_\-\-\_\-}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{\-\_\-\-\_\-all\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}list step1\-\_\-to\-\_\-pdb.\-\_\-\-\_\-all\-\_\-\-\_\- = \mbox{[}$\,$\mbox{]}}}\label{namespacestep1__to__pdb_aa69f205778c96b32ee4b45262a0338aa}
+\hypertarget{namespacestep1__to__pdb_a263cac53fc78edd6c1ed8cc2d8d1d32b}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!\-\_\-\-\_\-date\-\_\-\-\_\-@{\-\_\-\-\_\-date\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-date\-\_\-\-\_\-@{\-\_\-\-\_\-date\-\_\-\-\_\-}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{\-\_\-\-\_\-date\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}string step1\-\_\-to\-\_\-pdb.\-\_\-\-\_\-date\-\_\-\-\_\- = '2014-\/04-\/24'}}\label{namespacestep1__to__pdb_a263cac53fc78edd6c1ed8cc2d8d1d32b}
+\hypertarget{namespacestep1__to__pdb_aa056e75d63fd41d9d4c342ac7e7dfa39}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!\-\_\-\-\_\-updated\-\_\-\-\_\-@{\-\_\-\-\_\-updated\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-updated\-\_\-\-\_\-@{\-\_\-\-\_\-updated\-\_\-\-\_\-}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{\-\_\-\-\_\-updated\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}string step1\-\_\-to\-\_\-pdb.\-\_\-\-\_\-updated\-\_\-\-\_\- = '2014-\/04-\/24'}}\label{namespacestep1__to__pdb_aa056e75d63fd41d9d4c342ac7e7dfa39}
+\hypertarget{namespacestep1__to__pdb_a0e0c70e8561ad65054fcce206822b1c8}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!\-\_\-\-\_\-version\-\_\-\-\_\-@{\-\_\-\-\_\-version\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-version\-\_\-\-\_\-@{\-\_\-\-\_\-version\-\_\-\-\_\-}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{\-\_\-\-\_\-version\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}float step1\-\_\-to\-\_\-pdb.\-\_\-\-\_\-version\-\_\-\-\_\- = 0.\-1}}\label{namespacestep1__to__pdb_a0e0c70e8561ad65054fcce206822b1c8}
+\hypertarget{namespacestep1__to__pdb_a591354d4432ea8e5ce9bba8b7dc8ba1a}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}int step1\-\_\-to\-\_\-pdb.\-D\-E\-B\-U\-G = 0}}\label{namespacestep1__to__pdb_a591354d4432ea8e5ce9bba8b7dc8ba1a}
+\hypertarget{namespacestep1__to__pdb_a68130cab309339df09d927f67bb7ea84}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!p@{p}}
+\index{p@{p}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}tuple step1\-\_\-to\-\_\-pdb.\-p = pstats.\-Stats({\bf profile\-\_\-filename}, stream={\bf statsfile})}}\label{namespacestep1__to__pdb_a68130cab309339df09d927f67bb7ea84}
+\hypertarget{namespacestep1__to__pdb_ad76c59cb2cdd3d781f868a12529999ba}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!P\-R\-O\-F\-I\-L\-E@{P\-R\-O\-F\-I\-L\-E}}
+\index{P\-R\-O\-F\-I\-L\-E@{P\-R\-O\-F\-I\-L\-E}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{P\-R\-O\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}int step1\-\_\-to\-\_\-pdb.\-P\-R\-O\-F\-I\-L\-E = 0}}\label{namespacestep1__to__pdb_ad76c59cb2cdd3d781f868a12529999ba}
+\hypertarget{namespacestep1__to__pdb_adc86c06ee1539131101783440ad9a108}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!profile\-\_\-filename@{profile\-\_\-filename}}
+\index{profile\-\_\-filename@{profile\-\_\-filename}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{profile\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}string step1\-\_\-to\-\_\-pdb.\-profile\-\_\-filename = 'scripts.\-mcce.\-step1\-\_\-to\-\_\-pdb\-\_\-profile.\-txt'}}\label{namespacestep1__to__pdb_adc86c06ee1539131101783440ad9a108}
+\hypertarget{namespacestep1__to__pdb_ad2df9fbec0d313239d036a67c94664fb}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!stats@{stats}}
+\index{stats@{stats}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{stats}]{\setlength{\rightskip}{0pt plus 5cm}tuple step1\-\_\-to\-\_\-pdb.\-stats = p.\-strip\-\_\-dirs()}}\label{namespacestep1__to__pdb_ad2df9fbec0d313239d036a67c94664fb}
+\hypertarget{namespacestep1__to__pdb_a2766ad30243ded186ba90c1d630c8caa}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!statsfile@{statsfile}}
+\index{statsfile@{statsfile}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{statsfile}]{\setlength{\rightskip}{0pt plus 5cm}tuple step1\-\_\-to\-\_\-pdb.\-statsfile = open(\char`\"{}profile\-\_\-stats.\-txt\char`\"{}, \char`\"{}wb\char`\"{})}}\label{namespacestep1__to__pdb_a2766ad30243ded186ba90c1d630c8caa}
+\hypertarget{namespacestep1__to__pdb_ac66d5feff2aae1ab64fcca1ab35a637c}{\index{step1\-\_\-to\-\_\-pdb@{step1\-\_\-to\-\_\-pdb}!T\-E\-S\-T\-R\-U\-N@{T\-E\-S\-T\-R\-U\-N}}
+\index{T\-E\-S\-T\-R\-U\-N@{T\-E\-S\-T\-R\-U\-N}!step1_to_pdb@{step1\-\_\-to\-\_\-pdb}}
+\subsubsection[{T\-E\-S\-T\-R\-U\-N}]{\setlength{\rightskip}{0pt plus 5cm}int step1\-\_\-to\-\_\-pdb.\-T\-E\-S\-T\-R\-U\-N = 0}}\label{namespacestep1__to__pdb_ac66d5feff2aae1ab64fcca1ab35a637c}
