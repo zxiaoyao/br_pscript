@@ -43,7 +43,6 @@ def ph_occupy(ph, cutoff):
     return
 
 
-def main():
     
 if __name__ == '__main__':
     

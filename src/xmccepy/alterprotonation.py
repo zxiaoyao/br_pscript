@@ -18,13 +18,17 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
     For example:
         fixList = {"ASPA0085":0, "ASPA0212":-1}
         
-    if "reverse" is False, the conformers in the residue which have the same number of protons will be fixed.
+    if "reverse" is False, those conformers in the residue which have the same number of protons will be fixed.
     if "reverse" is True, it's opposite, only the conformers with the same number of protons are not fixed.
+    
+    Number of protons of a conformer is read from "head3.lst".
     '''
     
     def isDummy(hline):
         '''
         Check a head3.lst line to see if it's a dummy conformer.
+        
+        Now it's determined only by the conformer name.
         '''
         return hline[9:11] == "DM"
     
@@ -104,6 +108,7 @@ def freeAllConformers(residues=None, headerFile="head3.lst"):
         newLines.append(newLine)
         
     open(headerFile, 'w').writelines(newLines)
+    
     
 if __name__ == '__main__':
     #sampDir = {'DO_MONTE':'t'}

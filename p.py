@@ -75,6 +75,6 @@ def foo():
     print getRunTypeAbbreviation("crysta", "quick", "raw")
          
 if __name__ == "__main__":
-    print [i for i+1 in ]        
+    print [i+1 for i in (1,2,3)]        
 
     # a comment
