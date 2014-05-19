@@ -13,14 +13,14 @@ class ProtonationState(object):
         self.energy = 0.0
         self.stateId = 0
         self.layer = 0       # which layer this state appears
-        
+        keyResidues = []
         
     def __repr__(self):
         stateName = ""
-        for i in range(len(ProtonationState.keyResidues)):
-            stateName += CONVERT_RES_SYMBOL[ProtonationState.keyResidues[i][:3]]
-            stateName += ProtonationState.keyResidues[i][3]
-            stateName += str(int(ProtonationState.keyResidues[i][4:]))
+        for i in range(len(self.keyResidues)):
+            stateName += CONVERT_RES_SYMBOL[self.keyResidues[i][:3]]
+            stateName += self.keyResidues[i][3]
+            stateName += str(int(self.keyResidues[i][4:]))
             stateName += CONVERT_PROTONATION_SYMBOL[self.protonations[i]]
         
         return stateName
