@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['get_5fcharge',['get_charge',['../namespaceget__charge.html',1,'']]],
-  ['get_5fpath_5fbarrier',['get_path_barrier',['../namespaceget__path__barrier.html',1,'']]]
+  ['fit_5fboltz',['fit_boltz',['../namespacefit__boltz.html',1,'']]],
+  ['fix_5fio',['fix_io',['../namespacefix__io.html',1,'']]],
+  ['fix_5fprotonations',['fix_protonations',['../namespacefix__protonations.html',1,'']]]
 ];

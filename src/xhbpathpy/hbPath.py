@@ -3,19 +3,35 @@ Created on May 17, 2014
 
 @author: xzhu
 '''
+from protonationState import ProtonationState
+from hopSequence import HopSequence
+from xmccepy.residue import Residue
+from collections import deque
 
-class HbPath(object):    
+
+class HbPath(object):
+    PATH_INFO_FILE = "pathinfo.txt"
+    
     def __init__(self):
+        ## all the key residues in the pathway.
         self.keyResidues = []
-        self.possibleProtonations = []
+        
+        ## initial protonation state.
         self.initialState = ProtonationState()
+        
+        ## number of residues in the pathway.
         self.nResidues = 0
         
+        ## all the possible hopping sequences.
         self.hopSequences = []
+        
+        ## all the possible protonation states.
         self.protonationStates = set()
         
+        
     def loadPathInfo(self, fName = PATH_INFO_FILE):
-        '''
+        '''Load the info of the pathway for a file.
+        
         Get the key residues in the pathway, and their possible protonation states, 
         and the initial state. Return an object of class PathConfig containing this information.
     
@@ -28,8 +44,9 @@ class HbPath(object):
         GLUA0194  -1  0
          0 0 0 1 0 -1
      
-         The last line is the initial state.
-         The other lines give the name of the residues, following all their possible protonation states
+        The last line is the initial state.
+        The other lines give the name of the residues, followed by all their possible protonation states.
+         
          '''
         try:
             fp = open(fName, 'r')
@@ -43,22 +60,27 @@ class HbPath(object):
         for eachLine in allLines[:-1]:
             if eachLine.startswith("#"): continue     # line is a comment
             fields = eachLine.split()
-        
-            self.keyResidues.append(fields[0])
-            self.possibleProtonations.append([int(eachProtonation) for eachProtonation in fields[1:]])
+            
+            newRes = Residue()
+            newRes.resName = fields[0]
+            newRes.possibleProtonations = [int(eachProtonation) for eachProtonation in fields[1:]]
+            
+            self.keyResidues.append(newRes)
 
-        
+        self.initialState.keyResidues = self.keyResidues
         self.initialState.protonations = [int(eachProtonation) for eachProtonation in allLines[-1].split()]
         self.initialState.layer = 1
         
+        # the number of residues and the number of protonations in the initial state should match.
         if len(self.keyResidues) != len(self.initialState.protonations):
-            print "Error: Number of residues doesn't match with the initial state"
+            raise RuntimeError("Fatal error: Number of residues doesn't match with the initial state")
         else:
             self.nResidues = len(self.keyResidues)
         
+        
     def getAllHopSequences(self):
-        ProtonationState.keyResidues = self.keyResidues
-        HopSequence.possibleProtonations = self.possibleProtonations
+#         ProtonationState.keyResidues = self.keyResidues
+#         HopSequence.possibleProtonations = self.possibleProtonations
         
         firstHopSequence = HopSequence(self.initialState) 
         sequenceQueue = deque()
@@ -84,7 +106,9 @@ class HbPath(object):
         for eachState in self.protonationStates:
             eachState.stateId = idCounter
             idCounter += 1
-            
+        
+        
+        # Use the same protonation states in the set to constitute hop sequences again.
         labeledSeq = []
         for eachSeq in self.hopSequences:
             newSeq = HopSequence()
@@ -94,4 +118,5 @@ class HbPath(object):
                         newSeq.intermediates.append(eachState)
                         break
             labeledSeq.append(newSeq)
+            
         self.hopSequences = labeledSeq

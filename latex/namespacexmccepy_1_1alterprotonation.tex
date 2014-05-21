@@ -48,7 +48,11 @@ Change the flag of conformers in head3.\-lst.
 
 According to a residue name like \char`\"{}\-A\-S\-P\-A0085\char`\"{} and the number of protons (-\/1, 0, 1). \char`\"{}fix\-List\char`\"{} is a dictionary of residue name and number of protons. For example\-: fix\-List = \{\char`\"{}\-A\-S\-P\-A0085\char`\"{}\-:0, \char`\"{}\-A\-S\-P\-A0212\char`\"{}\-:-\/1\}
 
-if \char`\"{}reverse\char`\"{} is False, the conformers in the residue which have the same number of protons will be fixed. if \char`\"{}reverse\char`\"{} is True, it's opposite, only the conformers with the same number of protons are not fixed. \begin{DoxyVerb}Check a head3.lst line to see if it's a dummy conformer.\end{DoxyVerb}
+if \char`\"{}reverse\char`\"{} is False, those conformers in the residue which have the same number of protons will be fixed. if \char`\"{}reverse\char`\"{} is True, it's opposite, only the conformers with the same number of protons are not fixed.
+
+Number of protons of a conformer is read from \char`\"{}head3.\-lst\char`\"{}. \begin{DoxyVerb}Check a head3.lst line to see if it's a dummy conformer.
+
+Now it's determined only by the conformer name.\end{DoxyVerb}
  \hypertarget{namespacexmccepy_1_1alterprotonation_ad9df210f9337aa35a83ab5f7e0bf66c6}{\index{xmccepy\-::alterprotonation@{xmccepy\-::alterprotonation}!free\-All\-Conformers@{free\-All\-Conformers}}
 \index{free\-All\-Conformers@{free\-All\-Conformers}!xmccepy::alterprotonation@{xmccepy\-::alterprotonation}}
 \subsubsection[{free\-All\-Conformers}]{\setlength{\rightskip}{0pt plus 5cm}def xmccepy.\-alterprotonation.\-free\-All\-Conformers (

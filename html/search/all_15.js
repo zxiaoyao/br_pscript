@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y',['y',['../classxmccepy_1_1corr_1_1_corr.html#a6a9298c2b8c4747dbd514dcde6b4e98d',1,'xmccepy::corr::Corr']]]
+  ['vdw0',['vdw0',['../classoccupied__confs_1_1_conf.html#ac5e8f69fab016810e30c0189140539f0',1,'occupied_confs::Conf']]],
+  ['vdw1',['vdw1',['../classoccupied__confs_1_1_conf.html#a959ce58c489f1b8a8bb9326af6e0b23b',1,'occupied_confs::Conf']]]
 ];

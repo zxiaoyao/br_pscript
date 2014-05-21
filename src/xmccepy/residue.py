@@ -5,14 +5,20 @@ Created on Apr 1, 2014
 '''
 
 class Residue(object):
-    '''
-    Residue class.
+    '''Residue class.
+    
     '''
 
 
-    def __init__(self):
+    def __init__(self, resName=""):
+        '''Constructor.
+        
         '''
-        Constructor
-        '''
-        self.resName = ""
+        ## name of this residue, like ASPA0085.
+        self.resName = resName
         self.chainId = ""
+        
+        ## All the possible protonation states of this residue in interger number.
+        self.possibleProtonations = []
+        
+        

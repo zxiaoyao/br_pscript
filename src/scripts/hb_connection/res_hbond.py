@@ -1,12 +1,11 @@
 #!/usr/bin/env python
-import sys
 import networkx as nx
 import argparse
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("fName", help="hb network file name")
-    parser.add_argument("-t", dest="threshold", help="threshold to add an edge", type=float, default=-1.0)
+    parser.add_argument("-t", dest="threshold", help="add an edge if probability is larger than or equal to the threshold", type=float, default=-1.0)
     parser.add_argument("-source", help="source node", default="ASPA0085")
     parser.add_argument("-target", help="target node", default="GLUA0194")
     parser.add_argument("-lenLessThan", help="longest length a path has", default=6)
@@ -18,16 +17,26 @@ def main():
     
     MIDDLE_RES = "ARGA0082"
     
+    
+        
+    sourceRes = args.source
+    targetRes = args.target
+    get_path_two_resid
+    
+    
+def get_path_two_residues(hbfile, source, target, lenLessThan, threshold):
+    '''Get all the pathways between two residues.
+    
+    The weight of each edge should be larger than or equal to the threshold,
+    and the length of the pathway should be equal to or less than the number specified by lenLessThan.
+    
+    '''
     g = nx.Graph()
-    for eachLine in open(fName):
+    for eachLine in open(hbfile):
         fields = eachLine.split()
         if len(fields) == 3 and float(fields[2]) < edgeCutoff:
             continue
         g.add_edge(fields[0], fields[1])
-        
-    sourceRes = args.source
-    targetRes = args.target
-    
     if (sourceRes in g.nodes()) and (targetRes in g.nodes()) and (nx.has_path(g, sourceRes, targetRes)):
         for eachPath in sorted(nx.all_simple_paths(g, sourceRes, targetRes, pathCutoff), key=lambda p: len(p)):
             print eachPath

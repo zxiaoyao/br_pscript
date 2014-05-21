@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['test_5fatom',['test_atom',['../namespacetest__atom.html',1,'']]],
-  ['test_5fresidue',['test_residue',['../namespacetest__residue.html',1,'']]]
+  ['occonf',['occonf',['../namespaceocconf.html',1,'']]],
+  ['occupied_5fconfs',['occupied_confs',['../namespaceoccupied__confs.html',1,'']]]
 ];

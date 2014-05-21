@@ -180,8 +180,11 @@ Variables</h2></td></tr>
 
 <p>Change the flag of conformers in head3.lst. </p>
 <p>According to a residue name like "ASPA0085" and the number of protons (-1, 0, 1). "fixList" is a dictionary of residue name and number of protons. For example: fixList = {"ASPA0085":0, "ASPA0212":-1}</p>
-<p>if "reverse" is False, the conformers in the residue which have the same number of protons will be fixed. if "reverse" is True, it's opposite, only the conformers with the same number of protons are not fixed. </p>
-<pre class="fragment">Check a head3.lst line to see if it's a dummy conformer.</pre> 
+<p>if "reverse" is False, those conformers in the residue which have the same number of protons will be fixed. if "reverse" is True, it's opposite, only the conformers with the same number of protons are not fixed.</p>
+<p>Number of protons of a conformer is read from "head3.lst". </p>
+<pre class="fragment">Check a head3.lst line to see if it's a dummy conformer.
+
+Now it's determined only by the conformer name.</pre> 
 </div>
 </div>
 <a class="anchor" id="ad9df210f9337aa35a83ab5f7e0bf66c6"></a>
@@ -243,7 +246,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 24 2014 15:54:02 for pscript by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 21 2014 08:09:43 for pscript by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
