@@ -1,0 +1,106 @@
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence}{\section{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence Class Reference}
+\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence}\index{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence@{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence}}
+}
+
+
+Created on May 17, 2014.  
+
+
+Inheritance diagram for xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_adc84862973bac63a8e5f500898de55c3}{\-\_\-\-\_\-init\-\_\-\-\_\-}
+\item 
+def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad8e8fd6c422af62fa439fd4a9400acc4}{next\-Hop}
+\begin{DoxyCompactList}\small\item\em Get all the hopping sequences from the current one by one proton hop. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad564ff72590f7a78c7ffc3a812dbf938}{get\-E\-Barrier}
+\begin{DoxyCompactList}\small\item\em Get the energy barrier of this hop sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}{possible\-Protonations}
+\item 
+\hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a5b261819492711ec0ef1e15f433ba400}{hop\-History}
+\begin{DoxyCompactList}\small\item\em Save the number of times the protonation state of the residue has been changed. \end{DoxyCompactList}\item 
+\hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_af3998fce6d2d3ee13d7767730c7f9991}{energy\-Barrier}
+\item 
+\hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a45461fb5db5f5b061b07a75ebab4fa57}{intermediates}
+\begin{DoxyCompactList}\small\item\em intermediate states during this hopping sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created on May 17, 2014. 
+
+\begin{DoxyAuthor}{Author}
+\-: xzhu 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_adc84862973bac63a8e5f500898de55c3}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{\-\_\-\-\_\-init\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-\_\-\-\_\-init\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{initial\-State = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_adc84862973bac63a8e5f500898de55c3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad564ff72590f7a78c7ffc3a812dbf938}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!get\-E\-Barrier@{get\-E\-Barrier}}
+\index{get\-E\-Barrier@{get\-E\-Barrier}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{get\-E\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-get\-E\-Barrier (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad564ff72590f7a78c7ffc3a812dbf938}
+
+
+Get the energy barrier of this hop sequence. 
+
+It's the difference between the highest energy and the energy of the initial state. The field energy\-Barrier will be reset to it. \hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad8e8fd6c422af62fa439fd4a9400acc4}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!next\-Hop@{next\-Hop}}
+\index{next\-Hop@{next\-Hop}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{next\-Hop}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-next\-Hop (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad8e8fd6c422af62fa439fd4a9400acc4}
+
+
+Get all the hopping sequences from the current one by one proton hop. 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_af3998fce6d2d3ee13d7767730c7f9991}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!energy\-Barrier@{energy\-Barrier}}
+\index{energy\-Barrier@{energy\-Barrier}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{energy\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-energy\-Barrier}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_af3998fce6d2d3ee13d7767730c7f9991}
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a5b261819492711ec0ef1e15f433ba400}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!hop\-History@{hop\-History}}
+\index{hop\-History@{hop\-History}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{hop\-History}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-hop\-History}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a5b261819492711ec0ef1e15f433ba400}
+
+
+Save the number of times the protonation state of the residue has been changed. 
+
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a45461fb5db5f5b061b07a75ebab4fa57}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!intermediates@{intermediates}}
+\index{intermediates@{intermediates}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{intermediates}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-intermediates}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a45461fb5db5f5b061b07a75ebab4fa57}
+
+
+intermediate states during this hopping sequence. 
+
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!possible\-Protonations@{possible\-Protonations}}
+\index{possible\-Protonations@{possible\-Protonations}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{possible\-Protonations}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-possible\-Protonations}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/xhbpathpy/\hyperlink{hop_sequence_8py}{hop\-Sequence.\-py}\end{DoxyCompactItemize}

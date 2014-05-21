@@ -47,7 +47,7 @@ class HbPath(object):
         The last line is the initial state.
         The other lines give the name of the residues, followed by all their possible protonation states.
          
-         '''
+        '''
         try:
             fp = open(fName, 'r')
         except:

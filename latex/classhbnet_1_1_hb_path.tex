@@ -1,0 +1,142 @@
+\hypertarget{classhbnet_1_1_hb_path}{\section{hbnet.\-Hb\-Path Class Reference}
+\label{classhbnet_1_1_hb_path}\index{hbnet.\-Hb\-Path@{hbnet.\-Hb\-Path}}
+}
+Inheritance diagram for hbnet.\-Hb\-Path\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhbnet_1_1_hb_path}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classhbnet_1_1_hb_path_accc0aea55bbab3dcff88bc008f9f164e}{\-\_\-\-\_\-init\-\_\-\-\_\-}
+\item 
+def \hyperlink{classhbnet_1_1_hb_path_a27380bf0f935a0178f5218113f13cc08}{load\-Path\-Info}
+\begin{DoxyCompactList}\small\item\em Get the key residues in the pathway, and their possible protonation states, and the initial state. \end{DoxyCompactList}\item 
+def \hyperlink{classhbnet_1_1_hb_path_aabee126deca6cdfe0165c7eca0f4f455}{get\-All\-Hop\-Sequences}
+\item 
+def \hyperlink{classhbnet_1_1_hb_path_aea7db290b896d2e81df966a14d68b6fe}{load\-\_\-intermediates}
+\begin{DoxyCompactList}\small\item\em Load energies of protonation states from intermediates.\-txt. \end{DoxyCompactList}\item 
+def \hyperlink{classhbnet_1_1_hb_path_a0ee3abc28d0e7c811abd45a8bae85aef}{load\-\_\-hop\-Sequences}
+\begin{DoxyCompactList}\small\item\em Load all the possible hop sequences from hop\-Sequences.\-txt file. \end{DoxyCompactList}\item 
+def \hyperlink{classhbnet_1_1_hb_path_a15a0c1834be05a45b040f101f6020440}{load\-\_\-calculated\-\_\-path}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_acadff0bd1e1990b439f50002856daf4a}{key\-Residues}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_afb0cba5a56b71bee34ab7d21e04182f9}{possible\-Protonations}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_aa8bdeb3072d6d8aa5cfef98512b2c765}{initial\-State}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_ab9d8f9c208c0d8001a676fa94db0c1e4}{n\-Residues}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_ad4ad6ae5b069a3b4d7b275e7ce2c2b08}{hop\-Sequences}
+\item 
+\hyperlink{classhbnet_1_1_hb_path_a68abdff4f3379feafefde52a57c63f62}{protonation\-States}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhbnet_1_1_hb_path_accc0aea55bbab3dcff88bc008f9f164e}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{\-\_\-\-\_\-init\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-\_\-\-\_\-init\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_accc0aea55bbab3dcff88bc008f9f164e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhbnet_1_1_hb_path_aabee126deca6cdfe0165c7eca0f4f455}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!get\-All\-Hop\-Sequences@{get\-All\-Hop\-Sequences}}
+\index{get\-All\-Hop\-Sequences@{get\-All\-Hop\-Sequences}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{get\-All\-Hop\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-get\-All\-Hop\-Sequences (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_aabee126deca6cdfe0165c7eca0f4f455}
+\hypertarget{classhbnet_1_1_hb_path_a15a0c1834be05a45b040f101f6020440}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!load\-\_\-calculated\-\_\-path@{load\-\_\-calculated\-\_\-path}}
+\index{load\-\_\-calculated\-\_\-path@{load\-\_\-calculated\-\_\-path}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{load\-\_\-calculated\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-load\-\_\-calculated\-\_\-path (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{pathinfo\-File = {\ttfamily \char`\"{}pathinfo.txt\char`\"{}}, }
+\item[{}]{intermediates\-File = {\ttfamily \char`\"{}intermediates.txt\char`\"{}}, }
+\item[{}]{hop\-Sequences\-File = {\ttfamily \char`\"{}hopSequences.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_a15a0c1834be05a45b040f101f6020440}
+\hypertarget{classhbnet_1_1_hb_path_a0ee3abc28d0e7c811abd45a8bae85aef}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!load\-\_\-hop\-Sequences@{load\-\_\-hop\-Sequences}}
+\index{load\-\_\-hop\-Sequences@{load\-\_\-hop\-Sequences}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{load\-\_\-hop\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-load\-\_\-hop\-Sequences (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{hop\-Sequences\-File = {\ttfamily \char`\"{}hopSequences.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_a0ee3abc28d0e7c811abd45a8bae85aef}
+
+
+Load all the possible hop sequences from hop\-Sequences.\-txt file. 
+
+Energies of intermediates should have been loaded from intermediates.\-txt first. It will not load the intermediates again in this file. \hypertarget{classhbnet_1_1_hb_path_aea7db290b896d2e81df966a14d68b6fe}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!load\-\_\-intermediates@{load\-\_\-intermediates}}
+\index{load\-\_\-intermediates@{load\-\_\-intermediates}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{load\-\_\-intermediates}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-load\-\_\-intermediates (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{intermediates\-File = {\ttfamily \char`\"{}intermediates.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_aea7db290b896d2e81df966a14d68b6fe}
+
+
+Load energies of protonation states from intermediates.\-txt. 
+
+\hypertarget{classhbnet_1_1_hb_path_a27380bf0f935a0178f5218113f13cc08}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!load\-Path\-Info@{load\-Path\-Info}}
+\index{load\-Path\-Info@{load\-Path\-Info}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{load\-Path\-Info}]{\setlength{\rightskip}{0pt plus 5cm}def hbnet.\-Hb\-Path.\-load\-Path\-Info (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f\-Name = {\ttfamily {\bf P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classhbnet_1_1_hb_path_a27380bf0f935a0178f5218113f13cc08}
+
+
+Get the key residues in the pathway, and their possible protonation states, and the initial state. 
+
+Return an object of class Path\-Config containing this information. \begin{DoxyVerb}    The file format should be like this:
+    ASPA0085  -1  0
+    HOHA0402  -1  0  1
+    HOHA0406  -1  0  1
+    ARGA0082   0  1
+    HOHA0403  -1  0  1
+    GLUA0194  -1  0
+     0 0 0 1 0 -1
+
+     The last line is the initial state.
+     The other lines give the name of the residues, following all their possible protonation states\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classhbnet_1_1_hb_path_ad4ad6ae5b069a3b4d7b275e7ce2c2b08}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!hop\-Sequences@{hop\-Sequences}}
+\index{hop\-Sequences@{hop\-Sequences}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{hop\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-hop\-Sequences}}\label{classhbnet_1_1_hb_path_ad4ad6ae5b069a3b4d7b275e7ce2c2b08}
+\hypertarget{classhbnet_1_1_hb_path_aa8bdeb3072d6d8aa5cfef98512b2c765}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!initial\-State@{initial\-State}}
+\index{initial\-State@{initial\-State}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{initial\-State}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-initial\-State}}\label{classhbnet_1_1_hb_path_aa8bdeb3072d6d8aa5cfef98512b2c765}
+\hypertarget{classhbnet_1_1_hb_path_acadff0bd1e1990b439f50002856daf4a}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!key\-Residues@{key\-Residues}}
+\index{key\-Residues@{key\-Residues}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{key\-Residues}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-key\-Residues}}\label{classhbnet_1_1_hb_path_acadff0bd1e1990b439f50002856daf4a}
+\hypertarget{classhbnet_1_1_hb_path_ab9d8f9c208c0d8001a676fa94db0c1e4}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!n\-Residues@{n\-Residues}}
+\index{n\-Residues@{n\-Residues}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{n\-Residues}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-n\-Residues}}\label{classhbnet_1_1_hb_path_ab9d8f9c208c0d8001a676fa94db0c1e4}
+\hypertarget{classhbnet_1_1_hb_path_afb0cba5a56b71bee34ab7d21e04182f9}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!possible\-Protonations@{possible\-Protonations}}
+\index{possible\-Protonations@{possible\-Protonations}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{possible\-Protonations}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-possible\-Protonations}}\label{classhbnet_1_1_hb_path_afb0cba5a56b71bee34ab7d21e04182f9}
+\hypertarget{classhbnet_1_1_hb_path_a68abdff4f3379feafefde52a57c63f62}{\index{hbnet\-::\-Hb\-Path@{hbnet\-::\-Hb\-Path}!protonation\-States@{protonation\-States}}
+\index{protonation\-States@{protonation\-States}!hbnet::HbPath@{hbnet\-::\-Hb\-Path}}
+\subsubsection[{protonation\-States}]{\setlength{\rightskip}{0pt plus 5cm}hbnet.\-Hb\-Path.\-protonation\-States}}\label{classhbnet_1_1_hb_path_a68abdff4f3379feafefde52a57c63f62}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/scripts/hb\-\_\-connection/\hyperlink{hbnet_8py}{hbnet.\-py}\end{DoxyCompactItemize}
