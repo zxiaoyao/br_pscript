@@ -1,11 +1,6 @@
 \hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence}{\section{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence Class Reference}
 \label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence}\index{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence@{xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence}}
 }
-
-
-Created on May 17, 2014.  
-
-
 Inheritance diagram for xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,26 +15,20 @@ def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_adc84862973bac63a
 def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad8e8fd6c422af62fa439fd4a9400acc4}{next\-Hop}
 \begin{DoxyCompactList}\small\item\em Get all the hopping sequences from the current one by one proton hop. \end{DoxyCompactList}\item 
 def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ad564ff72590f7a78c7ffc3a812dbf938}{get\-E\-Barrier}
-\begin{DoxyCompactList}\small\item\em Get the energy barrier of this hop sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the energy barrier of this hop sequence. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a249d22d00357e33517ede69ff718516f}{print\-Hop}
+\begin{DoxyCompactList}\small\item\em Print this hop sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}{possible\-Protonations}
-\item 
+\begin{DoxyCompactList}\small\item\em Each element is a list of all possible protonation states of a residue. \end{DoxyCompactList}\item 
 \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a5b261819492711ec0ef1e15f433ba400}{hop\-History}
 \begin{DoxyCompactList}\small\item\em Save the number of times the protonation state of the residue has been changed. \end{DoxyCompactList}\item 
 \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_af3998fce6d2d3ee13d7767730c7f9991}{energy\-Barrier}
 \item 
 \hyperlink{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a45461fb5db5f5b061b07a75ebab4fa57}{intermediates}
 \begin{DoxyCompactList}\small\item\em intermediate states during this hopping sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Detailed Description}
-Created on May 17, 2014. 
-
-\begin{DoxyAuthor}{Author}
-\-: xzhu 
-\end{DoxyAuthor}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -76,6 +65,17 @@ It's the difference between the highest energy and the energy of the initial sta
 
 Get all the hopping sequences from the current one by one proton hop. 
 
+\hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a249d22d00357e33517ede69ff718516f}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!print\-Hop@{print\-Hop}}
+\index{print\-Hop@{print\-Hop}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
+\subsubsection[{print\-Hop}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-print\-Hop (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_a249d22d00357e33517ede69ff718516f}
+
+
+Print this hop sequence. 
+
 
 
 \subsection{Member Data Documentation}
@@ -99,6 +99,10 @@ intermediate states during this hopping sequence.
 \hypertarget{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}{\index{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}!possible\-Protonations@{possible\-Protonations}}
 \index{possible\-Protonations@{possible\-Protonations}!xhbpathpy::hopSequence::HopSequence@{xhbpathpy\-::hop\-Sequence\-::\-Hop\-Sequence}}
 \subsubsection[{possible\-Protonations}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hop\-Sequence.\-Hop\-Sequence.\-possible\-Protonations}}\label{classxhbpathpy_1_1hop_sequence_1_1_hop_sequence_ae1ae68a0b84510f0eda0b61b7c533538}
+
+
+Each element is a list of all possible protonation states of a residue. 
+
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}

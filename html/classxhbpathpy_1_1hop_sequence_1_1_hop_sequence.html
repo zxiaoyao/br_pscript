@@ -94,9 +94,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">xhbpathpy.hopSequence.HopSequence Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Created on May 17, 2014.  
- <a href="classxhbpathpy_1_1hop_sequence_1_1_hop_sequence.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for xhbpathpy.hopSequence.HopSequence:</div>
 <div class="dyncontent">
@@ -116,10 +113,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad564ff72590f7a78c7ffc3a812dbf938"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxhbpathpy_1_1hop_sequence_1_1_hop_sequence.html#ad564ff72590f7a78c7ffc3a812dbf938">getEBarrier</a></td></tr>
 <tr class="memdesc:ad564ff72590f7a78c7ffc3a812dbf938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the energy barrier of this hop sequence.  <a href="#ad564ff72590f7a78c7ffc3a812dbf938">More...</a><br/></td></tr>
 <tr class="separator:ad564ff72590f7a78c7ffc3a812dbf938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a249d22d00357e33517ede69ff718516f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxhbpathpy_1_1hop_sequence_1_1_hop_sequence.html#a249d22d00357e33517ede69ff718516f">printHop</a></td></tr>
+<tr class="memdesc:a249d22d00357e33517ede69ff718516f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print this hop sequence.  <a href="#a249d22d00357e33517ede69ff718516f">More...</a><br/></td></tr>
+<tr class="separator:a249d22d00357e33517ede69ff718516f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae1ae68a0b84510f0eda0b61b7c533538"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxhbpathpy_1_1hop_sequence_1_1_hop_sequence.html#ae1ae68a0b84510f0eda0b61b7c533538">possibleProtonations</a></td></tr>
+<tr class="memdesc:ae1ae68a0b84510f0eda0b61b7c533538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each element is a list of all possible protonation states of a residue.  <a href="#ae1ae68a0b84510f0eda0b61b7c533538">More...</a><br/></td></tr>
 <tr class="separator:ae1ae68a0b84510f0eda0b61b7c533538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b261819492711ec0ef1e15f433ba400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classxhbpathpy_1_1hop_sequence_1_1_hop_sequence.html#a5b261819492711ec0ef1e15f433ba400">hopHistory</a></td></tr>
 <tr class="memdesc:a5b261819492711ec0ef1e15f433ba400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the number of times the protonation state of the residue has been changed.  <a href="#a5b261819492711ec0ef1e15f433ba400">More...</a><br/></td></tr>
@@ -130,10 +131,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a45461fb5db5f5b061b07a75ebab4fa57"><td class="mdescLeft">&#160;</td><td class="mdescRight">intermediate states during this hopping sequence.  <a href="#a45461fb5db5f5b061b07a75ebab4fa57">More...</a><br/></td></tr>
 <tr class="separator:a45461fb5db5f5b061b07a75ebab4fa57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Created on May 17, 2014. </p>
-<dl class="section author"><dt>Author</dt><dd>: xzhu </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adc84862973bac63a8e5f500898de55c3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -198,6 +196,24 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a249d22d00357e33517ede69ff718516f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def xhbpathpy.hopSequence.HopSequence.printHop </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print this hop sequence. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="af3998fce6d2d3ee13d7767730c7f9991"></a>
 <div class="memitem">
@@ -249,6 +265,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Each element is a list of all possible protonation states of a residue. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -257,7 +275,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 21 2014 08:09:43 for pscript by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 21 2014 17:44:37 for pscript by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

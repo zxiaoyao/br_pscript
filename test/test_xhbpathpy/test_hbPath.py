@@ -11,20 +11,22 @@ class Test(unittest.TestCase):
 
     def setUp(self):
         self.p = HbPath()
-        self.p.initialState.quick_init()
-        self.p.keyResidues = self.p.initialState.keyResidues
-        self.p.nResidues = len(self.p.keyResidues)
-
+        self.p.readIntermediates()
+        self.p.readHopSeqences()
 
     def tearDown(self):
         pass
 
 
     def testGetAllHopSequences(self):
-        self.p.getAllHopSequences()
-        print len(self.p.hopSequences)
+        assert(len(self.p.keyResidues) == 5)
+        assert(len(self.p.protonationStates)==12)
+#         assert(len(self.p.hopSequences) == 5)
         for eachHop in self.p.hopSequences:
             eachHop.printHop()
+            
+        for eachState in self.p.getHighEstate():
+            print eachState, eachState.energy
 
 
 if __name__ == "__main__":

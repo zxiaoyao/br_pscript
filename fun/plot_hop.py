@@ -23,7 +23,7 @@ nx.write_dot(G,'test.dot')
 # same layout using matplotlib with no labels
 plt.title("draw_networkx")
 pos=nx.graphviz_layout(G,prog='dot')
-# nx.draw(G,pos,with_labels=True,arrows=True)
-draw_attr = {'node_color':'green', 'edge_color':'yellow'}
-nx.draw_networkx(G, setPos, **draw_attr)
+nx.draw(G,pos,with_labels=True,arrows=True)
+# draw_attr = {'node_color':'green', 'edge_color':'yellow'}
+# nx.draw_networkx(G, setPos, **draw_attr)
 plt.show()

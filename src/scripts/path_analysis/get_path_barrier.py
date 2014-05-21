@@ -201,8 +201,7 @@ class HbPath(object):
 #                 print eachState, eachState.stateId                
                 
 def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.38"):
-    '''
-    Assuming residues are ordinary ones, which only can change their charges by lose or gain protons.
+    '''Assuming residues are ordinary ones, which only can change their charges by lose or gain protons.
     
     First, get all residues to be considered from "head3.lst". 
     And all the residues are assigned a default protonation state 0.
@@ -249,6 +248,7 @@ def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.
                 resProtonations[eachLine[:3] + eachLine[5:10]] = DUMMY_PROTONATION
             
     return resProtonations
+ 
         
 def getConfProtonation(confName):
     '''
@@ -265,6 +265,7 @@ def getConfProtonation(confName):
         return DUMMY_PROTONATION
     else:
         return 0
+
 
 def alterHead3ByProtonation(resProtonations, hbPath, fName="head3.lst", keepDummy=False):
     newLines = []
@@ -302,6 +303,7 @@ def alterHead3ByProtonation(resProtonations, hbPath, fName="head3.lst", keepDumm
             
     open("head3.lst", 'w').writelines(newLines)        
 
+
 def write_ms_gold(keyResidues):
     ''' write the key residues into "ms_gold" file.
     '''
@@ -310,6 +312,7 @@ def write_ms_gold(keyResidues):
     for eachRes in keyResidues:
         fp.write(eachRes + '\n')
     fp.close()
+   
    
 def loadResProtonation(fname="fixedProtonations.txt"):
     '''Return the protonation states of all residues in a dictionary.
@@ -375,9 +378,11 @@ def submit_subruns(hbPath, parentPath, runPath):
     
         os.chdir("..")
 
+
 def run_te():
     shutil.copy("/home/xzhu/pfile/submit_te.sh", ".")
     os.system("qsub submit_te.sh")
+
     
 def retrieve_info_from_microstate(hbPath, subFolder):
     '''Get energy of the protonation state from the microstates.
@@ -397,6 +402,7 @@ def retrieve_info_from_microstate(hbPath, subFolder):
             run_te()
         
         os.chdir("..")
+        
         
 def obtain_path_info(hbPath, pathFolder, subRunFolder):
     os.chdir(subRunFolder)
@@ -471,6 +477,7 @@ def obtain_path_info(hbPath, pathFolder, subRunFolder):
     fpHop.close()
     fpLowE.close()
     
+    
 def load_path_energy_info(hbPath):
     '''
     Get the energies of intermediate states and energy barriers of different hopping sequences,
@@ -494,9 +501,11 @@ def load_path_energy_info(hbPath):
             
     for eachSeq in hbPath.hopSequences:
         eachSeq.getEBarrier()
+   
        
 def print_path_info(pathName):
     pass
+      
                    
 def main():
     # need "head3.lst", "sum_crg.out", "fort.38" in parentPath

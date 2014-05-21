@@ -21,6 +21,7 @@ var searchData=
   ['showstat',['showStat',['../namespacesetuptest.html#af516d3e60e96fa382f8fbeabd15377d7',1,'setuptest']]],
   ['simpletest',['simpletest',['../namespacesimpletest.html',1,'']]],
   ['simpletest_2epy',['simpletest.py',['../simpletest_8py.html',1,'']]],
+  ['sorthopseqbyebarrier',['sortHopSeqByEbarrier',['../classxhbpathpy_1_1hb_path_1_1_hb_path.html#a0b4b8d9d382c3b83d5c8d6c0b4078604',1,'xhbpathpy::hbPath::HbPath']]],
   ['stateid',['stateId',['../classarg82__conn_1_1_protonation_state.html#aaa69f1fdb8173e169d4d70c5246bfece',1,'arg82_conn.ProtonationState.stateId()'],['../classhbnet_1_1_protonation_state.html#ad5303a482661dbcf70bce07ff287079b',1,'hbnet.ProtonationState.stateId()'],['../classget__path__barrier_1_1_protonation_state.html#a0887568cf1ad7ef61b03b9e9e0438186',1,'get_path_barrier.ProtonationState.stateId()'],['../classxhbpathpy_1_1protonation_state_1_1_protonation_state.html#a1b11cc48856d50aa8021f10bb598f648',1,'xhbpathpy.protonationState.ProtonationState.stateId()']]],
   ['statistics_5foconf',['statistics_oconf',['../namespaceoccupied__confs.html#ad0f92c5338cb5a8dee39425475e57826',1,'occupied_confs']]],
   ['stats',['stats',['../namespacestep1__to__pdb.html#ad2df9fbec0d313239d036a67c94664fb',1,'step1_to_pdb']]],

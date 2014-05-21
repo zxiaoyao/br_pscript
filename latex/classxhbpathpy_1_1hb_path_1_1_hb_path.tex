@@ -13,29 +13,47 @@ Inheritance diagram for xhbpathpy.\-hb\-Path.\-Hb\-Path\-:\begin{figure}[H]
 def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a5cb2ae7828572deb15b94fdd9b084905}{\-\_\-\-\_\-init\-\_\-\-\_\-}
 \item 
 def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a38b970ba1a1d898b8e6893051b2fb931}{load\-Path\-Info}
-\begin{DoxyCompactList}\small\item\em Get the key residues in the pathway, and their possible protonation states, and the initial state. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Load the info of the pathway for a file. \end{DoxyCompactList}\item 
 def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a377bdea72f8fd3afd312667ede3e08b7}{get\-All\-Hop\-Sequences}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get all the possible hopping sequences. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a92309ee5841a1298ab5934960bcbfd26}{write\-Intermediates}
+\begin{DoxyCompactList}\small\item\em Write all the intermediate states in file fname in current directory. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a761450c9502cb09f759990bffbea1689}{write\-Hop\-Sequences}
+\begin{DoxyCompactList}\small\item\em Write all the hop sequences in file fname in current directory. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_adb6647f256fb5560cfbfd58355724f04}{write\-Lowest\-Hop\-Seq}
+\begin{DoxyCompactList}\small\item\em Write the lowest energy barrier hopping sequences to the file \char`\"{}fname\char`\"{}. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a293190b627cd945f34c4564e586414ea}{evaluate\-Hop\-Seq\-Ebarrier}
+\begin{DoxyCompactList}\small\item\em Calculate the energy barriers of all the hopping sequences of this pathway. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a0b4b8d9d382c3b83d5c8d6c0b4078604}{sort\-Hop\-Seq\-By\-Ebarrier}
+\begin{DoxyCompactList}\small\item\em Sort the hop sequences in the list by their energy barrier. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aca89881c314dad892de2ce8867fda4cf}{read\-Intermediates}
+\begin{DoxyCompactList}\small\item\em Load the protonation states from the file which has all the states. \end{DoxyCompactList}\item 
+def \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a05f97f58d06c7ed452eb57ccd4723c69}{read\-Hop\-Seqences}
+\begin{DoxyCompactList}\small\item\em Load all the hopping sequences from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aafe90d4a4166ba875aab2cee3012cd69}{key\-Residues}
 \begin{DoxyCompactList}\small\item\em all the key residues in the pathway. \end{DoxyCompactList}\item 
-\hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a63c9f028abbc09e92aefbf4b65d00052}{possible\-Protonations}
-\begin{DoxyCompactList}\small\item\em all the possible protonation states. \end{DoxyCompactList}\item 
 \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a702f32f452e98cca922244b5d003861a}{initial\-State}
 \begin{DoxyCompactList}\small\item\em initial protonation state. \end{DoxyCompactList}\item 
-\hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a57b7e261f0510a0793102eecffd8bb62}{n\-Residues}
-\begin{DoxyCompactList}\small\item\em number of residues in the pathway. \end{DoxyCompactList}\item 
 \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a35382dbb6cd72418f95343650fde976e}{hop\-Sequences}
 \begin{DoxyCompactList}\small\item\em all the possible hopping sequences. \end{DoxyCompactList}\item 
 \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aac00fb2999e064916005328fd4032763}{protonation\-States}
-\begin{DoxyCompactList}\small\item\em all the possible protonation states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em all the possible protonation states. \end{DoxyCompactList}\item 
+\hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a46d9c978e67884c56826acc632b2b242}{lowest\-Energy\-Barrier}
+\begin{DoxyCompactList}\small\item\em the lowest energy barrier of this pathway. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f017ffdb61}{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E} = \char`\"{}pathinfo.\-txt\char`\"{}
-\end{DoxyCompactItemize}
+\item 
+string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a8749ebe7a54023db9c707cb93f3dbdad}{I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E} = \char`\"{}intermediates.\-txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em file name to write all the intermediate protonation states. \end{DoxyCompactList}\item 
+string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_ad5130eb759eb2871a8b08e21e273c393}{H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E} = \char`\"{}hop\-Sequences.\-txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em file name to write all the hopping sequences. \end{DoxyCompactList}\item 
+string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_a12f7c28f6247436f324bb976632b39b0}{L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E} = \char`\"{}lowest\-Hop\-Seq.\-txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em file name to write the lowest energy barrier hopping sequences. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -49,6 +67,20 @@ string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a293190b627cd945f34c4564e586414ea}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!evaluate\-Hop\-Seq\-Ebarrier@{evaluate\-Hop\-Seq\-Ebarrier}}
+\index{evaluate\-Hop\-Seq\-Ebarrier@{evaluate\-Hop\-Seq\-Ebarrier}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{evaluate\-Hop\-Seq\-Ebarrier}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-evaluate\-Hop\-Seq\-Ebarrier (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a293190b627cd945f34c4564e586414ea}
+
+
+Calculate the energy barriers of all the hopping sequences of this pathway. 
+
+\begin{DoxyNote}{Note}
+\-: The lowest energy barrier is calculated here as well. 
+\end{DoxyNote}
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a377bdea72f8fd3afd312667ede3e08b7}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!get\-All\-Hop\-Sequences@{get\-All\-Hop\-Sequences}}
 \index{get\-All\-Hop\-Sequences@{get\-All\-Hop\-Sequences}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
 \subsubsection[{get\-All\-Hop\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-get\-All\-Hop\-Sequences (
@@ -56,7 +88,11 @@ string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f
 \item[{}]{self}
 \end{DoxyParamCaption}
 )}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a377bdea72f8fd3afd312667ede3e08b7}
-\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a38b970ba1a1d898b8e6893051b2fb931}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!load\-Path\-Info@{load\-Path\-Info}}
+
+
+Get all the possible hopping sequences. 
+
+The path has to have already loaded an initial state, and will start from the initial state. \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a38b970ba1a1d898b8e6893051b2fb931}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!load\-Path\-Info@{load\-Path\-Info}}
 \index{load\-Path\-Info@{load\-Path\-Info}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
 \subsubsection[{load\-Path\-Info}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-load\-Path\-Info (
 \begin{DoxyParamCaption}
@@ -66,20 +102,87 @@ string \hyperlink{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f
 )}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a38b970ba1a1d898b8e6893051b2fb931}
 
 
-Get the key residues in the pathway, and their possible protonation states, and the initial state. 
+Load the info of the pathway for a file. 
 
-Return an object of class Path\-Config containing this information. \begin{DoxyVerb}    The file format should be like this:
-    ASPA0085  -1  0
-    HOHA0402  -1  0  1
-    HOHA0406  -1  0  1
-    ARGA0082   0  1
-    HOHA0403  -1  0  1
-    GLUA0194  -1  0
-     0 0 0 1 0 -1
+Get the key residues in the pathway, and their possible protonation states, and the initial state. Return an object of class Path\-Config containing this information.
 
-     The last line is the initial state.
-     The other lines give the name of the residues, following all their possible protonation states.\end{DoxyVerb}
- 
+The file format should be like this\-: A\-S\-P\-A0085 -\/1 0 H\-O\-H\-A0402 -\/1 0 1 H\-O\-H\-A0406 -\/1 0 1 A\-R\-G\-A0082 0 1 H\-O\-H\-A0403 -\/1 0 1 G\-L\-U\-A0194 -\/1 0 0 0 0 1 0 -\/1
+
+The last line is the initial state. The other lines give the name of the residues, followed by all their possible protonation states. \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a05f97f58d06c7ed452eb57ccd4723c69}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!read\-Hop\-Seqences@{read\-Hop\-Seqences}}
+\index{read\-Hop\-Seqences@{read\-Hop\-Seqences}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{read\-Hop\-Seqences}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-read\-Hop\-Seqences (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{fname = {\ttfamily {\bf H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a05f97f58d06c7ed452eb57ccd4723c69}
+
+
+Load all the hopping sequences from file. 
+
+\begin{DoxyNote}{Note}
+\-: The intermediate states have to be already loaded into the pathway. 
+\end{DoxyNote}
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_aca89881c314dad892de2ce8867fda4cf}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!read\-Intermediates@{read\-Intermediates}}
+\index{read\-Intermediates@{read\-Intermediates}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{read\-Intermediates}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-read\-Intermediates (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{fname = {\ttfamily {\bf I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_aca89881c314dad892de2ce8867fda4cf}
+
+
+Load the protonation states from the file which has all the states. 
+
+There has to be no residue already loaded into the pathway. \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a0b4b8d9d382c3b83d5c8d6c0b4078604}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!sort\-Hop\-Seq\-By\-Ebarrier@{sort\-Hop\-Seq\-By\-Ebarrier}}
+\index{sort\-Hop\-Seq\-By\-Ebarrier@{sort\-Hop\-Seq\-By\-Ebarrier}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{sort\-Hop\-Seq\-By\-Ebarrier}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-sort\-Hop\-Seq\-By\-Ebarrier (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a0b4b8d9d382c3b83d5c8d6c0b4078604}
+
+
+Sort the hop sequences in the list by their energy barrier. 
+
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a761450c9502cb09f759990bffbea1689}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!write\-Hop\-Sequences@{write\-Hop\-Sequences}}
+\index{write\-Hop\-Sequences@{write\-Hop\-Sequences}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{write\-Hop\-Sequences}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-write\-Hop\-Sequences (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{fname = {\ttfamily {\bf H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a761450c9502cb09f759990bffbea1689}
+
+
+Write all the hop sequences in file fname in current directory. 
+
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a92309ee5841a1298ab5934960bcbfd26}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!write\-Intermediates@{write\-Intermediates}}
+\index{write\-Intermediates@{write\-Intermediates}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{write\-Intermediates}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-write\-Intermediates (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{fname = {\ttfamily {\bf I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a92309ee5841a1298ab5934960bcbfd26}
+
+
+Write all the intermediate states in file fname in current directory. 
+
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_adb6647f256fb5560cfbfd58355724f04}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!write\-Lowest\-Hop\-Seq@{write\-Lowest\-Hop\-Seq}}
+\index{write\-Lowest\-Hop\-Seq@{write\-Lowest\-Hop\-Seq}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{write\-Lowest\-Hop\-Seq}]{\setlength{\rightskip}{0pt plus 5cm}def xhbpathpy.\-hb\-Path.\-Hb\-Path.\-write\-Lowest\-Hop\-Seq (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{fname = {\ttfamily {\bf L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E}}}
+\end{DoxyParamCaption}
+)}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_adb6647f256fb5560cfbfd58355724f04}
+
+
+Write the lowest energy barrier hopping sequences to the file \char`\"{}fname\char`\"{}. 
+
+Now it's preferred to get this infor the all the hopping sequences. 
 
 \subsection{Member Data Documentation}
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a35382dbb6cd72418f95343650fde976e}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!hop\-Sequences@{hop\-Sequences}}
@@ -89,12 +192,26 @@ Return an object of class Path\-Config containing this information. \begin{DoxyV
 
 all the possible hopping sequences. 
 
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_ad5130eb759eb2871a8b08e21e273c393}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E@{H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E}}
+\index{H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E@{H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}string xhbpathpy.\-hb\-Path.\-Hb\-Path.\-H\-O\-P\-S\-E\-Q\-U\-E\-N\-C\-E\-S\-\_\-\-F\-N\-A\-M\-E = \char`\"{}hop\-Sequences.\-txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_ad5130eb759eb2871a8b08e21e273c393}
+
+
+file name to write all the hopping sequences. 
+
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a702f32f452e98cca922244b5d003861a}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!initial\-State@{initial\-State}}
 \index{initial\-State@{initial\-State}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
 \subsubsection[{initial\-State}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hb\-Path.\-Hb\-Path.\-initial\-State}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a702f32f452e98cca922244b5d003861a}
 
 
 initial protonation state. 
+
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a8749ebe7a54023db9c707cb93f3dbdad}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E@{I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E}}
+\index{I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E@{I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}string xhbpathpy.\-hb\-Path.\-Hb\-Path.\-I\-N\-T\-E\-R\-M\-E\-D\-I\-A\-T\-E\-S\-\_\-\-F\-N\-A\-M\-E = \char`\"{}intermediates.\-txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a8749ebe7a54023db9c707cb93f3dbdad}
+
+
+file name to write all the intermediate protonation states. 
 
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_aafe90d4a4166ba875aab2cee3012cd69}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!key\-Residues@{key\-Residues}}
 \index{key\-Residues@{key\-Residues}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
@@ -103,23 +220,23 @@ initial protonation state.
 
 all the key residues in the pathway. 
 
-\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a57b7e261f0510a0793102eecffd8bb62}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!n\-Residues@{n\-Residues}}
-\index{n\-Residues@{n\-Residues}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
-\subsubsection[{n\-Residues}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hb\-Path.\-Hb\-Path.\-n\-Residues}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a57b7e261f0510a0793102eecffd8bb62}
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a46d9c978e67884c56826acc632b2b242}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!lowest\-Energy\-Barrier@{lowest\-Energy\-Barrier}}
+\index{lowest\-Energy\-Barrier@{lowest\-Energy\-Barrier}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{lowest\-Energy\-Barrier}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hb\-Path.\-Hb\-Path.\-lowest\-Energy\-Barrier}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a46d9c978e67884c56826acc632b2b242}
 
 
-number of residues in the pathway. 
+the lowest energy barrier of this pathway. 
+
+\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a12f7c28f6247436f324bb976632b39b0}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E@{L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E}}
+\index{L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E@{L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
+\subsubsection[{L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}string xhbpathpy.\-hb\-Path.\-Hb\-Path.\-L\-O\-W\-E\-S\-T\-H\-O\-P\-S\-E\-Q\-\_\-\-F\-N\-A\-M\-E = \char`\"{}lowest\-Hop\-Seq.\-txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a12f7c28f6247436f324bb976632b39b0}
+
+
+file name to write the lowest energy barrier hopping sequences. 
 
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f017ffdb61}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E@{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}}
 \index{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E@{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
 \subsubsection[{P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}string xhbpathpy.\-hb\-Path.\-Hb\-Path.\-P\-A\-T\-H\-\_\-\-I\-N\-F\-O\-\_\-\-F\-I\-L\-E = \char`\"{}pathinfo.\-txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_aad2661f44ffc401393a1e8f017ffdb61}
-\hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_a63c9f028abbc09e92aefbf4b65d00052}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!possible\-Protonations@{possible\-Protonations}}
-\index{possible\-Protonations@{possible\-Protonations}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
-\subsubsection[{possible\-Protonations}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hb\-Path.\-Hb\-Path.\-possible\-Protonations}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_a63c9f028abbc09e92aefbf4b65d00052}
-
-
-all the possible protonation states. 
-
 \hypertarget{classxhbpathpy_1_1hb_path_1_1_hb_path_aac00fb2999e064916005328fd4032763}{\index{xhbpathpy\-::hb\-Path\-::\-Hb\-Path@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}!protonation\-States@{protonation\-States}}
 \index{protonation\-States@{protonation\-States}!xhbpathpy::hbPath::HbPath@{xhbpathpy\-::hb\-Path\-::\-Hb\-Path}}
 \subsubsection[{protonation\-States}]{\setlength{\rightskip}{0pt plus 5cm}xhbpathpy.\-hb\-Path.\-Hb\-Path.\-protonation\-States}}\label{classxhbpathpy_1_1hb_path_1_1_hb_path_aac00fb2999e064916005328fd4032763}
