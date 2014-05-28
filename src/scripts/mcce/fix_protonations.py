@@ -2,6 +2,9 @@
 
 DUMMY_PROTONATION = 211
 
+'''To-do add some expanation here, otherwise it's hard to use next time.'''
+
+
 def getAllResProtonation(fnHead3="head3.lst", fnCrg="sum_crg.out", fnFort="fort.38"):
     '''Assuming residues are ordinary ones, which only can change their charges by lose or gain protons.
     
