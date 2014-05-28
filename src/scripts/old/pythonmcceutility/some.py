@@ -21,7 +21,7 @@ def findSurfaceResidues(objSel="(all)", cutoff=2.5, doShow=False, verbose=False)
             DEFAULT: (all)
  
         cutoff (float)
-            your cutoff of what is exposed or not. 
+            your cutoff of what is exposed or not.
             DEFAULT: 2.5 Ang**2
  
         asSel (boolean)
