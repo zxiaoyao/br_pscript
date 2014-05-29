@@ -21,7 +21,7 @@ def main():
         
     sourceRes = args.source
     targetRes = args.target
-    get_path_two_resid
+    get_path_two_residues(fName, sourceRes, targetRes, pathCutoff, edgeCutoff)
     
     
 def get_path_two_residues(hbfile, source, target, lenLessThan, threshold):
