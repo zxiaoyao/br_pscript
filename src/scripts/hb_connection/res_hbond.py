@@ -24,7 +24,7 @@ def main():
     get_path_two_residues(fName, sourceRes, targetRes, pathCutoff, edgeCutoff)
     
     
-def get_path_two_residues(hbfile, source, target, lenLessThan, threshold):
+def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff):
     '''Get all the pathways between two residues.
     
     The weight of each edge should be larger than or equal to the threshold,
