@@ -5,6 +5,7 @@ Created on Aug 1, 2013
 @author: xzhu
 '''
 import networkx as nx
+import argparse
 #import matplotlib.pyplot as plt
 from time import time
 import os, sys
@@ -163,12 +164,20 @@ class AtomNet(object):
                 self.printShortestPath(sAtom, tAtom)
     
 
-def main():   
+def main():  
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", help="the source residue")
+    parser.add_argument("-t", help="the target residue") 
+    parser.add_argument("fname", help="file name of hah.txt", default="hah.txt", nargs='?')
+    args = parser.parse_args()
+    
     time_start = time()
     atomNet = AtomNet()
-    atomNet.obtainNetworkFromFile()
+    atomNet.obtainNetworkFromFile(args.fname)
+    atomNet.shortestPathBetweenResidues(args.s, args.t)
+    
 #     atomNet.loadGraph()    
-    atomNet.store_atomreshb("atomreshb.txt")
+#     atomNet.store_atomreshb("atomreshb.txt")
 
 #     atomNet.shortestPathBetweenResidues(sys.argv[1], sys.argv[2])
 #     atomNet.shortestPathBetweenResidues("ASPA0085", "ARGA0082")

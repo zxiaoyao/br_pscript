@@ -14,10 +14,6 @@ def main():
     fName = args.fName
     edgeCutoff = args.threshold
     pathCutoff = args.lenLessThan
-    
-    MIDDLE_RES = "ARGA0082"
-    
-    
         
     sourceRes = args.source
     targetRes = args.target
@@ -31,6 +27,8 @@ def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff):
     and the length of the pathway should be equal to or less than the number specified by lenLessThan.
     
     '''
+    MIDDLE_RES = "ARGA0082"
+    
     g = nx.Graph()
     for eachLine in open(hbfile):
         fields = eachLine.split()
