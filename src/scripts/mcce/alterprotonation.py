@@ -4,6 +4,7 @@ Created on Jun 19, 2013
 
 @author: xzhu
 '''
+import sys
 DUMMY_CONFORMER = 211
 
 def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile="head3.lst"):
@@ -73,6 +74,7 @@ def fix_head3(fixList, ifile = 'head3.lst'):
 
     open(ifile, 'w').writelines(lines)
 
+
 def freeAllConformers(residues=None, headerFile="head3.lst"):
     '''
     Change the flag of all the conformers of some residues to 'f',
@@ -97,9 +99,34 @@ def freeAllConformers(residues=None, headerFile="head3.lst"):
         
     open(headerFile, 'w').writelines(newLines)
     
+
+def read_fix_protonation_file(fname):
+    '''Read the file which has info of fixed residue protonations.
+    
+    '''
+    res_protonations = {}
+    for eachLine in open(fname):
+        fields = eachLine.split()
+        res_protonations[fields[0]] = int(fields[1])
+        
+    return res_protonations
+    
+    
+def change_hflag_according_to_file(fname, hfile="head3.lst"):
+    '''Change the flag of conformers in head3.lst.
+    
+    '''
+    res_protonations = read_fix_protonation_file(fname)
+    fixHead3ByNumberOfProtons(res_protonations, ofile=sys.stdout)
+        
+        
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("resProtonfile", help="file has residue protonations")
+    
+    args = parser.parse_args()
+    change_hflag_according_to_file(args.resProtonfile)        
+        
 if __name__ == '__main__':
-    #sampDir = {'DO_MONTE':'t'}
-    #mdRunPrm(sampDir, sys.argv[1])
-    fList = {"ASPA0085":0, "RSBA0216":1}
-    #fixHead3ByNumberOfProtons(fList, reverse=True, headerFile="../head3.lst")
-    freeAllConformers("RSBA0216", "../head3.lst")
+    main()
