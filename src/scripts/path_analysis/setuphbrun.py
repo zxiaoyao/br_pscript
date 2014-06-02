@@ -7,23 +7,25 @@ possibleIonization["TYR"] = ['-', '0']
 possibleIonization["LYS"] = ['0', '+']
 
 def isValidPath(path):
+    '''Test if each residue in the pathway has a neutral protonation state.
+    
+    '''
     is_valid = True
     for eachResidue in path:
         if len(possibleIonization.get(eachResidue[:3], ['0'])) == 1:
             print eachResidue
             is_valid = False
             break
+        
     return is_valid
 
+
 def getAllPaths():
-    #import matplotlib.pyplot as plt
+    '''Get all the pathways.
     
-    g = nx.read_weighted_edgelist("hb.txt")   
-    
-    #print g["ASPA0085"]["HOHA0402"]
-    
-    
-         
+    Between ASPA0085 and GLUA0194.
+    '''
+    g = nx.read_weighted_edgelist("hb.txt")                
     fp = open("allpaths.txt", 'w')
     
     try:
@@ -31,29 +33,25 @@ def getAllPaths():
         for eachPath in nx.all_shortest_paths(g, u"ASPA0085", u"GLUA0194"):
             if not isValidPath(eachPath):
                 continue
+            
             fp.write("path%d" % counter)
             for eachResidue in eachPath:
                 fp.write('%10s' % eachResidue)
             fp.write('\n')
+            
             counter += 1
     except nx.exception.NetworkXNoPath:
         fp.write("No connected pathway\n")
     finally:
         fp.close()
-       
-    
-    #for p in nx.all_shortest_paths(g, u"ASPA0085", u"GLUA0194", weight='weight'):
-    #    print p
-       
-    #nx.graphviz_layout(g)
-    #nx.draw(g)
-    #plt.show()
+        
 
 def writeftxt(keyResidues):
     fp = open("f.txt", 'w')
     for eachResidue in keyResidues:
         fp.write(eachResidue + '\n')
     fp.close()
+    
     
 def getInitialStates(keyResidues):
     initStates = []
