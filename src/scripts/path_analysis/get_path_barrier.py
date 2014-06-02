@@ -325,7 +325,7 @@ def loadResProtonation(fname="fixedProtonations.txt"):
      
     
 def submit_subruns(hbPath, parentPath, runPath):
-    from mdRunPrm import mdRunPrm
+    from xmccepy.mdRunPrm import mdRunPrm
 #     resProtonations = getAllResProtonation(os.path.join(parentPath, "head3.lst"),\
 #                                            os.path.join(parentPath, "sum_crg.out"),\
 #                                            os.path.join(parentPath, "fort.38"))
