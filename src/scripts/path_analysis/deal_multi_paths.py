@@ -1,19 +1,21 @@
 #!/usr/bin/python
 import os, sys, shutil, argparse
 
+GET_PATH_BARRIER_CMD = "/home/xzhu/bin/br_pscript/src/scripts/path_analysis/get_path_barrier.py"
+
 def submit_multi_paths(pathInfoFile="allPaths.txt"):
     if os.path.exists(pathInfoFile):
         for eachLine in open(pathInfoFile):
             fields = eachLine.split()
             pathName = fields[0]
-            os.system("/home/xzhu/bin/pythonScript/get_path_barrier.py -s " + pathName)
+            os.system(GET_PATH_BARRIER_CMD + " -s " + pathName)
 
 def retrieve_multi_paths(pathInfoFile="allPaths.txt", outputFile="pathStatistics.txt"):
     if os.path.exists(pathInfoFile):
         for eachLine in open(pathInfoFile):        
             fields = eachLine.split()
             pathName = fields[0]
-            os.system("/home/xzhu/bin/pythonScript/get_path_barrier.py -r " + pathName)
+            os.system(GET_PATH_BARRIER_CMD + " -r " + pathName)
         
 def obtain_multi_paths(pathInfoFile="allPaths.txt", outputFile="pathStatistics.txt"):
     if os.path.exists(pathInfoFile):
@@ -21,7 +23,7 @@ def obtain_multi_paths(pathInfoFile="allPaths.txt", outputFile="pathStatistics.t
         for eachLine in open(pathInfoFile):
             fields = eachLine.split()
             pathName = fields[0]
-            os.system("/home/xzhu/bin/pythonScript/get_path_barrier.py -p " + pathName)
+            os.system(GET_PATH_BARRIER_CMD + " -p " + pathName)
             path_energy_fp = open(os.path.join(pathName, "lowestHopSeq.txt"), 'r')
             energyBarrier = float(path_energy_fp.readline().split()[-1])
             initEnergy = float(path_energy_fp.readline().split()[-1])
