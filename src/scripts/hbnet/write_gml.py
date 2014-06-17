@@ -23,14 +23,18 @@ import os
 from argparse import ArgumentParser
 from argparse import RawDescriptionHelpFormatter
 
+from xhbpathpy.hbResNet import HbResNet
+
 __all__ = []
 __version__ = 0.1
 __date__ = '2014-06-16'
 __updated__ = '2014-06-16'
 
-DEBUG = 1
+DEBUG = 0
 TESTRUN = 0
 PROFILE = 0
+
+HB_TXT = "hb.txt"
 
 class CLIError(Exception):
     '''Generic exception to raise and log different fatal errors.'''
@@ -42,6 +46,41 @@ class CLIError(Exception):
     def __unicode__(self):
         return self.msg
 
+
+def write_gml():
+    '''Write a gml file for the graph g.
+    
+    '''
+    g = readHbNet()
+    
+    print "graph ["
+    
+    counter = 1
+    for eachNode in g.nodes():
+        eachNode.id = counter
+        print eachNode.convertToGml(),
+        counter += 1
+        
+    for u,v,edata in g.edges(data=True):
+        edata["edata"].source = u.id
+        edata["edata"].target = v.id
+        print edata["edata"].convertToGml(),
+        
+#     for u,v,edata in g.edges(data=True):
+#         print u.id, v.id, edata["edata"].weight, edata["edata"].width
+    
+    print "]"
+    
+def readHbNet(fname=HB_TXT):
+    '''Loat the hb network from file "hb.txt".
+    
+    '''
+    hbn = HbResNet()
+    hbn.readFromHbTxt(fname)
+    
+    return hbn.convertGraph(edgeCutoff=0.001, singleEdge=True, undirected=True)
+
+    
 def main(argv=None): # IGNORE:C0111
     '''Command line options.'''
 
@@ -70,37 +109,21 @@ USAGE
 ''' % (program_shortdesc, str(__date__))
 
     try:
-        # Setup argument parser
         parser = ArgumentParser(description=program_license, formatter_class=RawDescriptionHelpFormatter)
-        parser.add_argument("-r", "--recursive", dest="recurse", action="store_true", help="recurse into subfolders [default: %(default)s]")
         parser.add_argument("-v", "--verbose", dest="verbose", action="count", help="set verbosity level [default: %(default)s]")
-        parser.add_argument("-i", "--include", dest="include", help="only include paths matching this regex pattern. Note: exclude is given preference over include. [default: %(default)s]", metavar="RE" )
-        parser.add_argument("-e", "--exclude", dest="exclude", help="exclude paths matching this regex pattern. [default: %(default)s]", metavar="RE" )
         parser.add_argument('-V', '--version', action='version', version=program_version_message)
-        parser.add_argument(dest="paths", help="paths to folder(s) with source file(s) [default: %(default)s]", metavar="path", nargs='+')
 
         # Process arguments
         args = parser.parse_args()
 
-        paths = args.paths
         verbose = args.verbose
-        recurse = args.recurse
-        inpat = args.include
-        expat = args.exclude
+
 
         if verbose > 0:
             print("Verbose mode on")
-            if recurse:
-                print("Recursive mode on")
-            else:
-                print("Recursive mode off")
 
-        if inpat and expat and inpat == expat:
-            raise CLIError("include and exclude pattern are equal! Nothing will be processed.")
-
-        for inpath in paths:
-            ### do something with inpath ###
-            print(inpath)
+        write_gml()
+        
         return 0
     except KeyboardInterrupt:
         ### handle keyboard interrupt ###
@@ -108,28 +131,12 @@ USAGE
     except Exception, e:
         if DEBUG or TESTRUN:
             raise(e)
+        
         indent = len(program_name) * " "
         sys.stderr.write(program_name + ": " + repr(e) + "\n")
         sys.stderr.write(indent + "  for help use --help")
         return 2
 
+
 if __name__ == "__main__":
-    if DEBUG:
-        sys.argv.append("-h")
-        sys.argv.append("-v")
-        sys.argv.append("-r")
-    if TESTRUN:
-        import doctest
-        doctest.testmod()
-    if PROFILE:
-        import cProfile
-        import pstats
-        profile_filename = 'write_gml_profile.txt'
-        cProfile.run('main()', profile_filename)
-        statsfile = open("profile_stats.txt", "wb")
-        p = pstats.Stats(profile_filename, stream=statsfile)
-        stats = p.strip_dirs().sort_stats('cumulative')
-        stats.print_stats()
-        statsfile.close()
-        sys.exit(0)
     sys.exit(main())
