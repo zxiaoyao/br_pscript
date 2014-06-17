@@ -5,10 +5,10 @@ import argparse
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("fName", help="hb network file name")
-    parser.add_argument("-t", dest="threshold", help="add an edge if probability is larger than or equal to the threshold", type=float, default=-1.0)
-    parser.add_argument("-source", help="source node", default="ASPA0085")
-    parser.add_argument("-target", help="target node", default="GLUA0194")
-    parser.add_argument("-lenLessThan", help="longest length a path has", default=6)
+    parser.add_argument("-c", dest="threshold", help="add an edge if probability is larger than or equal to the threshold", type=float, default=-1.0)
+    parser.add_argument("--source", "-s", dest="source", help="source node", default="ASPA0085")
+    parser.add_argument("--target", "-t", dest="target", help="target node", default="GLUA0194")
+    parser.add_argument("--lenLessThan", "-a", dest="lenLessThan", help="longest length a path has", default=6)
     args = parser.parse_args()
     
     fName = args.fName
