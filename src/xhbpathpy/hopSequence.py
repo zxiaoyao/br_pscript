@@ -82,6 +82,3 @@ class HopSequence(object):
             for i in range(len(eachState.keyResidues)):
                 print "%10s" % eachState.protonations[i],
             print
-                         
- 
-        

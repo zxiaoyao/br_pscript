@@ -3,13 +3,27 @@ Created on May 17, 2014
 
 @author: xzhu
 '''
+from collections import deque
+
 from protonationState import ProtonationState
 from hopSequence import HopSequence
+
 from xmccepy.residue import Residue
-from collections import deque
 from xutility.constant import CONVERT_PROTONATION_SYMBOL, CONVERT_SYMBOL_PROTONATION
 
+'''
+
+@note: 
+To load a pathway from a folder in which the calculation has been done,
+first read in all the intermediates from the text file "intermediates.txt",
+then read all the possible hopping sequences from file "hopSequences.txt".
+
+'''
+
 class HbPath(object):
+    '''Pathway from the hydrogen bond network.
+    
+    '''
     PATH_INFO_FILE = "pathinfo.txt"
     
     ## file name to write all the intermediate protonation states.
@@ -22,6 +36,9 @@ class HbPath(object):
     LOWESTHOPSEQ_FNAME = "lowestHopSeq.txt"
     
     def __init__(self):
+        '''Constructor.
+        
+        '''
         ## all the key residues in the pathway.
         self.keyResidues = []
         
@@ -38,7 +55,7 @@ class HbPath(object):
         self.lowestEnergyBarrier = 0.0
         
         
-    def loadPathInfo(self, fName = PATH_INFO_FILE):
+    def loadPathInfo(self, fName=PATH_INFO_FILE):
         '''Load the info of the pathway for a file.
         
         Get the key residues in the pathway, and their possible protonation states, 
@@ -86,7 +103,7 @@ class HbPath(object):
         
         
     def getAllHopSequences(self):
-        '''Get all the possible hopping sequences.
+        '''Get all the possible hopping sequences given an initial state.
         
         The path has to have already loaded an initial state, and will start from the initial state.
         
@@ -165,9 +182,7 @@ class HbPath(object):
         
         '''
         # sort all the possible hopping sequences, by the energy barrier
-        
-            
-        
+         
         fpHop = open(fname, 'w')
         
         for eachSeq in self.hopSequences:
@@ -187,7 +202,7 @@ class HbPath(object):
     def writeLowestHopSeq(self, fname=LOWESTHOPSEQ_FNAME):
         '''Write the lowest energy barrier hopping sequences to the file "fname".
         
-        Now it's preferred to get this infor the all the hopping sequences.
+        Now it's preferred to get this info from all the hopping sequences.
         
         '''
         fpLowE = open(fname, 'w')
