@@ -53,16 +53,18 @@ class HbResNode(object):
         '''
         res = ""
         
-        res += "\tnode [\n"
-        res += "\tid %d\n" % self.id
-        res += '\tlabel "%s"\n' % self.residue.resName 
+        INDENT = " " * 5
+        res += "%snode [\n"  % INDENT
         
-        res += "\tx %10.3f\n" % self.x 
-        res += "\ty %10.3f\n" % self.y 
-        res += "\tz %10.3f\n" % self.z
+        res += "%sid %d\n" % (INDENT, self.id)
+        res += '%slabel "%s"\n' % (INDENT, self.residue.resName) 
         
-        res += "\tcolor %d\n" % self.color
-        res += "\t]\n"  
+        res += "%sx %d\n" % (INDENT, self.x) 
+        res += "%sy %df\n" % (INDENT, self.y) 
+        res += "%sz %df\n" % (INDENT, self.z)
+        
+        res += "%scolor %d\n" % (INDENT, self.color)
+        res += "%s]\n" % (INDENT)  
         
         return res
     
@@ -84,9 +86,9 @@ class HbResNode(object):
             else:
                 if aName != " CB ": continue
         
-            self.x = float(eachLine[30:38]) * HbResNode.scale
-            self.y = float(eachLine[38:46]) * HbResNode.scale
-            self.z = float(eachLine[46:54]) * HbResNode.scale
+            self.x = int(float(eachLine[30:38]) * HbResNode.scale)
+            self.y = int(float(eachLine[38:46]) * HbResNode.scale)
+            self.z = int(float(eachLine[46:54]) * HbResNode.scale)
             break
             
             

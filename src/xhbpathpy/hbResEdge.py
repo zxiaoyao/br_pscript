@@ -26,14 +26,16 @@ class HbResEdge(object):
         '''Write the edge to gml file.
         
         '''
-        res = "\tedge[\n"
-    
-        res += "\tsource %d\n" % self.sNode.id
-        res += "\ttarget %d\n" % self.tNode.id
-        res += "\tweight %10.3f\n" % self.weight
-        res += "\twidth %10.3f\n" % self.width
-        res += "\tdashed %d\n" % self.dashed  
+        INDENT = " " * 5
         
-        res += "\t]\n"
+        res = "%sedge[\n" % INDENT
+    
+        res += "%ssource %d\n" % (INDENT, self.sNode.id)
+        res += "%starget %d\n" % (INDENT, self.tNode.id)
+        res += "%sweight %.3f\n" % (INDENT, self.weight)
+        res += "%swidth %.1f\n" % (INDENT, self.width)
+        res += "%sdashed %d\n" % (INDENT, self.dashed)  
+        
+        res += "%s]\n" % INDENT
         
         return res
