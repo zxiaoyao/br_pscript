@@ -28,7 +28,7 @@ class HbResEdge(object):
         '''
         INDENT = " " * 5
         
-        res = "%sedge[\n" % INDENT
+        res = "%sedge [\n" % INDENT
     
         res += "%ssource %d\n" % (INDENT, self.sNode.id)
         res += "%starget %d\n" % (INDENT, self.tNode.id)
