@@ -88,13 +88,5 @@ class HbResNet(object):
             
         return g 
     
-    
-    def getNodeCorr(self, fname=COOR_PDB):
-        '''Get the x,y,z coordinates of the nodes in the graph.
+
         
-        '''
-        # Read pdb file.
-        pbdLines = open(fname).readlines()
-        
-        for eachNode in self.graph.nodes():
-            pass

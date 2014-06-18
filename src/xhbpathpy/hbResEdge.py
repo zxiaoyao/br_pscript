@@ -39,3 +39,7 @@ class HbResEdge(object):
         res += "%s]\n" % INDENT
         
         return res
+    
+    
+    
+        
