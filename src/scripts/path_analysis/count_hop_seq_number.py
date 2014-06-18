@@ -33,4 +33,4 @@ def parsePath(fname="allPaths.txt"):
         
         
 if __name__ == '__main__':
-    print countHopSeqNumber()
+    parsePath()
