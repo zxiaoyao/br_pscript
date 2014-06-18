@@ -1,4 +1,4 @@
-#!/usr/local/bin/python2.7
+#!/usr/bin/env python
 # encoding: utf-8
 '''
 write_gml -- write a graph in a gml file
@@ -58,18 +58,15 @@ def write_gml():
     counter = 1
     for eachNode in g.nodes():
         eachNode.id = counter
-        print eachNode.convertToGml(),
-        counter += 1
+#         print eachNode.convertToGml(),
+        counter += 1    
         
     for u,v,edata in g.edges(data=True):
-        edata["edata"].source = u.id
-        edata["edata"].target = v.id
         print edata["edata"].convertToGml(),
         
-#     for u,v,edata in g.edges(data=True):
-#         print u.id, v.id, edata["edata"].weight, edata["edata"].width
     
     print "]"
+    
     
 def readHbNet(fname=HB_TXT):
     '''Loat the hb network from file "hb.txt".
@@ -78,7 +75,7 @@ def readHbNet(fname=HB_TXT):
     hbn = HbResNet()
     hbn.readFromHbTxt(fname)
     
-    return hbn.convertGraph(edgeCutoff=0.001, singleEdge=True, undirected=True)
+    return hbn.convertGraph(edgeCutoff=0.01, singleEdge=True, undirected=True)
 
     
 def main(argv=None): # IGNORE:C0111

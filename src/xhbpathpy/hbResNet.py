@@ -35,11 +35,23 @@ class HbResNet(object):
     def readFromHbTxt(self, fname=HB_TXT):
         '''Load the network from hb.txt file.
         
-        '''
+        '''        
+        nameToNode = {}
+        
         for eachLine in open(fname):
             fields = eachLine.split()
-            sNode = HbResNode(fields[0])
-            tNode = HbResNode(fields[1])
+            
+            if fields[0] in nameToNode:
+                sNode = nameToNode[fields[0]]
+            else:
+                sNode = HbResNode(fields[0])
+                nameToNode[fields[0]] = sNode
+            
+            if fields[1] in nameToNode:
+                tNode = nameToNode[fields[1]]
+            else:
+                tNode = HbResNode(fields[1])
+                nameToNode[fields[1]] = tNode
             
             eAttr = HbResEdge()
             eAttr.sNode = sNode
@@ -48,7 +60,12 @@ class HbResNet(object):
             eAttr.width = HbResNet.weightToWidth(eAttr.weight)
             eAttr.dashed = 0
             
+#             self.graph.add_edge(sNode, tNode)
             self.graph.add_edge(sNode, tNode, edata=eAttr)
+# 
+#         for u,v,edata in self.graph.edges(data=True):
+#             edata["edata"].sNode = u
+#             edata["edata"].tNode = v            
             
             
     def convertGraph(self, edgeCutoff=0.001, singleEdge=True, undirected=True):
@@ -63,11 +80,14 @@ class HbResNet(object):
         if singleEdge:
             for u,v,edata in self.graph.edges(data=True):
                 if edata["edata"].weight < edgeCutoff: continue
-                if self.graph.has_edge(v, u):
-                    if self.graph[v][u]["edata"].weight > edata["edata"].weight:
-                        g.add_edge(v, u, edata=self.graph[v][u]["edata"])
-                else:
+                if g.has_edge(v, u):
+                    if g[v][u]["edata"].weight > edata["edata"].weight: continue
+                    else:
+                        g.remove_edge(v, u)
+                        g.add_edge(u, v, edata=self.graph[u][v]["edata"])
+                else: 
                     g.add_edge(u, v, edata=self.graph[u][v]["edata"])
+                    
         else:
             g = self.graph.to_undirected()
             
@@ -81,5 +101,5 @@ class HbResNet(object):
         # Read pdb file.
         pbdLines = open(fname).readlines()
         
-        for eachNode in g.nodes():
+        for eachNode in self.graph.nodes():
             pass

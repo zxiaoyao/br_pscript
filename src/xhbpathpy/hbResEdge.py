@@ -18,8 +18,6 @@ class HbResEdge(object):
         self.sNode = sNode
         self.tNode = tNode
         
-        self.source = 0
-        self.target = 0
         self.weight = 0.0
         self.width = 0.0
         self.dashed = 0
@@ -30,8 +28,8 @@ class HbResEdge(object):
         '''
         res = "\tedge[\n"
     
-        res += "\tsource %d\n" % self.source
-        res += "\ttarget %d\n" % self.target
+        res += "\tsource %d\n" % self.sNode.id
+        res += "\ttarget %d\n" % self.tNode.id
         res += "\tweight %10.3f\n" % self.weight
         res += "\twidth %10.3f\n" % self.width
         res += "\tdashed %d\n" % self.dashed  

@@ -10,17 +10,14 @@ class HbResNode(object):
     Node of hb network which represents a residue.
     '''
 
-
-    def __init__(self, resName=None):
+    def __init__(self, resName="", nid=0):
         '''
         Constructor
         '''
-        self.id = 0
+        self.id = nid
         
-        if resName:
-            self.residue = Residue(resName)
-        else:
-            self.residue = Residue()
+        self.residue = Residue(resName)
+
                 
         self.x = 0.0
         self.y = 0.0
@@ -34,6 +31,7 @@ class HbResNode(object):
         
         '''
         return hash(self.residue.resName)
+                   
     
     
     def __cmp__(self, other):
