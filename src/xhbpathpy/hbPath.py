@@ -156,19 +156,19 @@ class HbPath(object):
         
         '''
         # sort all the intermediate states, first by layer, then by energy. 
-        hbPath.protonationStates = sorted(hbPath.protonationStates, key=lambda state: (state.layer, state.energy)) 
-        for i in range(len(hbPath.protonationStates)):
-            hbPath.protonationStates[i].stateId = i + 1
+        self.protonationStates = sorted(self.protonationStates, key=lambda state: (state.layer, state.energy)) 
+        for i in range(len(self.protonationStates)):
+            self.protonationStates[i].stateId = i + 1
             
         fpIntermediates = open(fname, 'w')
         
         
         fpIntermediates.write("%-6s" % "id")
-        for res in hbPath.keyResidues:
+        for res in self.keyResidues:
             fpIntermediates.write("%9s" % res.resName)
             fpIntermediates.write("%10s\n" % "E")
     
-        for eachState in hbPath.protonationStates:
+        for eachState in self.protonationStates:
             fpIntermediates.write("%-6s" % eachState.stateId)
             for eachProtonation in eachState.protonations:
                 fpIntermediates.write("%9s" % CONVERT_PROTONATION_SYMBOL[eachProtonation])
