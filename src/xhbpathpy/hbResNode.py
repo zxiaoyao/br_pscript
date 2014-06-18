@@ -60,8 +60,8 @@ class HbResNode(object):
         res += '%slabel "%s"\n' % (INDENT, self.residue.resName) 
         
         res += "%sx %d\n" % (INDENT, self.x) 
-        res += "%sy %df\n" % (INDENT, self.y) 
-        res += "%sz %df\n" % (INDENT, self.z)
+        res += "%sy %d\n" % (INDENT, self.y) 
+        res += "%sz %d\n" % (INDENT, self.z)
         
         res += "%scolor %d\n" % (INDENT, self.color)
         res += "%s]\n" % (INDENT)  
