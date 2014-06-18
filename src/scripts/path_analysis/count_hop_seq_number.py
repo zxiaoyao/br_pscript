@@ -25,6 +25,10 @@ def parsePath(fname="allPaths.txt"):
     '''Go to each path folder.
     
     '''
+    if not os.path.exists(fname) or (len(open(fname).readlines()) == 0): 
+        print "File %s doesn't exist or empty." % fname
+        return
+    
     for eachLine in open(fname):
         pathName = eachLine.split()[0]
         os.chdir(pathName)
