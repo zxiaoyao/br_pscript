@@ -35,6 +35,7 @@ TESTRUN = 0
 PROFILE = 0
 
 HB_TXT = "hb.txt"
+PDB_COOR = "step1_out.pdb"
 
 class CLIError(Exception):
     '''Generic exception to raise and log different fatal errors.'''
@@ -47,35 +48,41 @@ class CLIError(Exception):
         return self.msg
 
 
-def write_gml():
+def write_gml(fname=HB_TXT, pdbCoor=PDB_COOR, edgeCutoff=0.01, singleEdge=True, undirected=True):
     '''Write a gml file for the graph g.
     
     '''
-    g = readHbNet()
+    g = readHbNet(fname, edgeCutoff, singleEdge, undirected)
     
     print "graph ["
     
     counter = 1
     for eachNode in g.nodes():
         eachNode.id = counter
-#         print eachNode.convertToGml(),
+        
+        eachNode.retrieveCorr(pdbCoor)
+        eachNode.getResColor()
+          
+        print eachNode.convertToGml(),
         counter += 1    
         
     for u,v,edata in g.edges(data=True):
+#         print edata["edata"].sNode.id, edata["edata"].tNode.id
         print edata["edata"].convertToGml(),
         
     
     print "]"
     
     
-def readHbNet(fname=HB_TXT):
+
+def readHbNet(fname=HB_TXT, edgeCutoff=0.01, singleEdge=True, undirected=True):
     '''Loat the hb network from file "hb.txt".
     
     '''
     hbn = HbResNet()
     hbn.readFromHbTxt(fname)
     
-    return hbn.convertGraph(edgeCutoff=0.01, singleEdge=True, undirected=True)
+    return hbn.convertGraph(edgeCutoff, singleEdge, undirected)
 
     
 def main(argv=None): # IGNORE:C0111
@@ -109,17 +116,25 @@ USAGE
         parser = ArgumentParser(description=program_license, formatter_class=RawDescriptionHelpFormatter)
         parser.add_argument("-v", "--verbose", dest="verbose", action="count", help="set verbosity level [default: %(default)s]")
         parser.add_argument('-V', '--version', action='version', version=program_version_message)
+        
+        parser.add_argument("-f", help="text file to load the hb net", default=HB_TXT, nargs='?')
+        parser.add_argument("-c", help="load edges with prob no less than this number", default=0.01, type=float, nargs='?')
+        
+        parser.add_argument("--singleedge", action="store_true", default=True, help="load at most one edge between two residues")
+        parser.add_argument("--undirected", action="store_true", default=True, help="load the network as an undirected network")
+        
+        parser.add_argument("-p", help="the pdb file to load the coordinates", default=PDB_COOR, nargs='?')
 
         # Process arguments
         args = parser.parse_args()
 
         verbose = args.verbose
-
-
         if verbose > 0:
             print("Verbose mode on")
 
-        write_gml()
+#         print args.f, args.c, args.singleedge, args.undirected, args.p
+#         write_gml()
+        write_gml(args.f, args.p, args.c, args.singleedge, args.undirected)
         
         return 0
     except KeyboardInterrupt:

@@ -9,7 +9,9 @@ class HbResNode(object):
     '''
     Node of hb network which represents a residue.
     '''
-
+    PDB_COOR = "step1_out.pdb"
+    scale = -50
+    
     def __init__(self, resName="", nid=0):
         '''
         Constructor
@@ -63,3 +65,44 @@ class HbResNode(object):
         res += "\t]\n"  
         
         return res
+    
+    
+    def retrieveCorr(self, fname=PDB_COOR):
+        '''Get the x,y,z coordinates of the residue node.
+    
+        For the amino acid, use the coordinates of CB atom.
+        For water, use the coordinates of O.
+        
+        '''
+        resName = self.residue.resName
+        for eachLine in open(fname):
+            rName = eachLine[17:20] + eachLine[21:26]
+            if rName != resName: continue
+            aName = eachLine[12:16]
+            if resName[:3] == "HOH":
+                if aName != " O  ": continue
+            else:
+                if aName != " CB ": continue
+        
+            self.x = float(eachLine[30:38]) * HbResNode.scale
+            self.y = float(eachLine[38:46]) * HbResNode.scale
+            self.z = float(eachLine[46:54]) * HbResNode.scale
+            break
+            
+            
+    def getResColor(self):
+        '''Get the color code for the residue by the type of it.
+        
+        * neutral residue (unpolar)  0
+        * waters                     1
+        * acids                      2
+        * bases                      3
+
+        '''
+        acids = ["ASP", "GLU"]
+        bases = ["ARG", "LYS", "RSB"]
+        
+        resName = self.residue.resName
+        if resName[:3] == "HOH": self.color = 1
+        elif resName[:3] in acids: self.color = 2
+        elif resName[:3] in bases: self.color = 3

@@ -60,12 +60,7 @@ class HbResNet(object):
             eAttr.width = HbResNet.weightToWidth(eAttr.weight)
             eAttr.dashed = 0
             
-#             self.graph.add_edge(sNode, tNode)
             self.graph.add_edge(sNode, tNode, edata=eAttr)
-# 
-#         for u,v,edata in self.graph.edges(data=True):
-#             edata["edata"].sNode = u
-#             edata["edata"].tNode = v            
             
             
     def convertGraph(self, edgeCutoff=0.001, singleEdge=True, undirected=True):
