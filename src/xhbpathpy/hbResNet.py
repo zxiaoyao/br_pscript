@@ -84,7 +84,9 @@ class HbResNet(object):
                     g.add_edge(u, v, edata=self.graph[u][v]["edata"])
                     
         else:
-            g = self.graph.to_undirected()
+            for u,v,edata in self.graph.edges(data=True):
+                if edata["edata"].weight < edgeCutoff: continue
+                g.add_edge(u, v, edata=edata["edata"])
             
         return g 
     

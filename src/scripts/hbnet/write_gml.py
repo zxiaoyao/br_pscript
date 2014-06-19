@@ -69,7 +69,6 @@ def write_gml(fname=HB_TXT, pdbCoor=PDB_COOR, edgeCutoff=0.01, singleEdge=True, 
         counter += 1    
         
     for u,v,edata in g.edges(data=True):
-#         print edata["edata"].sNode.id, edata["edata"].tNode.id
         if (g.degree(u) == 1 and g.degree(v) != 1) or (g.degree(u) != 1 and g.degree(v) == 1): edata["edata"].dashed = 1
         print edata["edata"].convertToGml(),
         

@@ -57,5 +57,6 @@ def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff):
         if MIDDLE_RES in g.nodes():
             print "%s in: " % MIDDLE_RES, nx.node_connected_component(g, MIDDLE_RES) 
         
+        
 if __name__ == "__main__":
     main()
