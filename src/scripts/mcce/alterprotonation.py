@@ -7,7 +7,7 @@ Created on Jun 19, 2013
 import sys
 DUMMY_CONFORMER = 211
 
-def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile="head3.lst"):
+def fixHead3ByNumberOfProtons(fixList, freeDummyWaterConf=False, reverse=False, ifile = "head3.lst", ofile=sys.stdout):
     '''
     Change the flag of conformers in head3.lst.
     
@@ -18,14 +18,19 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
         
     if "reverse" is False, the conformers in the residue which have the same number of protons will be fixed.
     if "reverse" is True, it's opposite, only the conformers with the same number of protons are not fixed.
+
+    "fixed" means free to move and the flag is 'f' in head3.lst.
+
     '''
     
     def isDummy(hline):
         '''Check a head3.lst line to see if it's a dummy conformer.
         '''
         return hline[9:11] == "DM"
+
     
     oldLines = open(ifile).readlines()
+
     newLines = []
     newLines.append(oldLines.pop(0))
     
@@ -49,8 +54,9 @@ def fixHead3ByNumberOfProtons(fixList, reverse=False, ifile = "head3.lst", ofile
                     newLine = eachLine[:21] + 't' + eachLine[22:]
         newLines.append(newLine)
         
-    open(ofile, 'w').writelines(newLines)
+    ofile.writelines(newLines)
     
+
 def fix_head3(fixList, ifile = 'head3.lst'):
     '''
     Fix ionization of states of conformers in head3.lst.
@@ -112,21 +118,28 @@ def read_fix_protonation_file(fname):
     return res_protonations
     
     
-def change_hflag_according_to_file(fname, hfile="head3.lst"):
+def change_hflag_according_to_file(fname, freeDummyWaterConf=False, hfile="head3.lst"):
     '''Change the flag of conformers in head3.lst.
     
     '''
     res_protonations = read_fix_protonation_file(fname)
-    fixHead3ByNumberOfProtons(res_protonations, ofile=sys.stdout)
+    fixHead3ByNumberOfProtons(res_protonations, freeDummyWaterConf, ofile=sys.stdout)
         
-        
+
+
 def main():
     import argparse
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("resProtonfile", help="file has residue protonations")
+    parser.add_argument("-f", help="file has residue protonations")
+    parser.add_argument("--freeDummy", action="store_true", help="free all the dummy water conformer")
     
     args = parser.parse_args()
-    change_hflag_according_to_file(args.resProtonfile)        
+
+    resProtonfile = args.f
+    freeDummyWaterConf = args.freeDummy
+
+    change_hflag_according_to_file(resProtonfile, freeDummyWaterConf)        
         
         
 if __name__ == '__main__':
