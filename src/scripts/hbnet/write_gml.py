@@ -123,8 +123,8 @@ USAGE
         parser.add_argument("-f", help="text file to load the hb net", default=HB_TXT, nargs='?')
         parser.add_argument("-c", help="load edges with prob no less than this number", default=0.01, type=float, nargs='?')
         
-        parser.add_argument("--singleedge", action="store_true", default=True, help="load at most one edge between two residues")
-        parser.add_argument("--undirected", action="store_true", default=True, help="load the network as an undirected network")
+        parser.add_argument("--singleedge", action="store_true", default=False, help="load at most one edge between two residues")
+        parser.add_argument("--undirected", action="store_true", default=False, help="load the network as an undirected network")
         
         parser.add_argument("-p", help="the pdb file to load the coordinates", default=PDB_COOR, nargs='?')
 
