@@ -319,6 +319,24 @@ class HbPath(object):
             if eachState.energy == highestE: highState.append(eachState)
             
         return highState
+    
+    
+    def getLowestHopSeq(self):
+        '''Return the lowest energy barrier hopping sequeces.
         
+        There could be multiple lowest energy hopping sequences. Return a list of all of them.
+        
+        '''
+        lowestE = float("inf")
+        for eachHop in self.hopSequences:
+            if eachHop.energyBarrier < lowestE:
+                lowestE = eachHop.energyBarrier
+                
+        res = []
+        for eachHop in self.hopSequences:
+            if eachHop.energyBarrier == lowestE:
+                res.append(eachHop)
+
+        return res
 
         
