@@ -71,6 +71,9 @@ class HbResNode(object):
                 return "w" + str(resSeq)
             elif chainId == "X":
                 return "x" + str(resSeq)
+        # schiff's base.
+        elif resType == "RSB":
+            return "SB"
         else:
             # residues other than waters are all in chain A.
             return THREE_LETTERS_TO_ONE[resType] + str(resSeq)
