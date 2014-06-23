@@ -47,6 +47,35 @@ class HbResNode(object):
         return self.residue.resName
     
     
+    @staticmethod
+    def shortenResName(resName):
+        '''Make the residue name shorter.
+        
+        @Example: ASPA0085 -> D85
+                : HOHX0234 -> x234
+                : HOHA0405 -> w405
+                : RSBA0216 -> Z216
+                
+        '''
+        THREE_LETTERS_TO_ONE = {"ASP":"D", "GLU":"E", "LYS":"K", "ARG":"R",
+                                "MET":"M", "TRP":"W", "TYR":"Y", "THR": "T",
+                                "RSB":"Z"}
+        
+        resType = resName[:3]
+        chainId = resName[3]
+        resSeq = int(resName[4:])
+        
+        # water is special. Crystal waters start with 'w', while ipece water start with 'x'.
+        if resType == "HOH":
+            if chainId == "A":
+                return "w" + str(resSeq)
+            elif chainId == "X":
+                return "x" + str(resSeq)
+        else:
+            # residues other than waters are all in chain A.
+            return THREE_LETTERS_TO_ONE[resType] + str(resSeq)
+    
+    
     def convertToGml(self):
         '''Write the node to a gml file.
         
@@ -57,7 +86,7 @@ class HbResNode(object):
         res += "%snode [\n"  % INDENT
         
         res += "%sid %d\n" % (INDENT, self.id)
-        res += '%slabel "%s"\n' % (INDENT, self.residue.resName) 
+        res += '%slabel "%s"\n' % (INDENT, HbResNode.shortenResName(self.residue.resName)) 
         
         res += "%sx %d\n" % (INDENT, self.x) 
         res += "%sy %d\n" % (INDENT, self.y) 

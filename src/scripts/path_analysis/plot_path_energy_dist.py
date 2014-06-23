@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 import matplotlib.pylab as plt
+import os
 
 def plot_e_dist():
-    paths = ["/home/xzhu/BR2/1C3W/hydro/def/raw_O/pathStatistics.txt",\
-             "/home/xzhu/BR2/1C8R/hydro/def/raw_O/pathStatistics.txt",\
-             "/home/xzhu/BR2/1KG9/hydro/def/raw_O/pathStatistics.txt"]
+    baseDir = "/Users/xzhu/sibyl"
+    paths = [os.path.join(baseDir, "BR2/1C3W/hydro/def/raw_O/pathStatistics.txt"),\
+             os.path.join(baseDir, "BR2/1C8R/hydro/def/raw_O/pathStatistics.txt"),\
+             os.path.join(baseDir, "BR2/1CKG9/hydro/def/raw_O/pathStatistics.txt")]
+
     energies = []
     allPahts = "pathStatistics.txt"
     for i in range(len(paths)):

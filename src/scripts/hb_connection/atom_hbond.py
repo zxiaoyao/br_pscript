@@ -91,19 +91,25 @@ class Hbond(object):
     
 class AtomNet(object):
     def __init__(self):
+        '''Atom based hydrogen bond network is **Directed**.
+        
+        '''
         self.g = nx.DiGraph()
         
+        
     def obtainNetworkFromFile(self, fName="hah.txt"):
-        '''
-        Get the atom network from "hah.txt" file.
+        '''Get the atom network from "hah.txt" file.
+        
         '''
         for eachline in open("hah.txt", 'r'):        
             newBond = Hbond()
             newBond.initFromLine(eachline)
             self.g.add_edge(*newBond.convertToResNodes())
             
+            
     def obtainNetworkWithOcc(self, fName="hah.txt", occFile="fort.38"):
         pass
+            
             
     def storeInFile(self, fName="atomhb.txt"):
         '''
@@ -113,6 +119,7 @@ class AtomNet(object):
         for eachEdge in self.g.edges():
             fp.write("%8s%4s%10s%4s\n" % (eachEdge[0].resName, eachEdge[0].atomName, eachEdge[1].resName, eachEdge[1].atomName))
         fp.close()
+        
         
     def store_atomreshb(self, fName="atomhb.txt"):
         '''
@@ -133,17 +140,22 @@ class AtomNet(object):
             targetNode = ResNode(eachLine[14:22], eachLine[22:26])
             self.g.add_edge(sourceNode, targetNode)
     
-    def printShortestPath(self, sourceNode, targetNode):
+    
+    def printShortestPath(self, sourceNode, targetNode, verbose=False):
         
         print sourceNode.resName, sourceNode.atomName, targetNode.resName, targetNode.atomName,            
         try:
             print len(nx.shortest_path(self.g, sourceNode, targetNode))
+            
 #             print len(nx.shortest_path(self.g, sourceNode, targetNode)), nx.shortest_path(self.g, sourceNode, targetNode)
-
+            if verbose:
+                for eachPath in nx.shortest_path(self.g, sourceNode, targetNode):
+                    print eachPath
         except:
             print "na"
             
-    def shortestPathBetweenResidues(self, sourceRes, targetRes):
+            
+    def shortestPathBetweenResidues(self, sourceRes, targetRes, verbose=False):
         '''
         Get a shortest pathway between each donor atom in sourceRes and each acceptor atom in targetRes,
         if there exists.
@@ -161,20 +173,21 @@ class AtomNet(object):
                         
         for sAtom in sourceNodes:
             for tAtom in targetNodes:
-                self.printShortestPath(sAtom, tAtom)
+                self.printShortestPath(sAtom, tAtom, verbose)
     
 
 def main():  
     parser = argparse.ArgumentParser()
-    parser.add_argument("-s", help="the source residue")
-    parser.add_argument("-t", help="the target residue") 
+    parser.add_argument("-s", help="the source residue", default="ASPA0085", nargs='?')
+    parser.add_argument("-t", help="the target residue", default="GLUA0194", nargs='?') 
     parser.add_argument("fname", help="file name of hah.txt", default="hah.txt", nargs='?')
+    parser.add_argument("--verbose", help="print all the pathways", action="store_true")
     args = parser.parse_args()
     
     time_start = time()
     atomNet = AtomNet()
     atomNet.obtainNetworkFromFile(args.fname)
-    atomNet.shortestPathBetweenResidues(args.s, args.t)
+    atomNet.shortestPathBetweenResidues(args.s, args.t, verbose=args.verbose)
     
 #     atomNet.loadGraph()    
 #     atomNet.store_atomreshb("atomreshb.txt")

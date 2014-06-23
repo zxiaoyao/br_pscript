@@ -31,6 +31,7 @@ class HbResNet(object):
         
         '''
         return 2.0 + 8.0 * weight
+    
         
     def readFromHbTxt(self, fname=HB_TXT):
         '''Load the network from hb.txt file.

@@ -12,9 +12,10 @@ class ProtonationState(object):
         '''Constructor.
         
         '''
-        ## keyResidues is of Residue type.
+        ## keyResidues is an array of Residue type.
         self.keyResidues = []
         
+        ## an array of integers which are the protonation states.
         self.protonations = []
         self.energy = 0.0
         self.stateId = 0
@@ -65,3 +66,16 @@ class ProtonationState(object):
         for i in range(len(self.keyResidues)):
             print "%10s" % self.protonations[i],
         print
+        
+        
+    def getResProtonMap(self):
+        '''Get a map of residue name to residue protonation.
+        
+        '''
+        assert (len(self.keyResidues) == len(self.protonations)), "number of key residues and number of protonations don't match"
+        
+        res = {}
+        for i in range(len(self.keyResidues)):
+            res[self.keyResidues[i].resName] = self.protonations[i]
+            
+        return res
