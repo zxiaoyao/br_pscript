@@ -66,9 +66,13 @@ def main():
     
     os.chdir(os.path.join(os.getcwd(), "mSub", initDir))
     
-    mostOccConf = {}
+    mostOccConfs = []
     for eachRes in initState.keyResidues:
-        os.system("python /Users/xzhu/sibyl/bin/br_pscript/src/scripts/mcce/occonf.py | grep " + eachRes.resName[3:])
+        mostOccConfs.append(eachRes.findFirstMostOccConf())
+        
+    for eachConf in mostOccConfs:
+        print eachConf
+        os.system("mfe++ " + eachConf.confName)
         
     
  

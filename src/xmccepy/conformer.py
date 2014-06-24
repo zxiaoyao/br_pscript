@@ -10,7 +10,7 @@ class Conformer(object):
     '''
 
 
-    def __init__(self, con):
+    def __init__(self):
         '''
         Constructor
         '''
@@ -19,3 +19,12 @@ class Conformer(object):
         
         ## for now assuming only one titration point.
         self.occ = 0.0
+        
+        
+        
+    def __str__(self):
+        '''toString.
+        
+        '''
+        return "%s%6.3f" % (self.confName, self.occ)
+        
