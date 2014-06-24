@@ -7,7 +7,9 @@ from xutility.constant import CONVERT_RES_SYMBOL, CONVERT_PROTONATION_SYMBOL
 from xmccepy.residue import Residue
 
 class ProtonationState(object):
-        
+    '''An intermediate protonation state during proton hopping.
+    
+    '''    
     def __init__(self):
         '''Constructor.
         
@@ -21,8 +23,11 @@ class ProtonationState(object):
         self.stateId = 0
         self.layer = 0       # which layer this state appears
         
-                
-    def __repr__(self):
+    
+    def convertToDirName(self):
+        '''Get the name of the correspond directory running this protonation state.
+        
+        '''
         stateName = ""
         for i in range(len(self.keyResidues)):
             stateName += CONVERT_RES_SYMBOL[self.keyResidues[i].resName[:3]]
@@ -31,6 +36,9 @@ class ProtonationState(object):
             stateName += CONVERT_PROTONATION_SYMBOL[self.protonations[i]]
         
         return stateName
+    
+    __repr__ = convertToDirName
+    
     
     
     def __eq__(self, other):
@@ -54,6 +62,7 @@ class ProtonationState(object):
         self.keyResidues[2].possibleProtonations = [0, 1]
         self.keyResidues[3].possibleProtonations = [0, 1]
         self.keyResidues[4].possibleProtonations = [-1, 0]
+        
         
     def printState(self):
         '''Print this protonation state.
@@ -79,3 +88,12 @@ class ProtonationState(object):
             res[self.keyResidues[i].resName] = self.protonations[i]
             
         return res
+    
+    
+    def mfeState(self):
+        '''Do mfe++ to all the residues in this protonation state.
+        
+        '''
+        mfePath = "/Users/xzhu/sibyl/bin/mfe++"
+        
+        

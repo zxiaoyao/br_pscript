@@ -58,8 +58,11 @@ class HbResNode(object):
                 
         '''
         THREE_LETTERS_TO_ONE = {"ASP":"D", "GLU":"E", "LYS":"K", "ARG":"R",
+                                "GLY":"G", "ALA":"A", "VAL":"V", "LEU":"L",
+                                "ILE":"I", "PHE":"F", "PRO":"P", "CYS":"C",
+                                "ASN":"N", 
                                 "MET":"M", "TRP":"W", "TYR":"Y", "THR": "T",
-                                "RSB":"Z", "GLN":"Q"}
+                                "RSB":"Z", "GLN":"Q", "SER":"S", "ASN":"N"}
         
         resType = resName[:3]
         chainId = resName[3]

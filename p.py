@@ -75,6 +75,11 @@ def foo():
     print getRunTypeAbbreviation("crysta", "quick", "raw")
          
 if __name__ == "__main__":
-    print [i+1 for i in (1,2,3)]        
+    a = [1,2,3]
+    for eachA in a:
+        if eachA == 1:
+            a.remove(eachA)
+            
+    print a       
 
     # a comment

@@ -2,20 +2,75 @@
 import os
 import subprocess
 
-def main():
-    if not os.path.islink("energies"):
-        os.system("ln -s ../../../../energies .")
-    if os.path.isfile("bak_ms.dat"):
-        os.system("mv bak_ms.dat ms.dat")
-    os.system("/home/xzhu/gmcce/serialte/te -s")
-    p = subprocess.Popen(["tail", "-1", "ms_out"], stdout=subprocess.PIPE)
-    pout = p.communicate()[0]
-    confs = pout.split()[:6]
-    sconf = "/home/xzhu/bin/pythonScript/simpletest.py"
-    for eachConf in confs:
-        sconf += (" " + eachConf)
-    print confs
-    os.system(sconf)
+from xhbpathpy.hbPath import HbPath
+
+PATHINFO_TXT = "pathinfo.txt"
+
+def getPathResidues(fname=PATHINFO_TXT):
+    '''Get all the residues in the pathway from the text file pathinfo.txt.
     
+    '''
+    allLines = open(fname, 'r').readlines()
+    
+    allResidues = []
+    
+    for eachLine in allLines[:-1]:
+        allResidues.append(eachLine.split()[0])
+        
+    return allResidues
+
+  
+def getAllConfs(residues, fname="fort.38"):
+    '''Get all the conformers belong to the residues in fort.38.  
+    
+    '''
+    allLines = open(fname, 'r').readlines()
+    
+    allConfs = []
+    for eachLine in allLines[1:]:
+        pass
+        
+        
+def mfe_path():
+    '''Do mfe++ on all the most occupied atoms of residues in the pathway.
+    
+    '''
+    # all the residues in the pathway.
+    pathResidues = getPathResidues()
+    
+    
+    
+    
+    
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("stateId", help="an integer id of the protonation state", type=int)
+    args = parser.parse_args()
+    
+    hbpath = HbPath()
+    hbpath.readIntermediates()
+    hbpath.readHopSeqences()
+    
+    if args.stateId > len(hbpath.protonationStates):
+        raise RuntimeError("the state id number is out of the range.")
+    
+    for eachState in hbpath.protonationStates:
+        if eachState.stateId == args.stateId:
+            initState = eachState
+            break
+        
+    initDir = initState.convertToDirName()
+    
+    print initDir
+    
+    os.chdir(os.path.join(os.getcwd(), "mSub", initDir))
+    
+    mostOccConf = {}
+    for eachRes in initState.keyResidues:
+        os.system("python /Users/xzhu/sibyl/bin/br_pscript/src/scripts/mcce/occonf.py | grep " + eachRes.resName[3:])
+        
+    
+ 
 if __name__ == "__main__":
     main()
