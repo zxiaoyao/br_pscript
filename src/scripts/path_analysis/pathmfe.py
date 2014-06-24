@@ -66,13 +66,24 @@ def main():
     
     os.chdir(os.path.join(os.getcwd(), "mSub", initDir))
     
-    mostOccConfs = []
-    for eachRes in initState.keyResidues:
-        mostOccConfs.append(eachRes.findFirstMostOccConf())
+    
+    # need to have energies folder in the current directory.
+    if not os.path.exists("energies"):
+        if os.path.exists("../../../../energies"):
+            os.system("ln -s ../../../../energies .")
+        else:
+            raise RuntimeError("No energies folder found.")
         
-    for eachConf in mostOccConfs:
-        print eachConf
-        os.system("mfe++ " + eachConf.confName)
+    for eachRes in initState.keyResidues:
+        print "%s occupied conformers:" % eachRes.resName
+        for eachConf in eachRes.findAllOccConf():
+            print eachConf
+        
+        mostOccConf = eachRes.findFirstMostOccConf()
+        print "most occupied conformer:"
+        print mostOccConf
+        os.system("mfe++ " + mostOccConf.confName)
+        print
         
     
  

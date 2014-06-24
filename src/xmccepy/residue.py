@@ -47,7 +47,27 @@ class Residue(object):
         return mostOccConf
                     
             
-            
+         
+    def findAllOccConf(self, cutoff=0.001, fname="fort.38"):
+        '''Get all the occupied conformers of this resisdue (occ >= cutoff).
+        
+        '''
+        allLines = open(fname, 'r').readlines()
+        
+        allOccConfs =  []
+        for eachLine in allLines[1:]:
+            fields = eachLine.split()
+            confName = fields[0]
+            rname = confName[:3] + confName[5:10]
+            if rname == self.resName:
+                occ = float(fields[1])
+                if occ >= cutoff:
+                    newConf = Conformer()
+                    newConf.confName = confName
+                    newConf.occ = occ
+                    allOccConfs.append(newConf)
+                    
+        return allOccConfs
         
         
         
