@@ -88,6 +88,47 @@ def get_max_conf(all_conf):
     return reduced_conf
 
 
+
+def renumber_water_conf(fname="step2_out.pdb"):
+    '''Get the name of the water conformer in head3.lst from step2_out.pdb.
+    
+    The conformer number of water in step2_out.pdb is not consecutive, but it's in head3.lst.
+    This may result in a conformer name mismatch.
+    
+    '''
+    allHOHConf = set()
+    for eachLine in open(fname, 'r'):
+        if eachLine[17:20] != "HOH": continue
+        allHOHConf.add(eachLine[17:20] + eachLine[80:82] + eachLine[21:30])
+        
+    resName = None
+    newId = 1
+    
+    res = {}
+    
+    for eachConf in sorted(allHOHConf, key=lambda conf: (conf[5], int(conf[6:10]), int(eachLine[11:14]))):
+        if resName == None:
+            resName = eachConf[:3] + eachConf[5:10]
+            newId = 1
+            newConf = eachConf[:11] + ("%03d" % newId)
+            res[newConf] = eachConf
+            
+        else:
+            rName = eachConf[:3] + eachConf[5:10]
+            if rName == resName:
+                newId += 1
+                newConf = eachConf[:11] + ("%03d" % newId)
+                res[newConf] = eachConf
+            else:
+                resName = eachConf[:3] + eachConf[5:10]
+                newId = 1
+                newConf = eachConf[:11] + ("%03d" % newId)
+                res[newConf] = eachConf
+                
+    return res
+
+
+
 def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
     ''' Get the most occupied conformers from "fort.38" and "step2_out.pdb".
     
@@ -97,6 +138,7 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
         s2: step2_out.pdb.
     '''
     TOLERANCE = 0.00001
+    
     def float_equal(f1, f2, tol=TOLERANCE):
         '''Test if two floating point numbers are equal.
         
@@ -126,17 +168,26 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
     max_conf = get_max_conf(all_conf)
 
     # update conf from step2_out.pdb
+    renumberWater = renumber_water_conf()
+    
     s_lines = open(s2).readlines()
     for conf in max_conf:
         for s_line in s_lines:
-            if s_line[17:20]+s_line[21:26] == conf.resid:
-                if s_line[80:82] == 'BK':            # backbone
-                    conf.load_s2(s_line)
-                elif s_line[26:30] == conf.confid[-4:]:
+            if s_line[17:20] != "HOH": 
+                if s_line[17:20] + s_line[21:26] == conf.resid:
+                    if s_line[80:82] == 'BK':            # backbone
+                        conf.load_s2(s_line)
+                    elif s_line[26:30] == conf.confid[-4:]:
+                        conf.load_s2(s_line)             # it's the sidechain
+                        
+            # have to rename the conformer name of water.
+            else:   
+                if s_line[17:20] + s_line[21:26] == conf.resid and s_line[26:30] == renumberWater[conf.confid][-4:]:
                     conf.load_s2(s_line)             # it's the sidechain
+                
     
     # output pdb
-    outfp = open('mocc_'+tp, 'w')
+    outfp = open('mocc_' + str(tp), 'w')
     for conf in max_conf:
         conf.write_pdb(outfp)
                     
