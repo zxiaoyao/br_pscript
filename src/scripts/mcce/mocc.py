@@ -96,8 +96,8 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
         f3: fort.38.
         s2: step2_out.pdb.
     '''
-    
-    def float_equal(f1, f2, tol=0.00001):
+    TOLERANCE = 0.00001
+    def float_equal(f1, f2, tol=TOLERANCE):
         '''Test if two floating point numbers are equal.
         
         Args:
@@ -112,7 +112,7 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
     f_lines = open(f3).readlines()
     f_head  = f_lines[0].split()
     for i in range(len(f_head)-1):
-        if float_equal(f_line[i+1], tp, tol):
+        if float_equal(float(f_lines[0].split()[i+1]), tp, TOLERANCE):
             t_col = i+1                # the titration point column
             break
     del f_lines[0]
@@ -142,6 +142,9 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
                     
 
 def main():
+    import os
+    print os.getcwd()
+    print os.listdir(".")
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", help="the titration point", type=float)
     args = parser.parse_args()
