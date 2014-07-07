@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import sys
 import argparse
 
 class Conf(object):
@@ -106,7 +105,10 @@ def renumber_water_conf(fname="step2_out.pdb"):
     
     res = {}
     
-    for eachConf in sorted(allHOHConf, key=lambda conf: (conf[5], int(conf[6:10]), int(eachLine[11:14]))):
+
+    allHOHConf = sorted(allHOHConf, key=lambda conf: (conf[5], int(conf[6:10]), int(conf[11:14])))
+
+    for eachConf in allHOHConf:
         if resName == None:
             resName = eachConf[:3] + eachConf[5:10]
             newId = 1
@@ -172,6 +174,8 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
     
     s_lines = open(s2).readlines()
     for conf in max_conf:
+        # no need to get step2_out.pdb lines for dummy conformer.
+        if conf.confid[:5] == "HOHDM": continue
         for s_line in s_lines:
             if s_line[17:20] != "HOH": 
                 if s_line[17:20] + s_line[21:26] == conf.resid:
@@ -193,9 +197,6 @@ def most_occ(tp, f3='fort.38', s2='step2_out.pdb'):
                     
 
 def main():
-    import os
-    print os.getcwd()
-    print os.listdir(".")
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", help="the titration point", type=float)
     args = parser.parse_args()

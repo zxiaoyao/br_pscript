@@ -35,10 +35,12 @@ class Atom(object):
         ## The trailing part of a pdb line which is not parsed.
         self.pdbRest = ""
         
+        
     def setCorr(self, x=0.0, y=0.0, z=0.0):
         ''' Set the coordinate of the atom.
         '''
         self.corr.set(x, y, z)
+        
         
     def readStep1Line(self, sline):
         ''' Read a line in step1_out.pdb.

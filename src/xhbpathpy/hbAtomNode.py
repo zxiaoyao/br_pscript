@@ -3,23 +3,24 @@ Created on Jun 17, 2014
 
 @author: xzhu
 '''
-from xmccepy.residue import Residue
+from xmccepy.atom import Atom
 
-class HbResNode(object):
+class HbAtomNode(object):
     '''
     Node of hb network which represents a residue.
     '''
     PDB_COOR = "step1_out.pdb"
     scale = -50
     
-    def __init__(self, resName="", nid=0):
+    def __init__(self, resAtomName="", nid=0):
         '''
         Constructor
         '''
         self.id = nid
         
-        self.residue = Residue(resName)
-
+        self.atom = Atom()
+        
+        self.resAtomName = ""
                 
         self.x = 0.0
         self.y = 0.0
@@ -32,7 +33,7 @@ class HbResNode(object):
         '''A node has to be hashable.
         
         '''
-        return hash(self.residue.resName)
+        return hash(self.resAtomName)
                    
     
     
@@ -40,11 +41,11 @@ class HbResNode(object):
         '''Compare node with another node.
         
         '''
-        return self.residue.resName > other.residue.resName
+        return self.resAtomName > other.resAtomName
     
     
     def __str__(self):
-        return self.residue.resName
+        return self.resAtomName
     
     
     @staticmethod
@@ -66,20 +67,24 @@ class HbResNode(object):
         
         resType = resAtomName[:3]
         chainId = resAtomName[3]
-        resSeq = int(resAtomName[4:])
+        resSeq = int(resAtomName[4:8])
         
+        
+        shortResName = ""
         # water is special. Crystal waters start with 'w', while ipece water start with 'x'.
         if resType == "HOH":
             if chainId == "A":
-                return "w" + str(resSeq)
+                shortResName = "w" + str(resSeq)
             elif chainId == "X":
-                return "x" + str(resSeq)
+                shortResName = "x" + str(resSeq)
         # schiff's base.
         elif resType == "RSB":
-            return "SB"
+            shortResName = "SB"
         else:
             # residues other than waters are all in chain A.
-            return THREE_LETTERS_TO_ONE[resType] + str(resSeq)
+            shortResName = THREE_LETTERS_TO_ONE[resType] + str(resSeq)
+            
+        return shortResName + resAtomName[8:]
     
     
     def convertToGml(self):
@@ -92,7 +97,7 @@ class HbResNode(object):
         res += "%snode [\n"  % INDENT
         
         res += "%sid %d\n" % (INDENT, self.id)
-        res += '%slabel "%s"\n' % (INDENT, HbResNode.shortenResName(self.residue.resName)) 
+        res += '%slabel "%s"\n' % (INDENT, HbAtomNode.shortenResName(self.resAtomName)) 
         
         res += "%sx %d\n" % (INDENT, self.x) 
         res += "%sy %d\n" % (INDENT, self.y) 
@@ -105,29 +110,32 @@ class HbResNode(object):
     
     
     def retrieveCorr(self, fname=PDB_COOR):
-        '''Get the x,y,z coordinates of the residue node.
+        '''Get the x,y,z coordinates of the atom node.
     
-        For the amino acid, use the coordinates of CB atom.
+        For the amino acid, use the coordinates of the atom of the first conformer.
         For water, use the coordinates of O.
         
         '''
-        resName = self.residue.resName
+        resName = self.resAtomName[:8]
+        stripedAtomName = self.resAtomName[8:]
+        
         for eachLine in open(fname):
+            if eachLine[27:30] != "001": continue
             rName = eachLine[17:20] + eachLine[21:26]
             if rName != resName: continue
-            aName = eachLine[12:16]
+            aName = eachLine[12:16].strip()
             if resName[:3] == "HOH":
-                if aName != " O  ": continue
+                if aName != "O": continue
             else:
-                if aName != " CB ": continue
+                if aName != stripedAtomName: continue
         
-            self.x = int(float(eachLine[30:38]) * HbResNode.scale)
-            self.y = int(float(eachLine[38:46]) * HbResNode.scale)
-            self.z = int(float(eachLine[46:54]) * HbResNode.scale)
+            self.x = int(float(eachLine[30:38]) * HbAtomNode.scale)
+            self.y = int(float(eachLine[38:46]) * HbAtomNode.scale)
+            self.z = int(float(eachLine[46:54]) * HbAtomNode.scale)
             break
             
             
-    def getResColor(self):
+    def getAtomColor(self):
         '''Get the color code for the residue by the type of it.
         
         * neutral residue (unpolar)  0
@@ -139,7 +147,7 @@ class HbResNode(object):
         acids = ["ASP", "GLU"]
         bases = ["ARG", "LYS", "RSB"]
         
-        resName = self.residue.resName
+        resName = self.resAtomName[:8]
         if resName[:3] == "HOH": self.color = 1
         elif resName[:3] in acids: self.color = 2
         elif resName[:3] in bases: self.color = 3

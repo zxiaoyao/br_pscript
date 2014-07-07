@@ -77,6 +77,7 @@ def foo():
 if __name__ == "__main__":
     a = [1,2,3]
     for eachA in a:
+        print eachA
         if eachA == 1:
             a.remove(eachA)
             

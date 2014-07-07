@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/scripts/hbnet/write_atomreshb_gml.py=utf-8
 encoding//src/scripts/hbnet/write_gml.py=utf-8
 encoding//src/scripts/mcce/step1_to_pdb.py=utf-8
 encoding//src/scripts/path_analysis/new_get_path_barrier.py=utf-8
