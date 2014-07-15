@@ -3,9 +3,8 @@ Created on Jun 17, 2014
 
 @author: xzhu
 '''
-from xmccepy.atom import Atom
 
-class HbAtomNode(object):
+class HbNode(object):
     '''
     Node of hb network which represents a residue.
     '''
@@ -17,10 +16,8 @@ class HbAtomNode(object):
         Constructor
         '''
         self.id = nid
-        
-        self.atom = Atom()
-        
-        self.resAtomName = name
+                
+        self.name = name
                 
         self.x = 0.0
         self.y = 0.0
@@ -33,7 +30,7 @@ class HbAtomNode(object):
         '''A node has to be hashable.
         
         '''
-        return hash(self.resAtomName)
+        return hash(self.name)
                    
     
     
@@ -41,21 +38,25 @@ class HbAtomNode(object):
         '''Compare node with another node.
         
         '''
-        return self.resAtomName > other.resAtomName
+        return self.name > other.name
     
     
     def __str__(self):
-        return self.resAtomName
+        return self.name
     
     
     @staticmethod
     def shortenResName(name):
         '''Make the residue name shorter.
         
+        This can be used for the atom name as well when the residue name is prepended.
+        
         @Example: ASPA0085 -> D85
                 : HOHX0234 -> x234
                 : HOHA0405 -> w405
                 : RSBA0216 -> Z216
+                : GLUA0194OE1 -> E194OE1
+        
                 
         '''
         THREE_LETTERS_TO_ONE = {"ASP":"D", "GLU":"E", "LYS":"K", "ARG":"R",
@@ -97,7 +98,7 @@ class HbAtomNode(object):
         res += "%snode [\n"  % INDENT
         
         res += "%sid %d\n" % (INDENT, self.id)
-        res += '%slabel "%s"\n' % (INDENT, HbAtomNode.shortenResName(self.resAtomName)) 
+        res += '%slabel "%s"\n' % (INDENT, HbNode.shortenResName(self.name)) 
         
         res += "%sx %d\n" % (INDENT, self.x) 
         res += "%sy %d\n" % (INDENT, self.y) 
@@ -110,29 +111,50 @@ class HbAtomNode(object):
     
     
     def retrieveCorr(self, fname=PDB_COOR):
-        '''Get the x,y,z coordinates of the atom node.
+        '''Get the x,y,z coordinates of the node.
     
-        For the amino acid, use the coordinates of the atom of the first conformer.
+        If the atom is specified, for the amino acid, use the coordinates of the atom of the first conformer.
         For water, use the coordinates of O.
         
+        If only the residue is specified, for the amino acid, use the coordinate of the CB atom.
+        For water, use the coordinate of O.
+         
         '''
-        resName = self.resAtomName[:8]
-        stripedAtomName = self.resAtomName[8:]
+        resName = self.name[:8]
+        stripedAtomName = self.name[8:]
         
-        for eachLine in open(fname):
-            if eachLine[27:30] != "001": continue
-            rName = eachLine[17:20] + eachLine[21:26]
-            if rName != resName: continue
-            aName = eachLine[12:16].strip()
-            if resName[:3] == "HOH":
-                if aName != "O": continue
-            else:
-                if aName != stripedAtomName: continue
+        # residue and atom name
+        if stripedAtomName != "":
+            for eachLine in open(fname):
+                if eachLine[27:30] != "001": continue
+                rName = eachLine[17:20] + eachLine[21:26]
+                if rName != resName: continue
+                aName = eachLine[12:16].strip()
+                if resName[:3] == "HOH":
+                    if aName != "O": continue
+                else:
+                    if aName != stripedAtomName: continue
         
-            self.x = int(float(eachLine[30:38]) * HbAtomNode.scale)
-            self.y = int(float(eachLine[38:46]) * HbAtomNode.scale)
-            self.z = int(float(eachLine[46:54]) * HbAtomNode.scale)
-            break
+                self.x = int(float(eachLine[30:38]) * HbNode.scale)
+                self.y = int(float(eachLine[38:46]) * HbNode.scale)
+                self.z = int(float(eachLine[46:54]) * HbNode.scale)
+                break
+        # only residue name 
+        else:
+            for eachLine in open(fname):
+                rName = eachLine[17:20] + eachLine[21:26]
+                if rName != resName: continue
+                aName = eachLine[12:16]
+                if resName[:3] == "HOH":
+                    if aName != " O  ": continue
+                else:
+                    if aName != " CB ": continue
+        
+                self.x = int(float(eachLine[30:38]) * HbNode.scale)
+                self.y = int(float(eachLine[38:46]) * HbNode.scale)
+                self.z = int(float(eachLine[46:54]) * HbNode.scale)
+                break
+                
             
             
     def getResColor(self):
@@ -147,7 +169,7 @@ class HbAtomNode(object):
         acids = ["ASP", "GLU"]
         bases = ["ARG", "LYS", "RSB"]
         
-        resName = self.resAtomName[:8]
+        resName = self.name[:8]
         if resName[:3] == "HOH": self.color = 1
         elif resName[:3] in acids: self.color = 2
         elif resName[:3] in bases: self.color = 3

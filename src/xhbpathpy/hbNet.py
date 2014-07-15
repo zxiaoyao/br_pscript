@@ -5,24 +5,27 @@ Created on Jun 17, 2014
 '''
 import networkx as nx
 
-from hbAtomNode import HbAtomNode
-from hbAtomEdge import HbAtomEdge
+from hbNode import HbNode
+from hbEdge import HbEdge
 
-class HbAtomNet(object):
+class HbNet(object):
     '''
     Hydrogen bond network.
+    
+    This is directed network with all the edges stored. 
+    It then could be converted a undirected network with a single edge.
     '''
     
     ## default name for the text file "hb.txt".
-    HB_TXT = "atomreshb.txt"
+    HB_TXT = "hb.txt"
     
-    COOR_PDB = "step1_out.pdb"
+    COOR_PDB = "step2_out.pdb"
 
     def __init__(self):
         '''
         Constructor
         '''
-        ## The underlying structure of a res hb net is still directed.
+        ## The underlying structure of a hb net is still directed.
         self.graph = nx.DiGraph()
         
     @staticmethod
@@ -33,8 +36,13 @@ class HbAtomNet(object):
         return 2.0 + 8.0 * weight
     
         
-    def readFromHbTxt(self, fname=HB_TXT):
-        '''Load the network from hb.txt file.
+    def readFromEdgeListFile(self, fname=HB_TXT, weighted=True):
+        '''Load the network from a file.
+        
+        The network is represented by all the edges in a text file.
+        The edge could be weighted or unweighted.
+        
+        
         
         '''        
         nameToNode = {}
@@ -45,26 +53,29 @@ class HbAtomNet(object):
             if fields[0] in nameToNode:
                 sNode = nameToNode[fields[0]]
             else:
-                sNode = HbAtomNode(fields[0])
+                sNode = HbNode(fields[0])
                 nameToNode[fields[0]] = sNode
             
             if fields[1] in nameToNode:
                 tNode = nameToNode[fields[1]]
             else:
-                tNode = HbAtomNode(fields[1])
+                tNode = HbNode(fields[1])
                 nameToNode[fields[1]] = tNode
             
-            eAttr = HbAtomEdge()
+            eAttr = HbEdge()
             eAttr.sNode = sNode
             eAttr.tNode = tNode
-            eAttr.weight = 0.1
-            eAttr.width = HbAtomNet.weightToWidth(eAttr.weight)
+            
+            if weighted:
+                eAttr.weight = float(fields[2])
+            
+            eAttr.width = HbNet.weightToWidth(eAttr.weight)
             eAttr.dashed = 0
             
             self.graph.add_edge(sNode, tNode, edata=eAttr)
             
             
-    def convertGraph(self, edgeCutoff=0.001, singleEdge=True, undirected=True):
+    def convertGraph(self, edgeCutoff=0.001, singleEdge=True, undirected=True, weighted=True):
         '''Convert the network into a undirected one with at most a single edge between two residues.
         
         '''
@@ -86,7 +97,7 @@ class HbAtomNet(object):
                     
         else:
             for u,v,edata in self.graph.edges(data=True):
-                if edata["edata"].weight < edgeCutoff: continue
+                if weighted and edata["edata"].weight < edgeCutoff: continue
                 g.add_edge(u, v, edata=edata["edata"])
             
         return g 

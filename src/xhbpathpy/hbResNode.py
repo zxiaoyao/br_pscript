@@ -48,7 +48,7 @@ class HbResNode(object):
     
     
     @staticmethod
-    def shortenResName(resAtomName):
+    def shortenResName(name):
         '''Make the residue name shorter.
         
         @Example: ASPA0085 -> D85
@@ -64,9 +64,9 @@ class HbResNode(object):
                                 "MET":"M", "TRP":"W", "TYR":"Y", "THR": "T",
                                 "RSB":"Z", "GLN":"Q", "SER":"S", "ASN":"N"}
         
-        resType = resAtomName[:3]
-        chainId = resAtomName[3]
-        resSeq = int(resAtomName[4:])
+        resType = name[:3]
+        chainId = name[3]
+        resSeq = int(name[4:])
         
         # water is special. Crystal waters start with 'w', while ipece water start with 'x'.
         if resType == "HOH":
