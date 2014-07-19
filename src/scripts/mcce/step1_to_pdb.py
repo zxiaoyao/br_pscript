@@ -1,4 +1,4 @@
-#!/usr/local/bin/python2.7
+#!/usr/bin/env python
 # encoding: utf-8
 '''
 scripts.mcce.step1_to_pdb -- Convert step1_out.pdb to standard pdb format.
