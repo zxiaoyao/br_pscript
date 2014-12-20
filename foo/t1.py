@@ -9,6 +9,7 @@ Just one number in the ip address of localhost.
 
 import networkx as nx
 import matplotlib.pyplot as plt   
+import numpy as np
         
 if __name__ == '__main__':
     g = nx.Graph()
