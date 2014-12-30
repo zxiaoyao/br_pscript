@@ -9,6 +9,8 @@ def main():
     parser.add_argument("--source", "-s", dest="source", help="source node", default="ASPA0085")
     parser.add_argument("--target", "-t", dest="target", help="target node", default="GLUA0194")
     parser.add_argument("--lenLessThan", "-a", dest="lenLessThan", help="longest length a path has", default=6)
+    parser.add_argument("--middle", '-m', dest="middle", help="intermediate node", default="ARGA0082")
+    
     args = parser.parse_args()
     
     fName = args.fName
@@ -17,18 +19,18 @@ def main():
         
     sourceRes = args.source
     targetRes = args.target
-    get_path_two_residues(fName, sourceRes, targetRes, pathCutoff, edgeCutoff)
+    middleRes = args.middle
+    
+    get_path_two_residues(fName, sourceRes, targetRes, pathCutoff, edgeCutoff, middleRes)
     
     
-def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff):
+def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff, middleRes="ARGA0082"):
     '''Get all the pathways between two residues.
     
     The weight of each edge should be larger than or equal to the threshold,
     and the length of the pathway should be equal to or less than the number specified by lenLessThan.
     
     '''
-    MIDDLE_RES = "ARGA0082"
-    
     g = nx.Graph()
     for eachLine in open(hbfile):
         fields = eachLine.split()
@@ -46,16 +48,16 @@ def get_path_two_residues(hbfile, sourceRes, targetRes, pathCutoff, edgeCutoff):
             
         if sourceRes in g.nodes():
             print "%s in: " % sourceRes, nx.node_connected_component(g, sourceRes)
-            if MIDDLE_RES in nx.node_connected_component(g, sourceRes):
-                print "%s connecting with %s" % (MIDDLE_RES, sourceRes)
+            if middleRes in nx.node_connected_component(g, sourceRes):
+                print "%s connecting with %s" % (middleRes, sourceRes)
                 
         if targetRes in g.nodes():
             print "%s in: " % targetRes, nx.node_connected_component(g, targetRes) 
-            if MIDDLE_RES in nx.node_connected_component(g, targetRes):
-                print "%s connecting with %s" % (MIDDLE_RES, targetRes)
+            if middleRes in nx.node_connected_component(g, targetRes):
+                print "%s connecting with %s" % (middleRes, targetRes)
                 
-        if MIDDLE_RES in g.nodes():
-            print "%s in: " % MIDDLE_RES, nx.node_connected_component(g, MIDDLE_RES) 
+        if middleRes in g.nodes():
+            print "%s in: " % middleRes, nx.node_connected_component(g, middleRes) 
         
         
 if __name__ == "__main__":
