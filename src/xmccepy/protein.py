@@ -4,6 +4,10 @@ Created on Dec 30, 2014
 @author: xzhu
 '''
 from residue import Residue
+from conformer import Conformer
+
+
+STEP1_OUT_PDB = "step1_out.pdb"
 
 class Protein(object):
     '''
@@ -16,4 +20,11 @@ class Protein(object):
         Constructor
         '''
         ## all the residues in protein
-        residues = [] 
+        residues = []
+        
+    
+    def load_step1_out_pdb(self, fname=STEP1_OUT_PDB):
+        '''Load info of protein from step1_out.pdb.
+        
+        '''
+        

@@ -34,6 +34,23 @@ class Test(unittest.TestCase):
         self.assertEqual(self.a.confSeq, 0, "confSeq")
         self.assertEqual(self.a.corr.x, 24.966, "corr.x")
         
+        
+    def test_fun(self):
+        self.assertEqual(1, 1, "oK")
+    
+#     def runTest(self):
+#         self.test_atom()
+#         self.test_readStep1Line()
+        
+        
+def suite():
+    test_suite = unittest.TestSuite()
+    test_suite.addTest(unittest.makeSuite(Test))
+    
+    return test_suite
+
+
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.test_atom']
     unittest.main()
