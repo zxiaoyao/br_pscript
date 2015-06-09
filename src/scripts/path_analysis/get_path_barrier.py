@@ -1,6 +1,53 @@
 #!/usr/bin/env python
 
 #===============================================================================
+# What this script does:
+#   After the hydrogen-bond network is obtained, there are probably still many different pathways to transfer a proton from one
+# residue to another. This script can be used to calculate the energy barrier of a specific pathway. 
+
+#   Even for one chosen pathway, there are different proton hopping sequences to transfer a proton. 
+# All the possible scenarios are considerred here and the energy barriers of all of them are calculated. The lowest energy 
+# barrier is the energy barrier of this pathway.
+#
+#
+#   We always assume **the proton is transferred by hopping between adjacent residues one at at time only in one direction**. 
+# There will be several different intermediate protonation states involved during the proton hopping. The free energy difference
+# between the protonation state with the highest energy and the initial state is defined as the energy barrier for this sequence
+# of hopping.
+#
+#   For example, to transfer a proton from residue A to C along the pathway A-B-C would require two proton hops. For simplicity, assume A, B and C are neutral in
+# the initial state. First a proton could hop from A to B, and we'll have a intermediate protonation state (A-, B+, C). And then the
+# extra proton on B hops to C, giving the final protonation state (A-, B, C+).
+#
+#   The energy of the protonation states (A, B, C), (A-, B+, C) and (A-, B, C+) are calculated by MCCE with A, B and C fixed in
+# the specified protonation state for each state, respectively. Here, the microstates of the MC sampling are saved and the average
+# energy of all the microstates is the free energy of this protonation state.
+#
+#   The energy barrier for this sequence of proton hopping would deltaE = MAX(E(A-, B+, C), E(A-, B, C+)) - E(A, B, C)
+#
+#   There may be another possible proton hopping sequence for this pathway. (A, B, C) -> (A, B-, C+) -> (A-, B, C+). Here, B loses
+# a proton to C first and then gain a proton from A, while in the scenario above, A loses a proton to B first and then B gives it
+# to C. This scenario has a different intermediate protonation state (A, B-, C+) from the scenario above where it's (A-, B, C+).
+#
+#   The energy barrier for this sequence of proton hopping would deltaE = MAX(E(A, B-, C+), E(A-, B, C+)) - E(A, B, C) 
+#
+#   These two scenarioes may not exist in the same time. If B can only be neutral or B+, but not B-, then only the first scenario
+# is feasible. If B can only be neutral or B-, but not B+, then only the second scenario is feasible. If B could be B-, B and B+,
+# then both scenarioes are feasible, and the energy barrier of the pathway is the minimum one of the two.
+#
+#
+#======================================================================================================================================
+# The basic idea of getting different proton hopping sequences
+# All the possible intermediate protonation states during the proton hopping form a "kind of" tree.
+#                                (A, B, C)
+#                                /       \    
+#                            (A-, B+, C)   (A, B-, C+)
+#                                \       /
+#                                (A-, B, C+)
+#                                
+# Find the possible intermediate protonation states level by level from the initial state, since we assume the proton hopping is
+# always in one direction (from donor to accepter). It is just like a BFS search from the initial state to the final state.
+#======================================================================================================================================
 # The way I use this script:
 # 1. In your working directory where you already have "head3.lst", "fort.38", "sum_crg.out",
 #    generate a file called "fixedProtonations.txt", in which you need to specify the protonation
@@ -17,7 +64,9 @@
 #    There will be 3 output files in the "pathdir" directory, "hopSequences.txt",
 #    "intermediates.txt", and "lowestHopSeq.txt".
 #    You can find the lowest energy barrier of the path in the "lowestHopSeq.txt" file.
-#===============================================================================
+#========================================================================================================
+
+
 SUB_RUNS_FOLDER = "subProtonation"
 PATH_INFO_FILE = "pathinfo.txt"
 DUMMY_PROTONATION = 211
